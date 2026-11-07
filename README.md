@@ -1,10 +1,10 @@
-# Event-Based Structured-Light 3D Scanner
+# MECH5720 2026 - Event-Based Structured-Light 3D Scanner
 
-**MECH5720, The University of Sydney, 2026**
+**The University of Sydney**
 
 A team-built line-light scanner using a DAVIS240C hybrid event/grayscale camera and a feedback positional servo. We calibrate static laser planes and intersect them with camera rays to recover partial surface profiles. The demonstrated implementation uses **stop-and-pulse acquisition**. Continuous event-based scanning remains unvalidated.
 
-[Reproduce a figure](#reproduce-a-key-result-without-hardware) | [Build guide](docs/BUILD.md) | [Results](docs/RESULTS.md) | [Evidence and gaps](docs/STATUS.md) | [Report draft](report/report_draft_20261103.pdf) | [Attribution](docs/ATTRIBUTION.md)
+[Reproduce a figure](#reproduce-a-key-result-without-hardware) | [Build guide](docs/BUILD.md) | [Results](docs/RESULTS.md) | [Evidence and gaps](docs/STATUS.md) | [Report](report/report_submission_20261108.pdf) | [Attribution](docs/ATTRIBUTION.md)
 
 | Intended mechanical design | Implemented scanner |
 |---|---|
@@ -74,14 +74,14 @@ Status clients inspect existing services. Do not run competing USB/serial owners
 | `examples/coverage/` | Self-contained hardware-free key-result reproduction |
 | `results/` | Curated numerical evidence and checksum manifest |
 | `docs/` | Build procedure, metrics, limitations, verification and attribution |
-| `report/` | Last checked 3 November LaTeX draft, figures and compiled PDF |
+| `report/` | Reviewed 8 November report, figures and compiled PDF; earlier draft retained |
 | `tests/` | Synthetic software/regression tests, not physical validation |
 
 Local `.runtime/` tokens, authoring scratch directories, bulk raw captures and working output trees are excluded from new commits. Existing historical tracked files are preserved. Some pilot scripts hard-code local paths or dispatch hardware: read their source before running them. The older camera-only README is [archived](docs/archive/README_camera_milestones.md).
 
 ## Limitations and remaining work
 
-Continuous event-based 3D reconstruction is not yet demonstrated: optical timing prediction residuals reached 47.55 ms and a moving-plane association has not been validated. Independent geometry accuracy, calibrated attenuation levels, true 3D completeness and complete as-built/rebuild verification also remain pending. They are not all blocked by continuous scanning. The report retains visible placeholders and explained negative results.
+Continuous event-based 3D reconstruction is not yet demonstrated: optical timing prediction residuals reached 47.55 ms and a moving-plane association has not been validated. Independent geometry accuracy, calibrated attenuation levels, true 3D completeness and complete as-built/rebuild verification also remain pending. They are not all blocked by continuous scanning. The report explains the unfinished scope and negative results without drafting placeholders. The [submission checklist](docs/KAILAS_SUBMISSION_CHECKLIST.md) maps remaining work to the actual rubric.
 
 This public standalone repository is [AryanRai/mech5720-2026-event-scanner](https://github.com/AryanRai/mech5720-2026-event-scanner), derived from the team's original scanner repository by Aditya Solanki and the updated private fork `AryanRai/mech5720-2026-structured-light`. GitHub does not allow changing a private fork to public, so this copy starts from the reviewed project snapshot at commit `bdf07ec54bdb55d9ba90c700ac1893e37c0c7c85` without publishing the private Git history. The private fork remains intact. Its name and `mech5720` topic identify the unit/year. A stable full raw-data release and team-approved licence remain unresolved. Public visibility does not grant an open-source licence. [Status ledger](docs/STATUS.md).
 

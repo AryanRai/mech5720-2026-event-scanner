@@ -50,4 +50,6 @@ These are synthetic tests; they do not move the rig, validate laser controls, es
 
 ## Report
 
-[report/main.tex](../report/main.tex) and figures are the last checked 3 November draft, not a submitted/final paper. Compile with the supplied unchanged `IEEEtran.cls`, BibTeX and pdfLaTeX, or Tectonic. Select `main.tex` in Overleaf. The PDF has six body pages plus one references-only page and visible pending items. No later shared-document changes are inferred from the local copy.
+`report/main.tex` is the reviewed 8 November report, based on Kailas's live Overleaf revision with scientific-claim and reproducibility corrections. The compiled PDF is `report/report_submission_20261108.pdf`; the earlier 3 November draft remains retained separately. Compile using the supplied unchanged `IEEEtran.cls`, BibTeX and pdfLaTeX. All body content fits within six pages including references in the checked output. The live Overleaf main file is `project_report_submission_20261108.tex` in project `6ae7c03744c9b8a04aa627c3`. Repository copies use `figures/` paths.
+
+The ND signal figure is generated from retained condition means and sample SD values, without new acquisitions: `python scripts/regenerate_nd_summary_figure.py`. This figure does not estimate optical transmission. Figures and tables distinguish physical depth, image occupancy, repeatability and shared-calibration limitations. Team final review, licence agreement and remaining physical evidence are listed in `docs/KAILAS_SUBMISSION_CHECKLIST.md`.

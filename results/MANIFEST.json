@@ -168,8 +168,8 @@
     },
     {
       "path": "report/main.tex",
-      "bytes": 29540,
-      "sha256": "c0a0d4a5d36870a30e6727ce8db31c9fc420399ebf5c2875af662616338ddf26",
+      "bytes": 27531,
+      "sha256": "458deeb82ae41932621eee6b5211bb7003447e276273cdb904b10cf801113757",
       "hash_mode": "LF-normalized"
     },
     {
@@ -351,7 +351,20 @@
       "bytes": 1577594,
       "sha256": "026ac565bdd2de476836c79dad6fe4da5718547c88607243978c420f667d9d00",
       "hash_mode": "bytes"
+    },
+    {
+      "path": "report/report_submission_20261108.pdf",
+      "bytes": 2919571,
+      "sha256": "c0da224b9793923688edb7fc5cc278163bffe182e2d2136e02ea647713a5b176",
+      "hash_mode": "bytes"
+    },
+    {
+      "path": "report/figures/nd_signal_summary.pdf",
+      "bytes": 15339,
+      "sha256": "e06f56892ae79ccc0316e7b0fbaf093aa313c4a99d30ea0e4aa1433a9439a225",
+      "hash_mode": "bytes"
     }
   ],
-  "checksum_note": "Text files use LF-normalized SHA256 to support Git Windows newline conversion; binary images/PDFs use exact bytes."
+  "checksum_note": "Text files use LF-normalized SHA256 to support Git Windows newline conversion; binary images/PDFs use exact bytes.",
+  "packaging_updated_date_sydney": "2026-11-08"
 }
