@@ -1,0 +1,35 @@
+{
+  "recording_name": "hardware_sanity_02",
+  "date_time_utc": "2026-10-30T06:03:01.036257+00:00",
+  "camera_name": "DAVIS240C_60008401",
+  "serial": "60008401",
+  "event_resolution": [
+    240,
+    180
+  ],
+  "duration_s": 3.001187800022308,
+  "counts": {
+    "events": 416828,
+    "event_batches": 301,
+    "frames": 30,
+    "imu": 3010
+  },
+  "mean_event_rate": 138887.67640495597,
+  "streams": {
+    "events": true,
+    "frames": true,
+    "imu": true
+  },
+  "notes": "Hardware timestamp test; laser condition unspecified.",
+  "requested_duration_s": 3.0,
+  "status": "complete",
+  "error": null,
+  "timestamp_note": "Native camera timestamps preserved; cross-stream clock alignment not validated.",
+  "first_timestamps_us": {
+    "events": 1793340181020307,
+    "frames": 157670,
+    "imu": 1793340181020798
+  },
+  "nonmonotonic_frame_timestamps": 0,
+  "frame_timestamp_jump_over_10s": true
+}

@@ -1,0 +1,43 @@
+{
+  "recording_name": "timestamp_gate_01",
+  "date_time_utc": "2026-10-30T06:11:33.144746+00:00",
+  "camera_name": "DAVIS240C_60008401",
+  "serial": "60008401",
+  "event_resolution": [
+    240,
+    180
+  ],
+  "duration_s": 5.000296699989121,
+  "counts": {
+    "events": 230127,
+    "event_batches": 500,
+    "frames": 44,
+    "imu": 5001
+  },
+  "mean_event_rate": 46022.669014920786,
+  "streams": {
+    "events": true,
+    "frames": true,
+    "imu": true
+  },
+  "notes": "Timestamp startup validation; no laser.",
+  "requested_duration_s": 5.0,
+  "startup_discarded": {
+    "events": 103817,
+    "frames": 3,
+    "imu": 150,
+    "uninitialized_frame_timestamps": [
+      156422
+    ]
+  },
+  "status": "complete",
+  "error": null,
+  "timestamp_note": "Native camera timestamps preserved; cross-stream clock alignment not validated.",
+  "first_timestamps_us": {
+    "events": 1793340693142844,
+    "frames": 1793340693158811,
+    "imu": 1793340693143311
+  },
+  "nonmonotonic_frame_timestamps": 0,
+  "frame_timestamp_jump_over_10s": false
+}

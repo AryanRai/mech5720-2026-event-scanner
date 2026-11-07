@@ -1,0 +1,27 @@
+{
+  "configuration": {
+    "window_us": 10000,
+    "polarity": "both",
+    "refractory_us": 1000,
+    "support_radius": 1,
+    "support_us": 10000,
+    "minimum_support": 1,
+    "line_threshold_px": 2.5,
+    "minimum_inliers": 20,
+    "seed": 42
+  },
+  "total_events": 31030,
+  "duration_event_span_s": 5.02,
+  "mean_rate_events_s": 6181.274900398407,
+  "peak_window_rate_events_s": 123700.0,
+  "filter_retention_percent": 8.137286496938447,
+  "windows_with_detection_percent": 0.199203187250996,
+  "nonempty_windows": 502,
+  "total_windows_in_span": 502,
+  "positive_events": 23486,
+  "negative_events": 7544,
+  "mean_detected_residual_px": 1.4445518319619621,
+  "candidate_inliers": 25,
+  "non_inlier_events": 31005,
+  "note": "Inliers are detector candidates, not ground-truth signal; background rate and signal/background ratio require labelled or laser-off reference. Detection percentage includes empty windows across the observed event span; event-span rate is not wall-clock recording rate."
+}

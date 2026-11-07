@@ -1,0 +1,50 @@
+{
+  "recording_name": "timestamp_audit_02",
+  "date_time_utc": "2026-10-30T06:14:25.795248+00:00",
+  "camera_name": "DAVIS240C_60008401",
+  "serial": "60008401",
+  "event_resolution": [
+    240,
+    180
+  ],
+  "duration_s": 2.0015492999809794,
+  "counts": {
+    "events": 195300,
+    "event_batches": 200,
+    "frames": 20,
+    "imu": 2001
+  },
+  "mean_event_rate": 97574.41398113748,
+  "streams": {
+    "events": true,
+    "frames": true,
+    "imu": true
+  },
+  "notes": "Verification after audit integration; no laser",
+  "requested_duration_s": 2.0,
+  "startup_discarded": {
+    "events": 102369,
+    "frames": 3,
+    "imu": 150,
+    "uninitialized_frame_timestamps": [
+      187509
+    ]
+  },
+  "status": "complete",
+  "error": null,
+  "timestamp_note": "Native camera timestamps preserved; cross-stream clock alignment not validated.",
+  "first_timestamps_us": {
+    "events": 1793340865792552,
+    "frames": 1793340865808996,
+    "imu": 1793340865792577
+  },
+  "nonmonotonic_frame_timestamps": 0,
+  "frame_timestamp_jump_over_10s": false,
+  "timestamp_assessment": {
+    "status": "PASS",
+    "stream_overlap_us": 1834921,
+    "tolerance_us": 500000,
+    "issues": [],
+    "limitation": "Matching timestamp ranges does not measure physical timing offsets, exposure timing, or drift."
+  }
+}
