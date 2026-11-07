@@ -1,0 +1,933 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Scanner Control</title>
+<!-- MECH5720 2026 event-based structured light - manual servo/laser dashboard.
+     Open in Chrome or Edge on Windows. Talks to scanner_controller v1.2 over USB (Web Serial). -->
+<style>
+:root{
+  --bg:#0A0E15;--card:#121A26;--card2:#0E151F;--line:#243147;--text:#EEF2F7;--muted:#93A0B4;--dim:#5B6779;
+  --laser:#FF5A36;--laser-soft:rgba(255,90,54,.16);--blue:#4DA3FF;--ok:#3DDC97;--warn:#FFC24D;--err:#FF5A6E;
+  --mono:"Cascadia Mono",Consolas,"JetBrains Mono",ui-monospace,monospace;
+  --sans:"Segoe UI",system-ui,-apple-system,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--text);font:15px/1.45 var(--sans)}
+button,input,select{font:inherit;color:inherit}
+.mono{font-family:var(--mono)}
+header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 20px;border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(10,14,21,.96);z-index:5;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px}
+.beam{width:12px;height:34px;border-radius:6px;background:linear-gradient(var(--laser),#ff9a7a);box-shadow:0 0 18px var(--laser)}
+h1{font-size:19px;margin:0;font-weight:600;letter-spacing:-.2px}
+#fw{margin:0;color:var(--muted);font-size:12.5px}
+.hdr-right{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+#clock{color:var(--muted);font-size:13px}
+.btn{background:#1A2536;border:1px solid #2E3D55;border-radius:10px;padding:8px 14px;cursor:pointer;transition:background .12s,border-color .12s}
+.btn:hover:not(:disabled){background:#22304A;border-color:#3D5272}
+.btn:disabled{opacity:.38;cursor:not-allowed}
+.btn.primary{background:var(--blue);border-color:var(--blue);color:#06101E;font-weight:600}
+.btn.primary:hover:not(:disabled){background:#76B9FF}
+.btn.hot{background:var(--laser);border-color:var(--laser);color:#1A0600;font-weight:700}
+.btn.hot:hover:not(:disabled){background:#FF7A5C}
+.btn.small{padding:5px 10px;font-size:13px;border-radius:8px}
+.stop{background:#E5243B;border:0;border-radius:12px;color:#fff;font-weight:800;letter-spacing:1px;padding:10px 22px;cursor:pointer;box-shadow:0 0 0 3px rgba(229,36,59,.25)}
+.stop:hover{background:#FF3A50}
+kbd{font-family:var(--mono);font-size:11px;background:rgba(255,255,255,.18);border-radius:4px;padding:1px 5px;margin-left:6px;font-weight:600}
+.banner{margin:14px 20px 0;padding:12px 16px;border-radius:12px;background:rgba(255,90,110,.12);border:1px solid rgba(255,90,110,.4);color:#FFD5DB}
+.pills{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;padding:14px 20px 0}
+.pill{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:8px 12px;min-width:0}
+.pill span{display:block;font-size:11px;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted)}
+.pill b{display:flex;align-items:center;gap:7px;font-weight:600;font-size:14.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pill b::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--dim);flex:none}
+.pill.ok b::before{background:var(--ok);box-shadow:0 0 8px var(--ok)}
+.pill.warn b::before{background:var(--warn)}
+.pill.err b::before{background:var(--err);box-shadow:0 0 8px var(--err)}
+.pill.hot{border-color:var(--laser);background:var(--laser-soft)}
+.pill.hot b::before{background:var(--laser);box-shadow:0 0 10px var(--laser)}
+main{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:14px;padding:14px 20px 24px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px;min-width:0}
+.card h2{font-size:12px;letter-spacing:1.6px;text-transform:uppercase;color:var(--muted);margin:0 0 12px;font-weight:600;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.pos{grid-row:span 2}
+.full{grid-column:1/-1}
+.dialwrap{position:relative}
+svg#dial{width:100%;height:auto;display:block}
+.readout{display:flex;align-items:baseline;justify-content:center;gap:10px;margin-top:-6px}
+#rCmd{font-family:var(--mono);font-size:46px;font-weight:600;letter-spacing:-1px}
+#rUnit{color:var(--muted);font-size:16px}
+#rSub{text-align:center;color:var(--muted);font-size:13px;min-height:20px}
+.slider{margin:12px 0 4px;position:relative}
+input[type=range]{width:100%;-webkit-appearance:none;appearance:none;height:30px;background:transparent;cursor:pointer}
+input[type=range]::-webkit-slider-runnable-track{height:10px;border-radius:5px;background:var(--trk,#2A3850)}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:#fff;margin-top:-6px;box-shadow:0 0 0 4px rgba(77,163,255,.35)}
+input[type=range]:disabled{opacity:.4;cursor:not-allowed}
+.scale{display:flex;justify-content:space-between;font-family:var(--mono);font-size:11.5px;color:var(--dim)}
+.nudges{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:14px}
+.nudges .btn{font-family:var(--mono);padding:10px 0}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.row+.row{margin-top:10px}
+.field{background:var(--card2);border:1px solid #2A3850;border-radius:9px;padding:7px 10px;width:100%;min-width:0}
+.field:focus{outline:2px solid rgba(77,163,255,.5);border-color:var(--blue)}
+.num{width:96px;font-family:var(--mono)}
+.hint{color:var(--muted);font-size:13px;margin:8px 0 0}
+.hint b{color:var(--text);font-weight:600}
+.keys{color:var(--dim);font-size:12.5px;margin-top:12px;text-align:center}
+.keys kbd{background:#1F2A3C;color:var(--muted)}
+.laserbtns{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.laserbtns .btn{padding:14px 0;font-size:16px}
+#laserBig.on{animation:pulse 1.2s ease-in-out infinite}
+@keyframes pulse{50%{box-shadow:0 0 22px var(--laser)}}
+.timer{height:6px;border-radius:3px;background:#1F2A3C;margin-top:12px;overflow:hidden}
+.timer i{display:block;height:100%;width:0;background:var(--laser);transition:width .25s linear}
+.marks{list-style:none;margin:10px 0 0;padding:0;max-height:212px;overflow:auto}
+.marks li{display:flex;align-items:center;gap:8px;padding:7px 4px;border-top:1px solid #1C2738}
+.marks li .nm{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.marks li .us{font-family:var(--mono);color:var(--blue);font-size:13.5px}
+.marks .empty{color:var(--dim);font-size:13px;border:0}
+.x{background:none;border:0;color:var(--dim);cursor:pointer;font-size:16px;padding:2px 6px}
+.x:hover{color:var(--err)}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+label.lab{display:block;font-size:12px;color:var(--muted);margin-bottom:4px}
+.bar{height:8px;border-radius:4px;background:#1F2A3C;overflow:hidden;margin-top:12px}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--laser),#FFB199)}
+details{margin-top:12px;border-top:1px solid #1C2738;padding-top:10px}
+summary{cursor:pointer;color:var(--muted);font-size:13.5px}
+.grid6{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px;margin-top:10px}
+#cmdOut{font-family:var(--mono);font-size:12.5px;margin-top:10px;background:var(--card2);color:#C9D4E3}
+#con{background:var(--card2);border:1px solid #1C2738;border-radius:10px;height:230px;overflow:auto;padding:8px 10px;font-family:var(--mono);font-size:12.5px;line-height:1.5}
+#con div{white-space:pre-wrap;word-break:break-all}
+#con .t{color:var(--dim);margin-right:8px}
+#con .tx{color:var(--blue)}
+#con .ok{color:var(--ok)}
+#con .er{color:var(--err)}
+#con .ev{color:#FFB199}
+#con .cm{color:var(--muted)}
+#con .sys{color:var(--warn)}
+#toasts{position:fixed;right:16px;bottom:16px;display:flex;flex-direction:column;gap:8px;z-index:20;max-width:min(380px,calc(100vw - 32px))}
+.toast{background:#1A2536;border:1px solid #2E3D55;border-left:4px solid var(--blue);border-radius:10px;padding:10px 14px;font-size:14px;box-shadow:0 8px 30px rgba(0,0,0,.4);animation:in .18s ease-out}
+.toast.err{border-left-color:var(--err)}
+.toast.warn{border-left-color:var(--warn)}
+.toast.ok{border-left-color:var(--ok)}
+@keyframes in{from{transform:translateY(8px);opacity:0}}
+@media (max-width:860px){
+  main{grid-template-columns:1fr}
+  .pos{grid-row:auto}
+  .pills{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .grid6{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media (max-width:520px){
+  header,.pills,main{padding-left:16px;padding-right:16px}
+  .pills{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .nudges{grid-template-columns:repeat(3,1fr)}
+  .grid3{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">
+    <div class="beam"></div>
+    <div><h1>Scanner Control</h1><p id="fw">Not connected</p></div>
+  </div>
+  <div class="hdr-right">
+    <span id="clock" class="mono"></span>
+    <button id="connectBtn" class="btn primary">Connect Arduino</button>
+    <button id="stopBtn" class="stop" title="Laser off, disarm, servo released">STOP<kbd>Esc</kbd></button>
+    <label class="hint"><input type="checkbox" id="agentEnable"> Allow local agent control (contained rig)</label>
+    <span id="agentState" class="hint">Agent control off</span>
+  </div>
+</header>
+
+<div id="nosupport" class="banner" hidden>This browser can't talk to USB devices. Open this file in <b>Google Chrome</b> or <b>Microsoft Edge</b>.</div>
+
+<section class="pills">
+  <div class="pill" id="pConn"><span>USB</span><b>Disconnected</b></div>
+  <div class="pill" id="pInter"><span>Interlock</span><b>-</b></div>
+  <div class="pill" id="pArm"><span>Armed</span><b>-</b></div>
+  <div class="pill" id="pLaser"><span>Laser</span><b>-</b></div>
+  <div class="pill" id="pServo"><span>Servo</span><b>-</b></div>
+</section>
+
+<main>
+  <section class="card pos">
+    <h2>Servo position <span class="mono" id="rangeLbl" style="letter-spacing:0;text-transform:none;color:var(--dim)"></span></h2>
+    <div class="dialwrap"><svg id="dial" viewBox="0 0 320 178" aria-label="Servo position dial"></svg></div>
+    <div class="readout"><span id="rCmd">----</span><span id="rUnit">µs</span></div>
+    <div id="rSub">Connect the Arduino to start</div>
+    <div class="slider">
+      <input type="range" id="slider" min="900" max="2100" step="1" value="1500" disabled aria-label="Servo command in microseconds">
+      <div class="scale"><span id="sMin">900</span><span id="sMid">1500</span><span id="sMax">2100</span></div>
+    </div>
+    <div class="nudges">
+      <button class="btn nudge" data-d="-50">-50</button>
+      <button class="btn nudge" data-d="-20">-20</button>
+      <button class="btn nudge" data-d="-10">-10</button>
+      <button class="btn nudge" data-d="10">+10</button>
+      <button class="btn nudge" data-d="20">+20</button>
+      <button class="btn nudge" data-d="50">+50</button>
+    </div>
+    <div class="row" style="margin-top:12px">
+      <input id="gotoIn" class="field num" type="number" min="900" max="2100" step="1" placeholder="1500" aria-label="Go to microseconds">
+      <button id="gotoBtn" class="btn">Go to</button>
+      <button id="parkBtn" class="btn">Park (1500)</button>
+      <button id="statusBtn" class="btn">Refresh</button>
+      <label style="font-size:13px;color:var(--muted);display:flex;gap:6px;align-items:center;margin-left:auto"><input type="checkbox" id="flip"> Flip +/- direction</label>
+    </div>
+    <p class="hint">Orange arc = <b>laser window</b>. The laser can only be on inside it. Nudges and the slider move straight there. <b>Go to</b> approaches from below for repeatable positions (it dips first, that's normal).</p>
+    <p class="keys"><kbd>←</kbd><kbd>→</kbd> 10 µs · <kbd>Shift</kbd>+<kbd>←</kbd><kbd>→</kbd> 50 µs · <kbd>L</kbd> laser · <kbd>M</kbd> mark · <kbd>Esc</kbd> stop</p>
+  </section>
+
+  <section class="card">
+    <h2>Laser <span id="laserState" class="mono" style="letter-spacing:0;text-transform:none"></span></h2>
+    <div class="laserbtns">
+      <button id="armBtn" class="btn">Arm</button>
+      <button id="laserBig" class="btn hot">Laser ON</button>
+    </div>
+    <div class="timer"><i id="timerBar"></i></div>
+    <div class="row" style="margin-top:8px;justify-content:space-between">
+      <span id="timerTxt" class="hint" style="margin:0"></span>
+      <button id="extendBtn" class="btn small" hidden>Keep on +60 s</button>
+    </div>
+    <p id="laserHint" class="hint"></p>
+    <label class="hint"><input type="checkbox" id="focusSafe"> Beam ends on a non-reflective stop; area clear</label>
+    <button id="focusLaser" class="btn hot" style="margin-top:12px" disabled>Focus light ON (up to 60 s)</button>
+    <p class="hint">Arm first. Stays at the current servo position. Click again or STOP to turn off. No automatic extension.</p>
+  </section>
+
+  <section class="card">
+    <h2>Marked positions <button id="clearMarks" class="btn small">Clear</button></h2>
+    <div class="row">
+      <input id="markName" class="field" style="flex:1" placeholder="e.g. line on left edge of board" maxlength="40">
+      <button id="markBtn" class="btn">Mark here</button>
+    </div>
+    <ul class="marks" id="marks"></ul>
+  </section>
+
+  <section class="card full">
+    <h2>Test sweep</h2>
+    <div class="grid3">
+      <div><label class="lab" for="swA">Start µs</label><div class="row"><input id="swA" class="field num" type="number" value="1300" style="flex:1"><button class="btn small" id="useA">Use current</button></div></div>
+      <div><label class="lab" for="swB">End µs</label><div class="row"><input id="swB" class="field num" type="number" value="1700" style="flex:1"><button class="btn small" id="useB">Use current</button></div></div>
+      <div><label class="lab" for="swMs">Duration ms</label><input id="swMs" class="field num" type="number" value="2000" min="100" style="width:100%"></div>
+    </div>
+    <div class="row" style="margin-top:12px">
+      <button id="sweepBtn" class="btn hot">Run test sweep</button>
+      <span id="sweepMsg" class="hint" style="margin:0"></span>
+    </div>
+    <div class="bar"><i id="sweepBar"></i></div>
+    <details id="logDetails">
+      <summary>Recorded runs: copy the scan_logger command for these settings</summary>
+      <div class="grid6">
+        <div><label class="lab" for="cPort">Port</label><input id="cPort" class="field" value="COM5"></div>
+        <div><label class="lab" for="cNd">ND</label><input id="cNd" class="field" placeholder="0.5"></div>
+        <div><label class="lab" for="cDist">Distance mm</label><input id="cDist" class="field" placeholder="400"></div>
+        <div><label class="lab" for="cAmb">Ambient</label><input id="cAmb" class="field" placeholder="off"></div>
+        <div><label class="lab" for="cTgt">Target</label><input id="cTgt" class="field" placeholder="board"></div>
+        <div><label class="lab" for="cBy">By</label><input id="cBy" class="field" placeholder="Kailas"></div>
+      </div>
+      <div class="row" style="margin-top:10px">
+        <input id="cmdOut" class="field" readonly style="flex:1">
+        <button id="copyCmd" class="btn">Copy</button>
+      </div>
+      <p class="hint">Data runs for the report go through <b>scan_logger.py</b>, which saves the samples and adds a row to run_log.csv. Click <b>Disconnect</b> here first, because only one program can use the USB port at a time.</p>
+    </details>
+  </section>
+
+  <section class="card full">
+    <h2>Console
+      <span class="row" style="letter-spacing:0;text-transform:none">
+        <label style="font-size:12.5px;color:var(--muted);display:flex;gap:6px;align-items:center"><input type="checkbox" id="showS"> show samples</label>
+        <button id="dlLog" class="btn small">Download log</button>
+        <button id="clrCon" class="btn small">Clear</button>
+      </span>
+    </h2>
+    <div id="con" aria-live="polite"></div>
+    <div class="row" style="margin-top:10px">
+      <input id="cmdIn" class="field mono" style="flex:1" placeholder="Type a command, e.g. status, read 256, help" autocomplete="off">
+      <button id="sendBtn" class="btn">Send</button>
+    </div>
+  </section>
+  <section class="card full">
+    <h2>DAVIS camera <span id="camHealth">Connecting</span></h2>
+    <div class="grid3">
+      <div><label>Grayscale — physical focus</label><img id="camAPS" alt="DAVIS grayscale" style="width:100%;image-rendering:pixelated"></div>
+      <div><label>Events — not confirmed laser detections</label><img id="camEvents" alt="DAVIS events" style="width:100%;image-rendering:pixelated"></div>
+      <div><pre id="camMetrics" style="white-space:pre-wrap"></pre><p class="hint">Focus score is relative, not calibration. Lens focus and iris are manual.</p></div>
+    </div>
+    <div class="row">
+      <button class="btn" id="camAuto">Auto exposure</button>
+      <input class="field num" id="camExposure" type="number" min="100" max="500000" value="20000" aria-label="Camera exposure microseconds">
+      <button class="btn" id="camManual">Set exposure (µs)</button>
+      <button class="btn" id="camFocus">Reset focus comparison</button>
+      <button class="btn" id="camSnapshot">Save snapshot</button>
+      <input class="field num" id="camDuration" type="number" min="1" max="300" value="10" aria-label="Camera recording seconds">
+      <button class="btn" id="camRecord">Record camera (seconds)</button>
+      <button class="btn" id="camStop">Stop camera recording</button>
+    </div>
+    <p class="hint">Camera captures do not start a servo sweep. Arduino/DAVIS timing alignment is not calibrated.</p>
+    <pre id="camOperation" style="white-space:pre-wrap" role="status"></pre>
+  </section>
+</main>
+<div id="toasts"></div>
+
+<script>
+(() => {
+"use strict";
+const $ = id => document.getElementById(id);
+const enc = new TextEncoder();
+const S = { connected:false, booting:false, armed:false, interlock:null, laser:false, manual:false, laserSince:0,
+  cmd:null, target:null, released:false, running:false, run:null, lastRun:"",
+  smin:900, smax:2100, lmin:1100, lmax:1900, park:1500, fw:"" };
+let port = null, reader = null, writer = null, readDone = null, closing = false;
+let inflight = null, queue = [], pendingGoto = null, pendingMode = "move", dragging = false, warnedOld = false;
+let agentObserver = null, agentCancelled = false;
+const LOG = [];
+const MAX_CON = 600;
+const MANUAL_MS = 60000;
+
+// ---------- time ----------
+const p2 = n => String(n).padStart(2, "0");
+function isoLocal(d = new Date()) {
+  const o = -d.getTimezoneOffset(), s = o >= 0 ? "+" : "-", a = Math.abs(o);
+  return `${d.getFullYear()}-${p2(d.getMonth()+1)}-${p2(d.getDate())}T${p2(d.getHours())}:${p2(d.getMinutes())}:${p2(d.getSeconds())}${s}${p2(a/60|0)}:${p2(a%60)}`;
+}
+const hms = d => `${p2(d.getHours())}:${p2(d.getMinutes())}:${p2(d.getSeconds())}`;
+
+// ---------- UI helpers ----------
+function toast(msg, kind = "") {
+  const t = document.createElement("div");
+  t.className = "toast " + kind; t.textContent = msg;
+  $("toasts").appendChild(t);
+  setTimeout(() => t.remove(), kind === "err" ? 6000 : 3500);
+}
+function con(dir, text) {
+  const isS = text.startsWith("S,");
+  if (isS && !$("showS").checked) return;
+  const c = $("con"), d = document.createElement("div");
+  const t = document.createElement("span"); t.className = "t"; t.textContent = hms(new Date());
+  const m = document.createElement("span");
+  m.textContent = (dir === ">>" ? "> " : "") + text;
+  m.className = dir === ">>" ? "tx" : dir === "--" ? "sys" : text.startsWith("OK") ? "ok" : text.startsWith("ERR") || text.includes("WARN") ? "er" : text.startsWith("E,") ? "ev" : "cm";
+  d.append(t, m); c.appendChild(d);
+  while (c.childElementCount > MAX_CON) c.firstChild.remove();
+  const near = c.scrollHeight - c.scrollTop - c.clientHeight < 80;
+  if (near || dir === ">>") c.scrollTop = c.scrollHeight;
+}
+function log(dir, text, quiet = false) {
+  if (quiet) return;
+  LOG.push([isoLocal(), dir, text]);
+  con(dir, text);
+}
+const clamp = v => Math.max(S.smin, Math.min(S.smax, Math.round(v)));
+const inWin = v => v != null && v >= S.lmin && v <= S.lmax;
+
+// ---------- serial ----------
+async function rawWrite(text) {
+  if (!writer) throw new Error("not connected");
+  await writer.write(enc.encode(text + "\n"));
+}
+function send(cmd, opts = {}) {
+  if (S.agentBusy) { toast("Agent operation active — use STOP to interrupt", "warn"); return; }
+  if (!S.connected) { toast("Connect the Arduino first", "warn"); return; }
+  queue.push({ cmd, quiet: !!opts.quiet });
+  pump();
+}
+function goTo(us, mode = "move") {
+  if (S.agentBusy) return;
+  if (!S.connected) return;
+  us = clamp(us);
+  S.target = us; pendingGoto = us; pendingMode = mode;
+  if (S.laser && !inWin(us)) toast("That position is outside the laser window, so the laser will switch off", "warn");
+  pump(); render();
+}
+async function pump() {
+  if (!S.connected || inflight || S.running || S.booting || S.agentBusy) return;
+  let item = queue.shift();
+  if (!item && pendingGoto != null) { item = { cmd: pendingMode + " " + pendingGoto }; pendingGoto = null; }
+  if (!item) return;
+  inflight = { ...item, t: Date.now() };
+  log(">>", item.cmd, item.quiet);
+  try { await rawWrite(item.cmd); }
+  catch (e) { inflight = null; log("--", "write failed: " + e.message); return; }
+  if (/^(help|\?)$/.test(item.cmd)) { inflight = null; setTimeout(pump, 300); }
+  render();
+}
+function finishInflight() { inflight = null; setTimeout(pump, 0); }
+
+async function stopAll() {
+  agentCancelled = true;
+  queue = []; pendingGoto = null;
+  if (!S.connected) { toast("Not connected", "warn"); return; }
+  inflight = { cmd: "stop", t: Date.now() };
+  log(">>", "stop");
+  try { await rawWrite("stop"); } catch (e) { log("--", "write failed: " + e.message); }
+  S.laser = false; S.manual = false; S.armed = false;
+  render();
+}
+
+async function connect() {
+  if (!("serial" in navigator)) { $("nosupport").hidden = false; toast("Use Chrome or Edge", "err"); return; }
+  let p;
+  try { p = await navigator.serial.requestPort(); }
+  catch (e) { return; } // user cancelled the picker
+  try { await p.open({ baudRate: 115200 }); }
+  catch (e) { toast("Could not open the port. Close the Arduino Serial Monitor or scan_logger, then try again.", "err"); log("--", "open failed: " + e.message); return; }
+  port = p; closing = false;
+  writer = port.writable.getWriter();
+  S.connected = true; S.booting = true; S.fw = "";
+  log("--", "connected " + isoLocal() + ", waiting for the board to start");
+  readDone = readLoop();
+  render();
+  setTimeout(() => { S.booting = false; send("status", { quiet: false }); }, 2200); // classic UNO resets when the port opens
+}
+async function readLoop() {
+  const dec = new TextDecoder(); let buf = "";
+  try {
+    reader = port.readable.getReader();
+    for (;;) {
+      const { value, done } = await reader.read();
+      if (done) break;
+      buf += dec.decode(value, { stream: true });
+      let i;
+      while ((i = buf.indexOf("\n")) >= 0) {
+        const line = buf.slice(0, i).replace(/\r$/, "").trim();
+        buf = buf.slice(i + 1);
+        if (line) onLine(line);
+      }
+    }
+  } catch (e) {
+    if (!closing) log("--", "read error: " + e.message);
+  } finally {
+    try { reader && reader.releaseLock(); } catch (e) {}
+    reader = null;
+  }
+  if (!closing) { toast("Arduino disconnected", "err"); onClosed(); }
+}
+async function disconnect() {
+  closing = true;
+  try { await rawWrite("disarm"); log(">>", "disarm"); } catch (e) {}
+  await new Promise(r => setTimeout(r, 150));
+  try { reader && await reader.cancel(); } catch (e) {}
+  try { await readDone; } catch (e) {}
+  try { writer && writer.releaseLock(); } catch (e) {}
+  try { port && await port.close(); } catch (e) {}
+  log("--", "disconnected " + isoLocal());
+  onClosed();
+}
+function onClosed() {
+  S.connected = false; S.booting = false; S.running = false; S.run = null;
+  S.armed = false; S.laser = false; S.manual = false; S.interlock = null;
+  inflight = null; queue = []; pendingGoto = null;
+  port = null; writer = null; reader = null;
+  render();
+}
+
+// ---------- parsing the board's replies ----------
+function onLine(line) {
+  if (agentObserver) agentObserver(line);
+  const quiet = !!(inflight && inflight.quiet && line.startsWith("OK status"));
+  log("<<", line, quiet);
+
+  if (line.startsWith("# scanner_controller")) S.fw = line.slice(2);
+  else if (line.startsWith("# WARN")) { S.laser = false; S.manual = false; toast(line.slice(2), "warn"); }
+  else if (line.startsWith("S,")) {
+    const f = line.split(",");
+    S.cmd = +f[2]; S.laser = f[4] === "1";
+    if (S.run) S.run.n++;
+  }
+  else if (line.startsWith("E,")) {
+    const f = line.split(","), name = f[2];
+    if (name === "LASER_ON") { S.laser = true; S.laserSince = Date.now(); }
+    else if (name === "LASER_OFF" || name === "SAFETY_OFF" || name === "LASER_TIMEOUT") {
+      S.laser = false; S.manual = false;
+      if (name === "LASER_TIMEOUT") toast("Laser switched itself off after 60 s", "warn");
+      if (name === "SAFETY_OFF" && !S.running) toast("Laser switched off: servo left the laser window", "warn");
+    }
+    else if (name === "INTERLOCK_OPEN") { S.armed = false; S.interlock = false; toast("Interlock opened. Disarmed.", "err"); }
+    else if (name === "SERVO_RELEASED") S.released = true;
+    else if (name === "SETTLED") S.cmd = +f[3];
+    else if (name === "SETTLE_TIMEOUT") toast("Servo did not settle in time", "warn");
+    if (S.run && (name === "DONE" || name === "ABORTED")) endRun(name);
+  }
+  else if (line.startsWith("OK")) { handleOK(line); finishInflight(); }
+  else if (line.startsWith("ERR")) {
+    if (line.startsWith("ERR unknown or malformed: move")) {
+      if (!warnedOld) toast("This board has old firmware. Upload scanner_controller v1.3 for smooth nudges. Using goto for now.", "err");
+      warnedOld = true; S.oldFw = true;
+    } else toast(line.replace(/^ERR\s*/, ""), "err");
+    if (!line.startsWith("ERR busy")) finishInflight();
+  }
+  render();
+}
+function handleOK(line) {
+  let m;
+  if (line.startsWith("OK status")) {
+    const kv = {}; line.replace(/(\w+)=(\S+)/g, (_, k, v) => { kv[k] = v; });
+    S.armed = kv.armed === "1";
+    S.interlock = kv.interlock === "closed";
+    if (kv.feedback != null) S.feedback = Number(kv.feedback);
+    S.laser = kv.laser === "1";
+    if (!S.laser) S.manual = false;
+    if (kv.cmd) { S.cmd = +kv.cmd; if (S.target == null || (!pendingGoto && !inflightIsGoto())) S.target = S.cmd; }
+    if (kv.servo) { const [a, b] = kv.servo.split("-").map(Number); S.smin = a; S.smax = b; }
+    if (kv.laserwin) { const [a, b] = kv.laserwin.split("-").map(Number); S.lmin = a; S.lmax = b; }
+    syncLimits();
+  }
+  else if (line.startsWith("OK armed")) { S.armed = true; S.interlock = true; }
+  else if (line.startsWith("OK disarmed")) { S.armed = false; S.laser = false; S.manual = false; }
+  else if (line.startsWith("OK stopped")) {
+    S.armed = false; S.laser = false; S.manual = false; S.released = true;
+    if (S.running) endRun("ABORTED");
+  }
+  else if (line.startsWith("OK laser on")) { S.laser = true; S.manual = true; S.laserSince = Date.now(); }
+  else if (line.startsWith("OK laser off")) { S.laser = false; S.manual = false; }
+  else if ((m = line.match(/^OK (?:goto|move) (\d+)/))) { S.cmd = +m[1]; S.released = false; }
+  else if (line.startsWith("OK park")) { S.cmd = S.park; S.target = S.park; S.released = false; }
+  else if (line.startsWith("OK sweep") || line.startsWith("OK step")) {
+    S.running = true; S.released = false;
+    S.run = { start: Date.now(), n: 0, cmd: inflight ? inflight.cmd : "", ms: +$("swMs").value || 0 };
+  }
+}
+const inflightIsGoto = () => !!(inflight && /^(goto|move) /.test(inflight.cmd));
+function endRun(name) {
+  const r = S.run; S.running = false; S.run = null;
+  const msg = `${name} · ${r ? r.n : 0} samples · ${hms(new Date())}`;
+  S.lastRun = msg;
+  log("--", `${r ? r.cmd : "run"} -> ${msg}`);
+  toast(`Sweep ${name === "DONE" ? "finished" : "aborted"} (${r ? r.n : 0} samples)`, name === "DONE" ? "ok" : "warn");
+  setTimeout(() => send("status", { quiet: true }), 200);
+  setTimeout(pump, 0);
+}
+
+// ---------- dial ----------
+const SVGNS = "http://www.w3.org/2000/svg";
+const CX = 160, CY = 160, R = 132;
+const ang = us => Math.PI - (us - S.smin) / (S.smax - S.smin) * Math.PI;   // left = min, right = max
+const pt = (a, r) => [CX + r * Math.cos(a), CY - r * Math.sin(a)];
+function arc(u1, u2, r) {
+  const [x1, y1] = pt(ang(u1), r), [x2, y2] = pt(ang(u2), r);
+  return `M${x1.toFixed(1)} ${y1.toFixed(1)} A${r} ${r} 0 0 1 ${x2.toFixed(1)} ${y2.toFixed(1)}`;
+}
+function el(name, attrs, parent) {
+  const e = document.createElementNS(SVGNS, name);
+  for (const k in attrs) e.setAttribute(k, attrs[k]);
+  parent.appendChild(e); return e;
+}
+function drawDial() {
+  const svg = $("dial"); svg.textContent = "";
+  const defs = el("defs", {}, svg);
+  const g = el("filter", { id: "glow", x: "-50%", y: "-50%", width: "200%", height: "200%" }, defs);
+  el("feGaussianBlur", { stdDeviation: "3.5", result: "b" }, g);
+  const mg = el("feMerge", {}, g); el("feMergeNode", { in: "b" }, mg); el("feMergeNode", { in: "SourceGraphic" }, mg);
+
+  el("path", { d: arc(S.smin, S.smax, R), stroke: "#22304A", "stroke-width": 14, fill: "none", "stroke-linecap": "round" }, svg);
+  el("path", { d: arc(S.lmin, S.lmax, R), stroke: "rgba(255,90,54,.55)", "stroke-width": 14, fill: "none" }, svg);
+  for (let u = Math.ceil(S.smin / 100) * 100; u <= S.smax; u += 100) {
+    const a = ang(u), big = u % 500 === 0;
+    const [x1, y1] = pt(a, R - 12), [x2, y2] = pt(a, R - (big ? 26 : 19));
+    el("line", { x1, y1, x2, y2, stroke: big ? "#5B6779" : "#344259", "stroke-width": big ? 2 : 1.2 }, svg);
+    if (big) { const [tx, ty] = pt(a, R - 40); const t = el("text", { x: tx, y: ty + 4, "text-anchor": "middle", fill: "#5B6779", "font-size": 11, "font-family": "Consolas, monospace" }, svg); t.textContent = u; }
+  }
+  // target ghost
+  if (S.target != null && S.cmd != null && S.target !== S.cmd) {
+    const [tx, ty] = pt(ang(S.target), R + 2);
+    el("circle", { cx: tx, cy: ty, r: 6, fill: "none", stroke: "#4DA3FF", "stroke-width": 2, "stroke-dasharray": "3 2" }, svg);
+  }
+  if (S.cmd != null) {
+    const a = ang(S.cmd), on = S.laser;
+    const [nx, ny] = pt(a, R - 6);
+    if (on) {
+      const [bx, by] = pt(a, R + 40);
+      el("line", { x1: CX, y1: CY, x2: bx, y2: by, stroke: "#FF5A36", "stroke-width": 3, filter: "url(#glow)", opacity: .9 }, svg);
+    }
+    el("line", { x1: CX, y1: CY, x2: nx, y2: ny, stroke: on ? "#FFB199" : "#EEF2F7", "stroke-width": 3, "stroke-linecap": "round" }, svg);
+    el("circle", { cx: nx, cy: ny, r: 5, fill: on ? "#FF5A36" : "#4DA3FF" }, svg);
+  }
+  el("circle", { cx: CX, cy: CY, r: 10, fill: "#121A26", stroke: "#3D5272", "stroke-width": 2 }, svg);
+}
+
+// ---------- render ----------
+function syncLimits() {
+  const sl = $("slider"); sl.min = S.smin; sl.max = S.smax;
+  $("gotoIn").min = S.smin; $("gotoIn").max = S.smax;
+  $("sMin").textContent = S.smin; $("sMax").textContent = S.smax; $("sMid").textContent = Math.round((S.smin + S.smax) / 2);
+  $("rangeLbl").textContent = `servo ${S.smin}-${S.smax} · laser ${S.lmin}-${S.lmax}`;
+  const pc = v => ((v - S.smin) / (S.smax - S.smin) * 100).toFixed(2) + "%";
+  sl.style.setProperty("--trk", `linear-gradient(90deg,#2A3850 ${pc(S.lmin)},rgba(255,90,54,.6) ${pc(S.lmin)},rgba(255,90,54,.6) ${pc(S.lmax)},#2A3850 ${pc(S.lmax)})`);
+}
+function pill(id, cls, text) { const p = $(id); p.className = "pill " + cls; p.querySelector("b").textContent = text; }
+function render() {
+  const c = S.connected, idle = c && !S.running && !S.booting && !S.agentBusy;
+  $("connectBtn").textContent = c ? "Disconnect" : "Connect Arduino";
+  $("connectBtn").className = c ? "btn" : "btn primary";
+  $("fw").textContent = c ? (S.fw || (S.booting ? "Starting…" : "Connected")) : "Not connected";
+
+  pill("pConn", c ? "ok" : "", c ? (S.booting ? "Starting…" : "Connected") : "Disconnected");
+  pill("pInter", S.interlock == null ? "" : S.interlock ? "ok" : "err", S.interlock == null ? "-" : S.interlock ? "Closed" : "OPEN");
+  pill("pArm", !c ? "" : S.armed ? "warn" : "", !c ? "-" : S.armed ? "Armed" : "Safe");
+  pill("pLaser", S.laser ? "hot" : "", !c ? "-" : S.laser ? "ON" : "Off");
+  const moving = inflightIsGoto() || pendingGoto != null || (inflight && inflight.cmd === "park");
+  pill("pServo", !c ? "" : S.running ? "hot" : S.released ? "warn" : moving ? "warn" : "ok",
+       !c ? "-" : S.running ? "Sweeping" : S.released ? "Released" : moving ? "Moving" : "Holding");
+
+  $("rCmd").textContent = S.cmd == null ? "----" : S.cmd;
+  let sub = "";
+  if (!c) sub = "Connect the Arduino to start";
+  else if (S.running) sub = "Sweep running";
+  else if (moving && S.target != null) sub = `Moving to ${S.target} µs…`;
+  else if (S.released) sub = "Servo released after STOP. The next move holds it again.";
+  else if (S.cmd != null) sub = inWin(S.cmd) ? "Inside laser window" : "Outside laser window: laser locked off";
+  $("rSub").textContent = sub;
+  if (!dragging && (S.target ?? S.cmd) != null) $("slider").value = S.target ?? S.cmd;
+
+  for (const b of document.querySelectorAll(".nudge")) b.disabled = !idle;
+  for (const id of ["slider", "gotoBtn", "parkBtn", "statusBtn", "gotoIn", "useA", "useB", "markBtn"]) $(id).disabled = !idle;
+  $("sendBtn").disabled = !c || !!S.agentBusy; $("cmdIn").disabled = !c || !!S.agentBusy;
+
+  // laser panel
+  $("armBtn").textContent = S.armed ? "Disarm" : "Arm";
+  $("armBtn").disabled = !idle || (!S.armed && S.interlock === false);
+  const canOn = idle && S.armed && S.interlock !== false && inWin(S.cmd);
+  $("laserBig").textContent = S.laser ? "Laser OFF" : "Laser ON";
+  $("laserBig").classList.toggle("on", S.laser);
+  $("laserBig").disabled = S.laser ? !c : !canOn;
+  $("focusLaser").disabled = S.laser ? !c : !(canOn && !moving && !inflight && !pendingGoto && $("focusSafe").checked);
+  $("focusLaser").textContent = S.laser ? "Focus light OFF" : "Focus light ON (up to 60 s)";
+  $("laserState").textContent = c ? (S.laser ? "● emitting" : "") : "";
+  $("laserState").style.color = "var(--laser)";
+  let lh = "";
+  if (!c) lh = "Connect first.";
+  else if (S.interlock === false) lh = "Interlock open: fit the D2-GND jumper or close the enclosure.";
+  else if (!S.armed) lh = "Arm to allow the laser. Keep the enclosure closed and the ND filter on.";
+  else if (!inWin(S.cmd)) lh = `Move the servo into the laser window (${S.lmin}-${S.lmax} µs).`;
+  else if (S.laser) lh = "Nudge the servo until the line sits where you want it in the DV view, then Mark it.";
+  else lh = "Ready. The laser switches itself off after 60 s.";
+  $("laserHint").textContent = lh;
+
+  // sweep panel
+  const a = +$("swA").value, b = +$("swB").value, ms = +$("swMs").value;
+  let why = "";
+  if (!(a < b)) why = "Start must be below end (sweeps run upward)";
+  else if (a < S.lmin || b > S.lmax) why = `Range must be inside the laser window ${S.lmin}-${S.lmax}`;
+  else if (!(ms >= 100)) why = "Duration must be at least 100 ms";
+  else if (!c) why = "Connect first";
+  else if (!S.armed) why = "Arm first";
+  $("sweepBtn").disabled = !!why || !idle;
+  $("sweepMsg").textContent = S.running ? `Running… ${S.run ? S.run.n : 0} samples` : (why || S.lastRun || "Ready");
+  updateCmdOut();
+  drawDial();
+}
+
+// ---------- marks (saved in this browser) ----------
+const MK = "scanner_marks_v1";
+function loadMarks() { try { return JSON.parse(localStorage.getItem(MK) || "[]"); } catch (e) { return []; } }
+function saveMarks(m) { try { localStorage.setItem(MK, JSON.stringify(m)); } catch (e) {} }
+let marks = loadMarks();
+function renderMarks() {
+  const ul = $("marks"); ul.textContent = "";
+  if (!marks.length) { const li = document.createElement("li"); li.className = "empty"; li.textContent = "No marks yet. Line the laser up on a feature in the DV view, then Mark here."; ul.appendChild(li); return; }
+  marks.forEach((m, i) => {
+    const li = document.createElement("li");
+    const nm = document.createElement("span"); nm.className = "nm"; nm.textContent = m.name; nm.title = m.time;
+    const us = document.createElement("span"); us.className = "us"; us.textContent = m.us;
+    const mk = (txt, fn, cls = "btn small") => { const b = document.createElement("button"); b.className = cls; b.textContent = txt; b.onclick = fn; return b; };
+    li.append(nm, us,
+      mk("Go", () => goTo(m.us, "goto")),
+      mk("Start", () => { $("swA").value = m.us; render(); }),
+      mk("End", () => { $("swB").value = m.us; render(); }),
+      mk("×", () => { marks.splice(i, 1); saveMarks(marks); renderMarks(); }, "x"));
+    ul.appendChild(li);
+  });
+}
+function addMark() {
+  if (S.cmd == null) return;
+  const name = $("markName").value.trim() || `Mark ${marks.length + 1}`;
+  const m = { name, us: S.cmd, time: isoLocal() };
+  marks.push(m); saveMarks(marks); renderMarks();
+  $("markName").value = "";
+  log("--", `MARK "${name}" at ${S.cmd} us, laser ${S.laser ? "on" : "off"}`);
+  toast(`Marked ${S.cmd} µs`, "ok");
+}
+
+// ---------- logger command ----------
+const CK = "scanner_cond_v1";
+const condIds = ["cPort", "cNd", "cDist", "cAmb", "cTgt", "cBy"];
+try { const c = JSON.parse(localStorage.getItem(CK) || "{}"); condIds.forEach(id => { if (c[id] != null) $(id).value = c[id]; }); } catch (e) {}
+function updateCmdOut() {
+  const q = v => /\s/.test(v) ? `"${v}"` : v;
+  const parts = ["python host/scan_logger.py --port", q($("cPort").value.trim() || "COM5"), "--arm",
+    "sweep", $("swA").value, $("swB").value, $("swMs").value];
+  [["--nd", "cNd"], ["--distance", "cDist"], ["--ambient", "cAmb"], ["--target", "cTgt"], ["--by", "cBy"]]
+    .forEach(([f, id]) => { const v = $(id).value.trim(); if (v) parts.push(f, q(v)); });
+  $("cmdOut").value = parts.join(" ");
+}
+condIds.forEach(id => $(id).addEventListener("input", () => {
+  const c = {}; condIds.forEach(k => c[k] = $(k).value);
+  try { localStorage.setItem(CK, JSON.stringify(c)); } catch (e) {}
+  updateCmdOut();
+}));
+$("copyCmd").onclick = async () => {
+  const t = $("cmdOut").value;
+  try { await navigator.clipboard.writeText(t); toast("Command copied", "ok"); }
+  catch (e) { $("cmdOut").select(); document.execCommand("copy"); toast("Command copied", "ok"); }
+};
+
+// ---------- session log download ----------
+$("dlLog").onclick = () => {
+  const esc = s => `"${String(s).replace(/"/g, '""')}"`;
+  const rows = ["local_time,dir,text", ...LOG.map(r => r.map(esc).join(","))];
+  marks.forEach(m => rows.push([m.time, "mark", `${m.name} = ${m.us} us`].map(esc).join(",")));
+  const blob = new Blob([rows.join("\r\n") + "\r\n"], { type: "text/csv" });
+  const d = new Date();
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = `dashboard_log_${d.getFullYear()}${p2(d.getMonth()+1)}${p2(d.getDate())}_${p2(d.getHours())}${p2(d.getMinutes())}${p2(d.getSeconds())}.csv`;
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+};
+$("clrCon").onclick = () => { $("con").textContent = ""; };
+
+// ---------- wiring ----------
+$("connectBtn").onclick = () => S.connected ? disconnect() : connect();
+$("stopBtn").onclick = stopAll;
+const dir = () => $("flip").checked ? -1 : 1;
+try { $("flip").checked = localStorage.getItem("scanner_flip_v1") === "1"; } catch (e) {}
+$("flip").addEventListener("change", () => { try { localStorage.setItem("scanner_flip_v1", $("flip").checked ? "1" : "0"); } catch (e) {} });
+const jog = d => goTo((S.target ?? S.cmd ?? S.park) + d * dir(), S.oldFw ? "goto" : "move");
+document.querySelectorAll(".nudge").forEach(b => b.onclick = () => jog(+b.dataset.d));
+const sl = $("slider");
+sl.addEventListener("pointerdown", () => { dragging = true; });
+sl.addEventListener("pointerup", () => { dragging = false; });
+sl.addEventListener("input", () => goTo(+sl.value, S.oldFw ? "goto" : "move"));
+$("gotoBtn").onclick = () => { const v = +$("gotoIn").value; if (v) goTo(v, "goto"); };
+$("gotoIn").addEventListener("keydown", e => { if (e.key === "Enter") $("gotoBtn").click(); });
+$("parkBtn").onclick = () => { pendingGoto = null; S.target = S.park; S.released = false; send("park"); };
+$("statusBtn").onclick = () => send("status");
+$("armBtn").onclick = () => send(S.armed ? "disarm" : "arm");
+$("laserBig").onclick = () => send(S.laser ? "laser off" : "laser on");
+$("focusSafe").onchange = render;
+$("focusLaser").onclick = () => {
+  if (S.laser) { send("laser off"); return; }
+  if (!$("focusLaser").disabled) send("laser on");
+};
+$("markBtn").onclick = addMark;
+$("markName").addEventListener("keydown", e => { if (e.key === "Enter") addMark(); });
+$("clearMarks").onclick = () => { if (marks.length && confirmClear()) { marks = []; saveMarks(marks); renderMarks(); } };
+function confirmClear() { const b = $("clearMarks"); if (b.dataset.sure) { delete b.dataset.sure; b.textContent = "Clear"; return true; } b.dataset.sure = 1; b.textContent = "Sure?"; setTimeout(() => { delete b.dataset.sure; b.textContent = "Clear"; }, 2500); return false; }
+$("useA").onclick = () => { if (S.cmd != null) { $("swA").value = S.cmd; render(); } };
+$("useB").onclick = () => { if (S.cmd != null) { $("swB").value = S.cmd; render(); } };
+["swA", "swB", "swMs"].forEach(id => $(id).addEventListener("input", render));
+$("sweepBtn").onclick = () => send(`sweep ${+$("swA").value} ${+$("swB").value} ${+$("swMs").value}`);
+const sendTyped = () => { const v = $("cmdIn").value.trim().toLowerCase(); if (!v) return; $("cmdIn").value = ""; if (v === "stop" || v === "s") stopAll(); else send(v); };
+$("sendBtn").onclick = sendTyped;
+$("cmdIn").addEventListener("keydown", e => { if (e.key === "Enter") sendTyped(); });
+$("showS").addEventListener("change", () => {});
+
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") { e.preventDefault(); stopAll(); return; }
+  const tag = e.target.tagName, typing = (tag === "INPUT" && e.target.type !== "range" && e.target.type !== "checkbox") || tag === "TEXTAREA";
+  if (typing) return;
+  const idle = S.connected && !S.running && !S.booting;
+  if ((e.key === "ArrowLeft" || e.key === "ArrowRight") && idle) {
+    e.preventDefault();
+    jog((e.key === "ArrowLeft" ? -1 : 1) * (e.shiftKey ? 50 : 10));
+  } else if ((e.key === "l" || e.key === "L") && S.connected) {
+    if (S.laser) send("laser off"); else if (!$("laserBig").disabled) send("laser on");
+  } else if ((e.key === "m" || e.key === "M") && idle) addMark();
+});
+window.addEventListener("beforeunload", () => { if (writer) { try { writer.write(enc.encode("disarm\n")); } catch (e) {} } });
+if (!("serial" in navigator)) $("nosupport").hidden = false;
+else navigator.serial.addEventListener("disconnect", () => {});
+
+// ---------- timers ----------
+setInterval(() => {
+  const d = new Date();
+  $("clock").textContent = `${d.toLocaleDateString(undefined, { weekday: "short", day: "numeric", month: "short", year: "numeric" })} · ${hms(d)}`;
+  // manual-laser countdown (firmware switches off at 60 s)
+  if (S.laser && S.manual) {
+    const left = Math.max(0, MANUAL_MS - (Date.now() - S.laserSince));
+    $("timerBar").style.width = (left / MANUAL_MS * 100) + "%";
+    $("timerTxt").textContent = `Auto-off in ${Math.ceil(left / 1000)} s`;
+    $("extendBtn").hidden = true;
+  } else {
+    $("timerBar").style.width = "0"; $("timerTxt").textContent = ""; $("extendBtn").hidden = true;
+  }
+  // sweep progress
+  if (S.running && S.run) {
+    const total = (S.run.ms || 2000) + 1500;   // sweep plus approach and markers
+    $("sweepBar").style.width = Math.min(100, (Date.now() - S.run.start) / total * 100) + "%";
+    $("sweepMsg").textContent = `Running… ${S.run.n} samples`;
+  } else if (!S.running) $("sweepBar").style.width = S.lastRun.startsWith("DONE") ? "100%" : "0";
+  // a reply that never came
+  if (inflight && Date.now() - inflight.t > 8000) { log("--", `no reply to "${inflight.cmd}"`); inflight = null; pump(); render(); }
+}, 250);
+setInterval(() => {   // keep the interlock / armed state fresh while idle
+  if (S.connected && !S.booting && !S.running && !S.agentBusy && !inflight && !queue.length && pendingGoto == null) send("status", { quiet: true });
+}, 2000);
+
+// Agent mailbox: Chrome remains the only Arduino owner. Nothing auto-connects.
+const agentClient=crypto.randomUUID().replaceAll('-','');
+let agentResult=null, agentJob=null;
+function agentExchange(command, prefix, timeout=3000) {
+  return new Promise((resolve,reject)=>{
+    let timer;
+    const finish=(error,line)=>{clearTimeout(timer);agentObserver=null;error?reject(Error(error)):resolve(line);};
+    agentObserver=line=>{
+      if(agentJob) {
+        if(agentJob.lines.length<3000) {
+          agentJob.lines.push(line);
+          (agentJob.received || (agentJob.received=[])).push({line,host_rx_monotonic_ms:performance.now()});
+        } else agentJob.log_truncated=true;
+      }
+      if(line.startsWith('ERR'))finish(line);
+      else if(typeof prefix==='function'?prefix(line):line.startsWith(prefix))finish(null,line);
+    };
+    timer=setTimeout(()=>finish('No acknowledged reply to '+command+'; no retry'),timeout);
+    log('>>',command);rawWrite(command).catch(e=>finish(e.message));
+  });
+}
+async function executeAgent(op) {
+  if(op.request.action==='stop' && S.agentBusy) {
+    agentCancelled=true;
+    await rawWrite('stop'); // old job's final stop/status will also verify off
+    const deadline=Date.now()+5000;
+    while(S.agentBusy&&Date.now()<deadline)await new Promise(r=>setTimeout(r,25));
+    if(S.agentBusy){agentResult={id:op.id,error:'Stop sent but operation did not finish; cut physical power',stop_confirmed:false};return;}
+  }
+  const b=op.request, result={id:op.id,error:null,lines:[]};
+  agentJob=result;S.agentBusy=true;agentCancelled=false;render();
+  try {
+    if(!S.connected || S.booting || (b.action!=='stop' && (!$('agentEnable').checked || S.running || inflight || queue.length || pendingGoto!=null)))throw Error('Dashboard not idle/agent-enabled; no action performed');
+    await agentExchange('stop','OK stopped');
+    const initialStatus=await agentExchange('status','OK status');
+    if(S.armed || S.laser)throw Error('Initial off/disarm not confirmed');
+    if(agentCancelled)throw Error('Interrupted by STOP');
+    if(b.action==='move') {
+      if(!Number.isInteger(b.us)||b.us<1100||b.us>1900)throw Error('Move outside agent envelope');
+      await agentExchange('move '+b.us,'OK move',5000);
+      await new Promise(r=>setTimeout(r,500));
+      if(agentCancelled)throw Error('Interrupted by STOP');
+      await agentExchange('read 100','OK read');
+    } else if(b.action==='read')await agentExchange('read '+b.n,'OK read');
+    else if(b.action==='probe') {
+      if(!Number.isInteger(b.source_us)||b.source_us<1100||b.source_us>1900||
+         !Number.isInteger(b.target_us)||b.target_us<1100||b.target_us>1900||
+         !Number.isInteger(b.hold_ms)||b.hold_ms<100||b.hold_ms>3000||b.contained!==true)
+        throw Error('Invalid bounded laser-off probe');
+      if(!/\bprobe=1\b/.test(initialStatus))throw Error('Firmware lacks bounded probe; no motion dispatched');
+      result.probe_dispatched=true;
+      const done=await agentExchange(`probe ${b.source_us} ${b.target_us} ${b.hold_ms}`,
+        line=>/^E,\d+,PROBE_(DONE|ABORTED),/.test(line),11000);
+      if(done.includes(',PROBE_ABORTED,'))throw Error('Probe aborted; trace invalid');
+      if(result.log_truncated)throw Error('Probe log truncated; trace invalid');
+    }
+    else if(b.action==='static'||b.action==='observe') {
+      if(!Number.isInteger(b.us)||b.us<1100||b.us>1900||b.us!==S.cmd||
+         b.arm!==true||b.contained!==true||!S.interlock)throw Error('Static requires current command, arm/containment/interlock');
+      if(!/\bstatic=1\b/.test(initialStatus))throw Error('Firmware lacks bounded static capture; no emission dispatched');
+      if(b.action==='observe'&&!/\bobserve=1\b/.test(initialStatus))throw Error('Firmware lacks bounded optical observation; no emission dispatched');
+      await agentExchange('arm','OK armed');
+      if(agentCancelled)throw Error('Interrupted by STOP');
+      result.static_dispatched=true;
+      const done=await agentExchange(`${b.action} ${b.us}`,line=>/^E,\d+,STATIC_(DONE|ABORTED),/.test(line),9000);
+      if(done.includes(',STATIC_ABORTED,'))throw Error('Static capture aborted; inspect feedback gate/logs');
+      if(result.log_truncated)throw Error('Static trace truncated; reject acquisition');
+      result.observation_mode=b.action==='observe';
+      result.feedback_screen_warning=result.lines.some(line=>/^E,\d+,STATIC_SCREEN_WARN,/.test(line));
+    }
+    else if(b.action==='pulse'||b.action==='sweep') {
+      if(b.arm!==true||b.contained!==true||!S.interlock||!inWin(S.cmd))throw Error('Arm/containment/interlock/window required');
+      if(agentCancelled)throw Error('Interrupted by STOP');
+      await agentExchange('arm','OK armed');
+      if(agentCancelled)throw Error('Interrupted by STOP');
+      if(b.action==='pulse') {
+        if(!Number.isInteger(b.seconds)||b.seconds<1||b.seconds>5)throw Error('Pulse limited to 1–5 seconds');
+        await agentExchange('laser on','OK laser on');
+        const end=Date.now()+b.seconds*1000;
+        while(Date.now()<end&&!agentCancelled)await new Promise(r=>setTimeout(r,25));
+      } else {
+        if(!Number.isInteger(b.start_us)||!Number.isInteger(b.end_us)||b.start_us<1100||b.end_us>1900||b.start_us>=b.end_us||!Number.isInteger(b.duration_ms)||b.duration_ms<100||b.duration_ms>10000)throw Error('Invalid bounded sweep');
+        // Capture streaming S/E output until DONE, not merely the OK sweep ACK.
+        const done=await agentExchange(`sweep ${b.start_us} ${b.end_us} ${b.duration_ms}`,
+          line=>/^E,\d+,(DONE|ABORTED),/.test(line),b.duration_ms+10000);
+        if(done.includes(',ABORTED,'))throw Error('Sweep aborted');
+      }
+    }
+    if(agentCancelled)throw Error('Interrupted by STOP');
+  } catch(e){result.error=e.message;}
+  finally {
+    try{
+      await agentExchange('stop','OK stopped',3000);
+      result.final_status=await agentExchange('status','OK status',3000);
+      if(!result.final_status.includes('armed=0')||!result.final_status.includes('laser=0'))throw Error('Off/disarm not confirmed — cut physical power');
+      if((result.probe_dispatched||result.static_dispatched)&&!/\battached=0\b/.test(result.final_status))throw Error('Diagnostic servo release not confirmed');
+      result.stop_confirmed=true;
+    }catch(e){result.error=(result.error?result.error+'; ':'')+e.message;result.stop_confirmed=false;}
+    agentObserver=null;S.agentBusy=false;agentJob=null;agentResult=result;render();
+  }
+}
+$('agentEnable').onchange=()=>{if(!$('agentEnable').checked&&S.agentBusy)stopAll();};
+async function agentHeartbeat(){
+  try {
+    const sentResult=agentResult;
+    const r=await fetch('/rig/heartbeat',{method:'POST',headers:{'Content-Type':'application/json','X-Camera-UI-Token':'__CAMERA_UI_TOKEN__'},
+      body:JSON.stringify({client:agentClient,connected:S.connected,agentEnabled:$('agentEnable').checked,busy:!!(S.agentBusy||S.running||S.booting||inflight||queue.length||pendingGoto!=null),armed:S.armed,laser:S.laser,cmd:S.cmd,feedback:S.feedback,interlock:S.interlock,fw:S.fw,result:sentResult}),signal:AbortSignal.timeout(2000)});
+    if(!r.ok)throw Error('Mailbox unavailable');const reply=await r.json();
+    if(agentResult===sentResult)agentResult=null;
+    $('agentState').textContent=S.agentBusy?'Agent operating — STOP interrupts':$('agentEnable').checked?'Agent ready (local only)':'Agent control off';
+    if(reply.operation)executeAgent(reply.operation);
+  }catch(e){$('agentState').textContent='Agent mailbox offline — no automatic replay';}
+  finally{setTimeout(agentHeartbeat,500);}
+}agentHeartbeat();
+
+syncLimits(); renderMarks(); render();
+})();
+</script>
+<script>
+(() => {
+const $=id=>document.getElementById(id), token='__CAMERA_UI_TOKEN__';
+let pending=false;
+const buttons=['camAuto','camManual','camFocus','camSnapshot','camRecord','camStop'];
+const fmt=n=>Number.isFinite(n)?n.toFixed(1):'—';
+async function control(command, extra={}) {
+  if(pending)return;
+  pending=true;buttons.forEach(id=>$(id).disabled=true);
+  const id='ui_'+crypto.randomUUID().replaceAll('-','');
+  $('camOperation').textContent='Request '+id;
+  try {
+    const r=await fetch('/camera/command',{method:'POST',headers:{'Content-Type':'application/json','X-Camera-UI-Token':token},body:JSON.stringify({id,command,...extra}),signal:AbortSignal.timeout(5000)});
+    let result=await r.json();if(!r.ok)throw Error(result.error||'Camera command failed');
+    for(let i=0;result.state==='queued'&&i<30;i++){
+      await new Promise(r=>setTimeout(r,200));
+      const op=await fetch('/camera/operations/'+id,{signal:AbortSignal.timeout(3000)});
+      if(!op.ok)throw Error('Operation status unavailable');result=await op.json();
+    }
+    $('camOperation').textContent=JSON.stringify(result,null,2);
+  }catch(e){$('camOperation').textContent=id+': '+e.message+' — outcome uncertain. Inspect /camera/operations/'+id+' before any retry.';}
+  finally{pending=false;buttons.forEach(id=>$(id).disabled=false);}
+}
+$('camAuto').onclick=()=>control('controls',{auto_exposure:true});
+$('camManual').onclick=()=>control('controls',{exposure_us:Number($('camExposure').value)});
+$('camFocus').onclick=()=>control('focus');
+const name=()=> 'dashboard_'+Date.now()+'_'+crypto.randomUUID().slice(0,8);
+$('camSnapshot').onclick=()=>control('snapshot',{name:name(),notes:'Dashboard snapshot'});
+$('camRecord').onclick=()=>control('record',{name:name(),duration_s:Number($('camDuration').value),notes:'Dashboard camera-only recording; no automatic servo/clock synchronization'});
+$('camStop').onclick=()=>control('record_stop');
+async function update(){
+  try{
+    const r=await fetch('/camera/status',{cache:'no-store',signal:AbortSignal.timeout(3000)});if(!r.ok)throw Error('Camera unavailable');const s=await r.json();
+    const fresh=s.camera_connected&&!s.stale&&s.heartbeat_age_s<2;
+    $('camHealth').textContent=fresh?'LIVE':'STALE — do not judge focus';
+    $('camMetrics').textContent=`${s.camera||''}\nExposure: ${fmt(s.actual_exposure_us/1000)} ms (${s.auto_exposure?'auto':'manual'})\nFocus: ${fmt(s.focus?.score)} (relative only)\nDark / bright: ${fmt(s.focus?.dark)}% / ${fmt(s.focus?.bright)}%\nEvents/s: ${fmt(s.event_rate_s)}\nFrames / IMU: ${s.counts?.frames} / ${s.counts?.imu}\nFrame age: ${fmt(s.last_frame_age_s)} s\nRecording: ${s.recording?'ACTIVE':'off'}`;
+    for(const [id,path] of [['camAPS','frame.jpg'],['camEvents','events.jpg']]){
+      $(id).style.opacity=fresh?1:.25;
+      if(fresh)$(id).src='/camera/'+path+'?t='+Date.now();
+    }
+  }catch(e){$('camHealth').textContent='OFFLINE — images may be frozen';$('camAPS').style.opacity=.25;$('camEvents').style.opacity=.25;}
+  finally{setTimeout(update,700);}
+}update();
+})();
+</script>
+</body>
+</html>

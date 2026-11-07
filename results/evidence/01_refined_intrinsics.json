@@ -1,0 +1,287 @@
+{
+  "status": "REFINED_PROVISIONAL_NOT_PROMOTED",
+  "source_audit_directory": "outputs/calibration/take06_replug_boardroi_20261102",
+  "source_recording_sha256": "34ea3e8d2833488ba435543e07fdaea1f5fbde5f967f01df735692e6f04ddf49",
+  "camera": "DAVIS240C_60008401",
+  "resolution": [
+    240,
+    180
+  ],
+  "pattern_inner_corners": [
+    9,
+    6
+  ],
+  "square_size_mm_user_reported": 18.0,
+  "original_training_count": 20,
+  "original_reserved_count": 5,
+  "retained_training_count": 17,
+  "retained_reserved_count": 5,
+  "exclusions": [
+    {
+      "frame": 445,
+      "split": "training",
+      "reason": [
+        "detectors disagree across scales"
+      ]
+    },
+    {
+      "frame": 714,
+      "split": "training",
+      "reason": [
+        "non-projective grid or corner anomaly"
+      ]
+    },
+    {
+      "frame": 736,
+      "split": "training",
+      "reason": [
+        "non-projective grid or corner anomaly"
+      ]
+    }
+  ],
+  "pre_fit_detector_policy": {
+    "primary": "SB 4x cubic resize, then map pixel centres to native coordinates",
+    "cross_check": "SB 2x; symmetry-aligned grid",
+    "multiscale_max_px": 1,
+    "multiscale_p95_px": 0.5,
+    "grid_homography_max_px": 2,
+    "grid_homography_p95_px": 1,
+    "note": "Heuristics set before refitting. Homography residual also includes lens distortion."
+  },
+  "models": {
+    "primary_five_coefficient": {
+      "camera_matrix": [
+        [
+          307.0201177875608,
+          0.0,
+          115.7637829473203
+        ],
+        [
+          0.0,
+          306.8715044491685,
+          104.00867072069929
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "distortion_coefficients": [
+        -0.2824494639322759,
+        0.553498182864448,
+        0.003640735104241248,
+        0.0010423878400247304,
+        -0.898634284599163
+      ],
+      "training_rms_px": 0.23511896501208057,
+      "training_frame_indices": [
+        49,
+        75,
+        108,
+        121,
+        163,
+        180,
+        181,
+        253,
+        355,
+        390,
+        414,
+        449,
+        455,
+        472,
+        528,
+        579,
+        750
+      ],
+      "training_per_view_rms_px": [
+        0.21090222895145416,
+        0.18572941422462463,
+        0.2459510862827301,
+        0.289105623960495,
+        0.26329922676086426,
+        0.18719322979450226,
+        0.1928217113018036,
+        0.2937287390232086,
+        0.18612654507160187,
+        0.21144583821296692,
+        0.22168408334255219,
+        0.15994144976139069,
+        0.15583005547523499,
+        0.2830253541469574,
+        0.22245056927204132,
+        0.285243958234787,
+        0.3155779540538788
+      ],
+      "reserved_frame_indices": [
+        20,
+        165,
+        398,
+        520,
+        787
+      ],
+      "reserved_per_view_rms_px": [
+        0.19900855422019958,
+        0.2492826133966446,
+        0.21851490437984467,
+        0.2965092658996582,
+        0.2578456699848175
+      ],
+      "flags": 0,
+      "jackknife": {
+        "description": "Leave-one-training-view-out min/max, not calibrated confidence intervals.",
+        "columns": [
+          "fx",
+          "fy",
+          "cx",
+          "cy"
+        ],
+        "fits": 17,
+        "failures": [],
+        "min": [
+          305.9029032203918,
+          305.6819089980826,
+          113.207776415187,
+          101.64223346040201
+        ],
+        "max": [
+          307.59690277099406,
+          307.43409398055815,
+          116.79474565622503,
+          106.47407360191528
+        ],
+        "std": [
+          0.4951710824812434,
+          0.507751571873192,
+          0.9216191123029294,
+          1.2965365573281271
+        ]
+      }
+    },
+    "sensitivity_fixed_k3": {
+      "camera_matrix": [
+        [
+          307.0059901607733,
+          0.0,
+          115.91507400148205
+        ],
+        [
+          0.0,
+          306.8587027935219,
+          103.97594449609852
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "distortion_coefficients": [
+        -0.26725930266003906,
+        0.33133100322417275,
+        0.003675578123800532,
+        0.0010826630898619453,
+        0.0
+      ],
+      "training_rms_px": 0.23515263842498305,
+      "training_frame_indices": [
+        49,
+        75,
+        108,
+        121,
+        163,
+        180,
+        181,
+        253,
+        355,
+        390,
+        414,
+        449,
+        455,
+        472,
+        528,
+        579,
+        750
+      ],
+      "training_per_view_rms_px": [
+        0.21080709993839264,
+        0.18637116253376007,
+        0.2463497370481491,
+        0.2892301380634308,
+        0.2643081247806549,
+        0.18669068813323975,
+        0.19225306808948517,
+        0.2939634621143341,
+        0.18613022565841675,
+        0.2107761949300766,
+        0.22188277542591095,
+        0.16071026027202606,
+        0.15531177818775177,
+        0.2826918363571167,
+        0.2223057597875595,
+        0.28554973006248474,
+        0.3151439428329468
+      ],
+      "reserved_frame_indices": [
+        20,
+        165,
+        398,
+        520,
+        787
+      ],
+      "reserved_per_view_rms_px": [
+        0.199787899851799,
+        0.2501205503940582,
+        0.21894703805446625,
+        0.2966025769710541,
+        0.2580571472644806
+      ],
+      "flags": 128,
+      "jackknife": {
+        "description": "Leave-one-training-view-out min/max, not calibrated confidence intervals.",
+        "columns": [
+          "fx",
+          "fy",
+          "cx",
+          "cy"
+        ],
+        "fits": 17,
+        "failures": [],
+        "min": [
+          305.9374883584163,
+          305.71946356438104,
+          113.37063638082078,
+          101.62675618722926
+        ],
+        "max": [
+          307.562432926742,
+          307.3998165563438,
+          116.9745054821143,
+          106.40958127087562
+        ],
+        "std": [
+          0.48658383866479576,
+          0.4981767736135474,
+          0.9024381027735201,
+          1.289667271211441
+        ]
+      }
+    }
+  },
+  "original_training_rms_px": 0.683181665849847,
+  "original_reserved_per_view_rms_px": [
+    0.1775757372379303,
+    1.9950419664382935,
+    2.531468629837036,
+    0.3478962779045105,
+    1.6338920593261719
+  ],
+  "limitations": [
+    "No model installed into live/default settings.",
+    "Reserved images already inspected during earlier diagnosis; not an untouched final test set.",
+    "Reserved board poses estimated with fixed intrinsics; not independent metric depth accuracy.",
+    "Absolute scale uses user-reported18mm pitch; physical print scale unverified.",
+    "Jackknife and model comparisons diagnose sensitivity, not independently calibrated uncertainty.",
+    "No frames were hand-painted or synthetic corner positions inserted; corrections are image-based redetections."
+  ]
+}

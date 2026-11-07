@@ -1,0 +1,506 @@
+{
+  "status": "STATIC_OPTICAL_PULSE_CLOCK_PREDICTION",
+  "mapping": {
+    "controller_tick_origin_us": 2300083240,
+    "camera_origin_us": 1793639518378992.0,
+    "camera_us_per_controller_us": 1.0002696264197801,
+    "intercept_us": -2702.6609371599643
+  },
+  "summary": {
+    "reserved_ON": {
+      "n": 10,
+      "rms_ms": 25.74067666086892,
+      "max_absolute_ms": 47.079618735074995,
+      "signed_mean_ms": -19.934680420015752
+    },
+    "all_OFF": {
+      "n": 15,
+      "rms_ms": 27.003963420003842,
+      "max_absolute_ms": 47.554825390905144,
+      "signed_mean_ms": -22.31680003008556
+    }
+  },
+  "edges": [
+    {
+      "run_id": "shoe_repeat_r1_1569_20261103_02",
+      "repeat": 1,
+      "command_us": 1569,
+      "edge": "LASER_ON",
+      "controller_tick_us": 2300083240,
+      "camera_edge_us": 1793639518378992.0,
+      "event_p10_p90_us": [
+        1793639518377835.0,
+        1793639518380456.2
+      ],
+      "burst_count": 447,
+      "controller_elapsed_us": 0,
+      "used_for_fit": true,
+      "prediction_residual_us": 2702.6609371599643
+    },
+    {
+      "run_id": "shoe_repeat_r1_1569_20261103_02",
+      "repeat": 1,
+      "command_us": 1569,
+      "edge": "LASER_OFF",
+      "controller_tick_us": 2301085416,
+      "camera_edge_us": 1793639519381294.0,
+      "event_p10_p90_us": [
+        1793639519380537.0,
+        1793639519382914.5
+      ],
+      "burst_count": 397,
+      "controller_elapsed_us": 1002176,
+      "used_for_fit": false,
+      "prediction_residual_us": 2558.4478102904977
+    },
+    {
+      "run_id": "shoe_repeat_r1_1590_20261103_02",
+      "repeat": 1,
+      "command_us": 1590,
+      "edge": "LASER_ON",
+      "controller_tick_us": 2317076244,
+      "camera_edge_us": 1793639535376403.0,
+      "event_p10_p90_us": [
+        1793639535375000.0,
+        1793639535376719.5
+      ],
+      "burst_count": 883,
+      "controller_elapsed_us": 16993004,
+      "used_for_fit": true,
+      "prediction_residual_us": 2527.898107331246
+    },
+    {
+      "run_id": "shoe_repeat_r1_1590_20261103_02",
+      "repeat": 1,
+      "command_us": 1590,
+      "edge": "LASER_OFF",
+      "controller_tick_us": 2318078464,
+      "camera_edge_us": 1793639536374893.0,
+      "event_p10_p90_us": [
+        1793639536374300.0,
+        1793639536376664.5
+      ],
+      "burst_count": 319,
+      "controller_elapsed_us": 17995224,
+      "used_for_fit": false,
+      "prediction_residual_us": -1472.3268830999732
+    },
+    {
+      "run_id": "shoe_repeat_r1_1602_20261103_02",
+      "repeat": 1,
+      "command_us": 1602,
+      "edge": "LASER_ON",
+      "controller_tick_us": 2334109412,
+      "camera_edge_us": 1793639552406308.0,
+      "event_p10_p90_us": [
+        1793639552405040.0,
+        1793639552408190.5
+      ],
+      "burst_count": 612,
+      "controller_elapsed_us": 34026172,
+      "used_for_fit": true,
+      "prediction_residual_us": -5327.693998023868
+    },
+    {
+      "run_id": "shoe_repeat_r1_1602_20261103_02",
+      "repeat": 1,
+      "command_us": 1602,
+      "edge": "LASER_OFF",
+      "controller_tick_us": 2335111596,
+      "camera_edge_us": 1793639553409296.0,
+      "event_p10_p90_us": [
+        1793639553408604.2,
+        1793639553410877.5
+      ],
+      "burst_count": 369,
+      "controller_elapsed_us": 35028356,
+      "used_for_fit": false,
+      "prediction_residual_us": -4793.909281902015
+    },
+    {
+      "run_id": "shoe_repeat_r1_1627_20261103_02",
+      "repeat": 1,
+      "command_us": 1627,
+      "edge": "LASER_ON",
+      "controller_tick_us": 2351100276,
+      "camera_edge_us": 1793639569399325.0,
+      "event_p10_p90_us": [
+        1793639569398028.5,
+        1793639569400417.0
+      ],
+      "burst_count": 386,
+      "controller_elapsed_us": 51017036,
+      "used_for_fit": true,
+      "prediction_residual_us": -7755.879827313125
+    },
+    {
+      "run_id": "shoe_repeat_r1_1627_20261103_02",
+      "repeat": 1,
+      "command_us": 1627,
+      "edge": "LASER_OFF",
+      "controller_tick_us": 2352102460,
+      "camera_edge_us": 1793639570401518.0,
+      "event_p10_p90_us": [
+        1793639570400547.8,
+        1793639570403358.5
+      ],
+      "burst_count": 295,
+      "controller_elapsed_us": 52019220,
+      "used_for_fit": false,
+      "prediction_residual_us": -8017.095111191273
+    },
+    {
+      "run_id": "shoe_repeat_r1_1647_20261103_02",
+      "repeat": 1,
+      "command_us": 1647,
+      "edge": "LASER_ON",
+      "controller_tick_us": 2368083424,
+      "camera_edge_us": 1793639586402661.0,
+      "event_p10_p90_us": [
+        1793639586402629.8,
+        1793639586402913.2
+      ],
+      "burst_count": 348,
+      "controller_elapsed_us": 68000184,
+      "used_for_fit": true,
+      "prediction_residual_us": 7853.014780849218
+    },
+    {
+      "run_id": "shoe_repeat_r1_1647_20261103_02",
+      "repeat": 1,
+      "command_us": 1647,
+      "edge": "LASER_OFF",
+      "controller_tick_us": 2369087340,
+      "camera_edge_us": 1793639587387672.0,
+      "event_p10_p90_us": [
+        1793639587386505.8,
+        1793639587388313.5
+      ],
+      "burst_count": 439,
+      "controller_elapsed_us": 69004100,
+      "used_for_fit": false,
+      "prediction_residual_us": -11322.66749599576
+    },
+    {
+      "run_id": "shoe_repeat_r2_1569_20261103_02",
+      "repeat": 2,
+      "command_us": 1569,
+      "edge": "LASER_ON",
+      "controller_tick_us": 2385040164,
+      "camera_edge_us": 1793639603365099.0,
+      "event_p10_p90_us": [
+        1793639603365054.0,
+        1793639603365129.2
+      ],
+      "burst_count": 509,
+      "controller_elapsed_us": 84956924,
+      "used_for_fit": false,
+      "prediction_residual_us": 8979.02968351543
+    },
+    {
+      "run_id": "shoe_repeat_r2_1569_20261103_02",
+      "repeat": 2,
+      "command_us": 1569,
+      "edge": "LASER_OFF",
+      "controller_tick_us": 2386042352,
+      "camera_edge_us": 1793639604343307.0,
+      "event_p10_p90_us": [
+        1793639604342376.5,
+        1793639604345197.8
+      ],
+      "burst_count": 415,
+      "controller_elapsed_us": 85959112,
+      "used_for_fit": false,
+      "prediction_residual_us": -15271.186678871512
+    },
+    {
+      "run_id": "shoe_repeat_r2_1590_20261103_02",
+      "repeat": 2,
+      "command_us": 1590,
+      "edge": "LASER_ON",
+      "controller_tick_us": 2401841532,
+      "camera_edge_us": 1793639620172005.0,
+      "event_p10_p90_us": [
+        1793639620171984.0,
+        1793639620173795.8
+      ],
+      "burst_count": 363,
+      "controller_elapsed_us": 101758292,
+      "used_for_fit": false,
+      "prediction_residual_us": 9986.936982259154
+    },
+    {
+      "run_id": "shoe_repeat_r2_1590_20261103_02",
+      "repeat": 2,
+      "command_us": 1590,
+      "edge": "LASER_OFF",
+      "controller_tick_us": 2402843692,
+      "camera_edge_us": 1793639621145687.0,
+      "event_p10_p90_us": [
+        1793639621144616.0,
+        1793639621147253.8
+      ],
+      "burst_count": 337,
+      "controller_elapsed_us": 102760452,
+      "used_for_fit": false,
+      "prediction_residual_us": -18761.27183058858
+    },
+    {
+      "run_id": "shoe_repeat_r2_1602_20261103_02",
+      "repeat": 2,
+      "command_us": 1602,
+      "edge": "LASER_ON",
+      "controller_tick_us": 2418391124,
+      "camera_edge_us": 1793639636689627.0,
+      "event_p10_p90_us": [
+        1793639636689588.0,
+        1793639636689905.5
+      ],
+      "burst_count": 155,
+      "controller_elapsed_us": 118307884,
+      "used_for_fit": false,
+      "prediction_residual_us": -26445.270257517695
+    },
+    {
+      "run_id": "shoe_repeat_r2_1602_20261103_02",
+      "repeat": 2,
+      "command_us": 1602,
+      "edge": "LASER_OFF",
+      "controller_tick_us": 2419393336,
+      "camera_edge_us": 1793639637696076.0,
+      "event_p10_p90_us": [
+        1793639637695123.0,
+        1793639637697493.2
+      ],
+      "burst_count": 335,
+      "controller_elapsed_us": 119310096,
+      "used_for_fit": false,
+      "prediction_residual_us": -22478.493090942502
+    },
+    {
+      "run_id": "shoe_repeat_r2_1627_20261103_02",
+      "repeat": 2,
+      "command_us": 1627,
+      "edge": "LASER_ON",
+      "controller_tick_us": 2435422508,
+      "camera_edge_us": 1793639653726322.0,
+      "event_p10_p90_us": [
+        1793639653725293.2,
+        1793639653727652.2
+      ],
+      "burst_count": 419,
+      "controller_elapsed_us": 135339268,
+      "used_for_fit": false,
+      "prediction_residual_us": -25726.381349354982
+    },
+    {
+      "run_id": "shoe_repeat_r2_1627_20261103_02",
+      "repeat": 2,
+      "command_us": 1627,
+      "edge": "LASER_OFF",
+      "controller_tick_us": 2436424688,
+      "camera_edge_us": 1793639654728363.0,
+      "event_p10_p90_us": [
+        1793639654727550.0,
+        1793639654729456.5
+      ],
+      "burst_count": 287,
+      "controller_elapsed_us": 136341448,
+      "used_for_fit": false,
+      "prediction_residual_us": -26135.595554709435
+    },
+    {
+      "run_id": "shoe_repeat_r2_1647_20261103_02",
+      "repeat": 2,
+      "command_us": 1647,
+      "edge": "LASER_ON",
+      "controller_tick_us": 2452069308,
+      "camera_edge_us": 1793639670380200.0,
+      "event_p10_p90_us": [
+        1793639670378632.8,
+        1793639670381210.5
+      ],
+      "burst_count": 617,
+      "controller_elapsed_us": 151986068,
+      "used_for_fit": false,
+      "prediction_residual_us": -23136.798434138298
+    },
+    {
+      "run_id": "shoe_repeat_r2_1647_20261103_02",
+      "repeat": 2,
+      "command_us": 1647,
+      "edge": "LASER_OFF",
+      "controller_tick_us": 2453071488,
+      "camera_edge_us": 1793639671376009.0,
+      "event_p10_p90_us": [
+        1793639671375248.5,
+        1793639671377236.0
+      ],
+      "burst_count": 368,
+      "controller_elapsed_us": 152988248,
+      "used_for_fit": false,
+      "prediction_residual_us": -29778.012639522552
+    },
+    {
+      "run_id": "shoe_repeat_r3_1569_20261103_02",
+      "repeat": 3,
+      "command_us": 1569,
+      "edge": "LASER_ON",
+      "controller_tick_us": 2468736712,
+      "camera_edge_us": 1793639687053899.0,
+      "event_p10_p90_us": [
+        1793639687053854.0,
+        1793639687054150.2
+      ],
+      "burst_count": 602,
+      "controller_elapsed_us": 168653472,
+      "used_for_fit": false,
+      "prediction_residual_us": -21335.770901679993
+    },
+    {
+      "run_id": "shoe_repeat_r3_1569_20261103_02",
+      "repeat": 3,
+      "command_us": 1569,
+      "edge": "LASER_OFF",
+      "controller_tick_us": 2469738864,
+      "camera_edge_us": 1793639688044234.0,
+      "event_p10_p90_us": [
+        1793639688043570.0,
+        1793639688045681.0
+      ],
+      "burst_count": 391,
+      "controller_elapsed_us": 169655624,
+      "used_for_fit": false,
+      "prediction_residual_us": -33422.97755751014
+    },
+    {
+      "run_id": "shoe_repeat_r3_1590_20261103_02",
+      "repeat": 3,
+      "command_us": 1590,
+      "edge": "LASER_ON",
+      "controller_tick_us": 2485320492,
+      "camera_edge_us": 1793639703641015.0,
+      "event_p10_p90_us": [
+        1793639703640659.5,
+        1793639703642313.5
+      ],
+      "burst_count": 375,
+      "controller_elapsed_us": 185237252,
+      "used_for_fit": false,
+      "prediction_residual_us": -22471.196129500866
+    },
+    {
+      "run_id": "shoe_repeat_r3_1590_20261103_02",
+      "repeat": 3,
+      "command_us": 1590,
+      "edge": "LASER_OFF",
+      "controller_tick_us": 2486322700,
+      "camera_edge_us": 1793639704629083.5,
+      "event_p10_p90_us": [
+        1793639704628258.2,
+        1793639704630686.8
+      ],
+      "burst_count": 358,
+      "controller_elapsed_us": 186239460,
+      "used_for_fit": false,
+      "prediction_residual_us": -36880.91788440943
+    },
+    {
+      "run_id": "shoe_repeat_r3_1602_20261103_02",
+      "repeat": 3,
+      "command_us": 1602,
+      "edge": "LASER_ON",
+      "controller_tick_us": 2502521108,
+      "camera_edge_us": 1793639720840020.0,
+      "event_p10_p90_us": [
+        1793639720839964.0,
+        1793639720841632.0
+      ],
+      "burst_count": 444,
+      "controller_elapsed_us": 202437868,
+      "used_for_fit": false,
+      "prediction_residual_us": -28719.936639606953
+    },
+    {
+      "run_id": "shoe_repeat_r3_1602_20261103_02",
+      "repeat": 3,
+      "command_us": 1602,
+      "edge": "LASER_OFF",
+      "controller_tick_us": 2503523316,
+      "camera_edge_us": 1793639721830895.0,
+      "event_p10_p90_us": [
+        1793639721829960.5,
+        1793639721832323.2
+      ],
+      "burst_count": 332,
+      "controller_elapsed_us": 203440076,
+      "used_for_fit": false,
+      "prediction_residual_us": -40323.158394515514
+    },
+    {
+      "run_id": "shoe_repeat_r3_1627_20261103_02",
+      "repeat": 3,
+      "command_us": 1627,
+      "edge": "LASER_ON",
+      "controller_tick_us": 2519536732,
+      "camera_edge_us": 1793639737865554.0,
+      "event_p10_p90_us": [
+        1793639737865484.0,
+        1793639737866411.5
+      ],
+      "burst_count": 282,
+      "controller_elapsed_us": 219453492,
+      "used_for_fit": false,
+      "prediction_residual_us": -23397.798419058323
+    },
+    {
+      "run_id": "shoe_repeat_r3_1627_20261103_02",
+      "repeat": 3,
+      "command_us": 1627,
+      "edge": "LASER_OFF",
+      "controller_tick_us": 2520538904,
+      "camera_edge_us": 1793639738850296.0,
+      "event_p10_p90_us": [
+        1793639738848485.0,
+        1793639738850829.5
+      ],
+      "burst_count": 290,
+      "controller_elapsed_us": 220455664,
+      "used_for_fit": false,
+      "prediction_residual_us": -41098.01046741009
+    },
+    {
+      "run_id": "shoe_repeat_r3_1647_20261103_02",
+      "repeat": 3,
+      "command_us": 1647,
+      "edge": "LASER_ON",
+      "controller_tick_us": 2536151648,
+      "camera_edge_us": 1793639754461268.0,
+      "event_p10_p90_us": [
+        1793639754459927.0,
+        1793639754462656.8
+      ],
+      "burst_count": 504,
+      "controller_elapsed_us": 236068408,
+      "used_for_fit": false,
+      "prediction_residual_us": -47079.618735075
+    },
+    {
+      "run_id": "shoe_repeat_r3_1647_20261103_02",
+      "repeat": 3,
+      "command_us": 1647,
+      "edge": "LASER_OFF",
+      "controller_tick_us": 2537153800,
+      "camera_edge_us": 1793639755463215.0,
+      "event_p10_p90_us": [
+        1793639755462441.0,
+        1793639755464628.0
+      ],
+      "burst_count": 311,
+      "controller_elapsed_us": 237070560,
+      "used_for_fit": false,
+      "prediction_residual_us": -47554.82539090514
+    }
+  ],
+  "limitations": "Exploratory camera event burst peak/median versus firmware electrical marker. Fit first-pass5ON edges, reserve subsequent10ON and all15OFF edges. Static pulses at several positions; optical response/polarity/threshold/background and selection latency contribute to residuals. Event burst p10-p90 is not an absolute timing uncertainty. No independent timing instrument, moving-stripe validation, per-event servo-plane mapping or continuous reconstruction. Mapping only for this uninterrupted recording/controller session; invalid after resets/discontinuities. No source timestamps modified."
+}

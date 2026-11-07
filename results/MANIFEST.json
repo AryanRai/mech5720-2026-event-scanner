@@ -1,0 +1,357 @@
+{
+  "prepared_date_sydney": "2026-11-07",
+  "scientific_evidence_dates": "2026-11-02 to2026-11-03",
+  "full_native_archive_remote_release": null,
+  "independent_depth_accuracy_established": false,
+  "files": [
+    {
+      "path": "docs/images/aps_cloud.png",
+      "bytes": 339186,
+      "sha256": "0f3b7d9d8ce856dde1d316382bfeab27199095320d6d8b40a697b45441c6a936",
+      "hash_mode": "bytes"
+    },
+    {
+      "path": "docs/images/assembled_rig.jpg",
+      "bytes": 1919250,
+      "sha256": "bde767fe01028be349b715d38ae10d4d2366e8270ce8731f2b55bcc7c00941ad",
+      "hash_mode": "bytes"
+    },
+    {
+      "path": "docs/images/five_line_comparison.png",
+      "bytes": 332792,
+      "sha256": "a14208a08c0b2320620f7902ca37c6d7b2abeb717e109264e564aa938f036ff3",
+      "hash_mode": "bytes"
+    },
+    {
+      "path": "docs/images/printed_mounts.jpg",
+      "bytes": 108821,
+      "sha256": "b8a8a8808068fc28dfff082a1f97f110a5943bcf502967b7947d669cff032ee9",
+      "hash_mode": "bytes"
+    },
+    {
+      "path": "docs/images/sample_coverage.png",
+      "bytes": 222073,
+      "sha256": "4ee61603160620aabfd1f1ba6a305920feb7fa2faac2d29007615018fa0c91ca",
+      "hash_mode": "bytes"
+    },
+    {
+      "path": "docs/images/scanner_cad.png",
+      "bytes": 80387,
+      "sha256": "7fdea29c95538984ba8c7dc284a9b6d1ef5de6028c27ef72331edd2e769ad285",
+      "hash_mode": "bytes"
+    },
+    {
+      "path": "examples/coverage/repro_data/aps_points.csv",
+      "bytes": 81382,
+      "sha256": "153ec2ce44947d3debeebc730cba8ae1a1d981b3dd95f6587d891070cffc6242",
+      "hash_mode": "LF-normalized"
+    },
+    {
+      "path": "examples/coverage/repro_data/event_points.csv",
+      "bytes": 115157,
+      "sha256": "485f4101920014da5101bdb18cae963029899d285541a0b689393d605acd1cbb",
+      "hash_mode": "LF-normalized"
+    },
+    {
+      "path": "examples/coverage/repro_data/mask_definition.json",
+      "bytes": 2330,
+      "sha256": "a6a0a4ca5fce725d203907ecddbfd6458e063263d0c9d684d7e58d76d43c5042",
+      "hash_mode": "LF-normalized"
+    },
+    {
+      "path": "examples/coverage/repro_data/shoe_photo.png",
+      "bytes": 18714,
+      "sha256": "20e1741e34c6055ea2a9877424e973ca5a05a89333907418b9b99ecd813d756a",
+      "hash_mode": "bytes"
+    },
+    {
+      "path": "results/evidence/01_refined_intrinsics.json",
+      "bytes": 6855,
+      "sha256": "d75644db06dcebad86b9f15cd7cfbd006803e9c738601f0e491573397ffe9867",
+      "hash_mode": "LF-normalized"
+    },
+    {
+      "path": "results/evidence/02_planes.json",
+      "bytes": 517880,
+      "sha256": "e9d3cd382b1e049321047e22fc5b6d65baa1a14cf9f220aacd3cc6a7b14fc0e0",
+      "hash_mode": "LF-normalized"
+    },
+    {
+      "path": "results/evidence/03_validation.json",
+      "bytes": 371783,
+      "sha256": "b9279ec889b441743af96b907068c072d6ee2af8647333398a2dcb11ee4e3eba",
+      "hash_mode": "LF-normalized"
+    },
+    {
+      "path": "results/evidence/04_validation.json",
+      "bytes": 342604,
+      "sha256": "094f6006bd5dd6f80ea85e7195404f419025662e964736072fde1f5d7384679b",
+      "hash_mode": "LF-normalized"
+    },
+    {
+      "path": "results/evidence/05_comparison.json",
+      "bytes": 49246,
+      "sha256": "f9e70f82946812e1cdeaf9eb5c0807f33ca4a1efc9f04e0c34e52ddb1a08f202",
+      "hash_mode": "LF-normalized"
+    },
+    {
+      "path": "results/evidence/06_repeatability.json",
+      "bytes": 31431,
+      "sha256": "da7678690a8595c0a1a10269853ce41dd61950efda1823a1301bf3071be2c399",
+      "hash_mode": "LF-normalized"
+    },
+    {
+      "path": "results/evidence/07_coverage.json",
+      "bytes": 6730,
+      "sha256": "e0ee94c95bbb7a18856b46d6cec21de310d76bb09dcb4eaeefc0addd2fe2f491",
+      "hash_mode": "LF-normalized"
+    },
+    {
+      "path": "results/evidence/08_comparison.json",
+      "bytes": 40113,
+      "sha256": "4e57f5a57029f98593ec7a4b8f74a1142d4aa7262a70543d6c61b9d191bded32",
+      "hash_mode": "LF-normalized"
+    },
+    {
+      "path": "results/evidence/09_audit.json",
+      "bytes": 15001,
+      "sha256": "a3126a7da70add0db7921f9ea0ccc76072cd248e897132e5152fcc357206e913",
+      "hash_mode": "LF-normalized"
+    },
+    {
+      "path": "results/evidence/intrinsics_refined_intrinsics.json",
+      "bytes": 6855,
+      "sha256": "d75644db06dcebad86b9f15cd7cfbd006803e9c738601f0e491573397ffe9867",
+      "hash_mode": "LF-normalized"
+    },
+    {
+      "path": "results/evidence/intrinsics_REVIEW.md",
+      "bytes": 6502,
+      "sha256": "2119dd563f85b2c927e732878a1f016671d8d76807298e63cc536c8e36c2247e",
+      "hash_mode": "LF-normalized"
+    },
+    {
+      "path": "hardware/cad_review/build_review.py",
+      "bytes": 10553,
+      "sha256": "5e16dae89232d4b77eebf756e14b3c30643d73fd13c91b6cf84d119e2b871b8a",
+      "hash_mode": "LF-normalized"
+    },
+    {
+      "path": "hardware/cad_review/DAVIS240C_Scanner_Review.step",
+      "bytes": 1605864,
+      "sha256": "e92e6ed9c8f77c5d7030bd04cb7c227522ce465ef7701b8bfde6bba325a076cd",
+      "hash_mode": "bytes"
+    },
+    {
+      "path": "hardware/cad_review/README.md",
+      "bytes": 6158,
+      "sha256": "3b30e09b923878587cc65cb36089a8e1e2a9d75a30dd366c6b53e439d6d30d70",
+      "hash_mode": "LF-normalized"
+    },
+    {
+      "path": "hardware/cad_review/render_review.py",
+      "bytes": 3496,
+      "sha256": "3d50ea85209813fc555886a12893d3305cfe07c96aee80f7d615c4336b5eb79c",
+      "hash_mode": "LF-normalized"
+    },
+    {
+      "path": "hardware/cad_review/validation.json",
+      "bytes": 6634,
+      "sha256": "317c7258a3d9cbb4a74d4058912477c45b4856a76df660a5848b2aeabf040201",
+      "hash_mode": "LF-normalized"
+    },
+    {
+      "path": "report/IEEEtran.cls",
+      "bytes": 281957,
+      "sha256": "da751920a317ed318b7b5cd7fa585a6cc7d28502d457856382e9be24b10a3bd7",
+      "hash_mode": "LF-normalized"
+    },
+    {
+      "path": "report/main.tex",
+      "bytes": 29540,
+      "sha256": "c0a0d4a5d36870a30e6727ce8db31c9fc420399ebf5c2875af662616338ddf26",
+      "hash_mode": "LF-normalized"
+    },
+    {
+      "path": "report/PENDING_ACTIONS.md",
+      "bytes": 4847,
+      "sha256": "81cb3566aa35255666df0abd2d7b79a0d0e8b5dc3417809620aa689d508fea08",
+      "hash_mode": "LF-normalized"
+    },
+    {
+      "path": "report/references.bib",
+      "bytes": 2379,
+      "sha256": "5daf7583e0353f7224cd79fe28455515c86c1dc4b6f0e398e2e316c9fea8663d",
+      "hash_mode": "LF-normalized"
+    },
+    {
+      "path": "report/report_draft_20261103.pdf",
+      "bytes": 5281802,
+      "sha256": "40d02cfe3826f675b0f75833531f69ccebc94cda7eee85644566d00cf667b057",
+      "hash_mode": "bytes"
+    },
+    {
+      "path": "report/figures/assembled_rig.jpg",
+      "bytes": 1919250,
+      "sha256": "bde767fe01028be349b715d38ae10d4d2366e8270ce8731f2b55bcc7c00941ad",
+      "hash_mode": "bytes"
+    },
+    {
+      "path": "report/figures/board_compact.pdf",
+      "bytes": 13592,
+      "sha256": "1455a86237e538390fced655948cbec27233d22882f181dfd463006ecff0cef2",
+      "hash_mode": "bytes"
+    },
+    {
+      "path": "report/figures/board_comparison.png",
+      "bytes": 147085,
+      "sha256": "a106687993f95a7183463566f5f1cb1da3118ad0d579bea6c87361aa23a58456",
+      "hash_mode": "bytes"
+    },
+    {
+      "path": "report/figures/coverage.png",
+      "bytes": 222073,
+      "sha256": "4ee61603160620aabfd1f1ba6a305920feb7fa2faac2d29007615018fa0c91ca",
+      "hash_mode": "bytes"
+    },
+    {
+      "path": "report/figures/coverage_compact.pdf",
+      "bytes": 98110,
+      "sha256": "1d56df329400b9c896700baf4fb61f82a55026e23cc2d53efab9a309e71665e9",
+      "hash_mode": "bytes"
+    },
+    {
+      "path": "report/figures/dashboard.jpg",
+      "bytes": 68310,
+      "sha256": "c8aa2ec33d21ee9d3fd152b20fe9e7109bde269dfd1329fdf6148b0f6dc6ee75",
+      "hash_mode": "bytes"
+    },
+    {
+      "path": "report/figures/five_line_demonstration.png",
+      "bytes": 332792,
+      "sha256": "a14208a08c0b2320620f7902ca37c6d7b2abeb717e109264e564aa938f036ff3",
+      "hash_mode": "bytes"
+    },
+    {
+      "path": "report/figures/intrinsic_refinement.png",
+      "bytes": 68484,
+      "sha256": "15c2c5c5a0f4504d89d90ca254427b5dc36d225c4467ba688c7dc0aa13284b8c",
+      "hash_mode": "bytes"
+    },
+    {
+      "path": "report/figures/intrinsic_refinement_compact.pdf",
+      "bytes": 16713,
+      "sha256": "05f48d45a0994077a0a7e3ff1bec186f8eaf6f27eb0ab08d4c0470af80cca7eb",
+      "hash_mode": "bytes"
+    },
+    {
+      "path": "report/figures/nd_APS_pair.pdf",
+      "bytes": 27141,
+      "sha256": "6a6bb08815855a2a5181b3abb25c33a5ea907f9ce455b10fc088e21461a7bb66",
+      "hash_mode": "bytes"
+    },
+    {
+      "path": "report/figures/nd_comparison.png",
+      "bytes": 387632,
+      "sha256": "9b65c64c11cf5b010615ea8b6add7825487fbec3b094904e41502092cbd4a763",
+      "hash_mode": "bytes"
+    },
+    {
+      "path": "report/figures/nd_visual_comparison.png",
+      "bytes": 387632,
+      "sha256": "9b65c64c11cf5b010615ea8b6add7825487fbec3b094904e41502092cbd4a763",
+      "hash_mode": "bytes"
+    },
+    {
+      "path": "report/figures/paired_clouds.pdf",
+      "bytes": 342376,
+      "sha256": "4c6922bb67f1de7ea1bd1ce475a6c995b15485d38a72eed20e9bd42c95a12d9a",
+      "hash_mode": "bytes"
+    },
+    {
+      "path": "report/figures/pose_A.png",
+      "bytes": 16848,
+      "sha256": "e525fe80137cb0ab8354fa0df33669b801846a067630480d7988d718ca53fb19",
+      "hash_mode": "bytes"
+    },
+    {
+      "path": "report/figures/pose_B.png",
+      "bytes": 16249,
+      "sha256": "336042791695bf51fa0505baf3504c6c885a666d35f9c999f7eccb48aa14b657",
+      "hash_mode": "bytes"
+    },
+    {
+      "path": "report/figures/pose_C.png",
+      "bytes": 15708,
+      "sha256": "22d3b350ac2225233cad4903ba83980484d31c649dde244d01cf5a41c30396c0",
+      "hash_mode": "bytes"
+    },
+    {
+      "path": "report/figures/pose_D.png",
+      "bytes": 15170,
+      "sha256": "15c4f9dcc2c06c2838f32a8b9bc65c5f8f231941e57e45c21724a63567160549",
+      "hash_mode": "bytes"
+    },
+    {
+      "path": "report/figures/printed_mounts.jpg",
+      "bytes": 108821,
+      "sha256": "b8a8a8808068fc28dfff082a1f97f110a5943bcf502967b7947d669cff032ee9",
+      "hash_mode": "bytes"
+    },
+    {
+      "path": "report/figures/real_stripe_photo.jpg",
+      "bytes": 2106189,
+      "sha256": "76a19da8d3b52f52c52dac0c043a64167df85c668fc1f4fb5bb9322126702828",
+      "hash_mode": "bytes"
+    },
+    {
+      "path": "report/figures/repeatability.png",
+      "bytes": 151681,
+      "sha256": "ea9d0cee87a31e9493ca190de3a7c7ae656e1cb3c5ac96854fcb8ca144f03d0f",
+      "hash_mode": "bytes"
+    },
+    {
+      "path": "report/figures/repeat_compact.pdf",
+      "bytes": 13090,
+      "sha256": "90e2ec70d8d6447a0c8e0829a07850d5fb4a4b2e5a7c3b6f72263992d90936ed",
+      "hash_mode": "bytes"
+    },
+    {
+      "path": "report/figures/scanner_cad_review.png",
+      "bytes": 80387,
+      "sha256": "7fdea29c95538984ba8c7dc284a9b6d1ef5de6028c27ef72331edd2e769ad285",
+      "hash_mode": "bytes"
+    },
+    {
+      "path": "report/figures/stripe_on_shoe.jpg",
+      "bytes": 2106189,
+      "sha256": "76a19da8d3b52f52c52dac0c043a64167df85c668fc1f4fb5bb9322126702828",
+      "hash_mode": "bytes"
+    },
+    {
+      "path": "report/figures/timing.png",
+      "bytes": 92613,
+      "sha256": "ba0042b1c35d8682fb6b7492b51a1af958424db10562d370dc05f7bf0dd3393c",
+      "hash_mode": "bytes"
+    },
+    {
+      "path": "report/figures/timing_compact.pdf",
+      "bytes": 15614,
+      "sha256": "072b4d534f04b4ea7a052eb78b1c570c5b7e30271d77f83878344e63d29752a4",
+      "hash_mode": "bytes"
+    },
+    {
+      "path": "report/figures/triangulation_compact.pdf",
+      "bytes": 10887,
+      "sha256": "d58166cf30d73f7c63bccd06b32a21ae8b5d590a6dd84f815bf8c94e4a27245e",
+      "hash_mode": "bytes"
+    },
+    {
+      "path": "report/figures/triangulation_schematic.png",
+      "bytes": 1577594,
+      "sha256": "026ac565bdd2de476836c79dad6fe4da5718547c88607243978c420f667d9d00",
+      "hash_mode": "bytes"
+    }
+  ],
+  "checksum_note": "Text files use LF-normalized SHA256 to support Git Windows newline conversion; binary images/PDFs use exact bytes."
+}

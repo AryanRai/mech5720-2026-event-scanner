@@ -1,0 +1,24 @@
+.venv/
+.runtime/
+__pycache__/
+.pytest_cache/
+*.pyc
+*.nbc
+*.nbi
+tmp/
+outputs/lens_diagnostic/live_metrics.csv
+outputs/lens_diagnostic/latest.png
+outputs/live_monitor.png
+
+# Local acquisitions and authoring state; curated subsets live under examples/results/report.
+outputs/
+output/
+data/raw/
+.chart-data-*/
+examples/coverage/regenerated_key_figure/
+report/*.aux
+report/*.log
+report/*.bbl
+report/*.blg
+report/*.out
+report/main.pdf

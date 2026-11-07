@@ -1,0 +1,939 @@
+{
+  "status": "THREE_ACQUISITIONS_PER_COMMAND_STATIC_REPEATABILITY",
+  "model_sha256": "1b26e794344463ec003ec4353fc7b910eccfda4e6d30503b38f23a7337bdb9ee",
+  "session": "outputs\\static_checks\\shoe_repeat_session_20261103_02",
+  "stats": [
+    {
+      "command_us": 1569,
+      "method": "APS",
+      "independent_acquisitions": 3,
+      "rows_present_in_all_three": 81,
+      "root_mean_row_depth_sample_variance_mm": 3.776166952710303,
+      "median_row_depth_sample_sd_mm": 3.5267125206516696,
+      "root_mean_row_x_sample_variance_px": 0.6792927713635049,
+      "retained_rows_each_acquisition": [
+        84,
+        83,
+        83
+      ],
+      "support_mean": 83.33333333333333,
+      "support_sample_sd": 0.5773502691896257
+    },
+    {
+      "command_us": 1569,
+      "method": "Events",
+      "independent_acquisitions": 3,
+      "rows_present_in_all_three": 23,
+      "root_mean_row_depth_sample_variance_mm": 3.3000258640263738,
+      "median_row_depth_sample_sd_mm": 3.3224596919021745,
+      "root_mean_row_x_sample_variance_px": 0.6871591660613728,
+      "retained_rows_each_acquisition": [
+        27,
+        34,
+        33
+      ],
+      "support_mean": 31.333333333333332,
+      "support_sample_sd": 3.7859388972001824
+    },
+    {
+      "command_us": 1590,
+      "method": "APS",
+      "independent_acquisitions": 3,
+      "rows_present_in_all_three": 76,
+      "root_mean_row_depth_sample_variance_mm": 4.262775754392528,
+      "median_row_depth_sample_sd_mm": 3.5304457888386227,
+      "root_mean_row_x_sample_variance_px": 0.7507935957752765,
+      "retained_rows_each_acquisition": [
+        77,
+        76,
+        78
+      ],
+      "support_mean": 77.0,
+      "support_sample_sd": 1.0
+    },
+    {
+      "command_us": 1590,
+      "method": "Events",
+      "independent_acquisitions": 3,
+      "rows_present_in_all_three": 15,
+      "root_mean_row_depth_sample_variance_mm": 0.4501914981275074,
+      "median_row_depth_sample_sd_mm": 0.2448428700143873,
+      "root_mean_row_x_sample_variance_px": 0.09616733563152653,
+      "retained_rows_each_acquisition": [
+        23,
+        26,
+        22
+      ],
+      "support_mean": 23.666666666666668,
+      "support_sample_sd": 2.081665999466133
+    },
+    {
+      "command_us": 1602,
+      "method": "APS",
+      "independent_acquisitions": 3,
+      "rows_present_in_all_three": 77,
+      "root_mean_row_depth_sample_variance_mm": 4.320638472934666,
+      "median_row_depth_sample_sd_mm": 3.6750618510454247,
+      "root_mean_row_x_sample_variance_px": 0.6546221933500399,
+      "retained_rows_each_acquisition": [
+        82,
+        78,
+        78
+      ],
+      "support_mean": 79.33333333333333,
+      "support_sample_sd": 2.3094010767585034
+    },
+    {
+      "command_us": 1602,
+      "method": "Events",
+      "independent_acquisitions": 3,
+      "rows_present_in_all_three": 17,
+      "root_mean_row_depth_sample_variance_mm": 3.359250909565233,
+      "median_row_depth_sample_sd_mm": 3.0202637899851674,
+      "root_mean_row_x_sample_variance_px": 0.6380817049782066,
+      "retained_rows_each_acquisition": [
+        21,
+        20,
+        21
+      ],
+      "support_mean": 20.666666666666668,
+      "support_sample_sd": 0.5773502691896258
+    },
+    {
+      "command_us": 1626,
+      "method": "APS",
+      "independent_acquisitions": 3,
+      "rows_present_in_all_three": 79,
+      "root_mean_row_depth_sample_variance_mm": 0.20598643757488042,
+      "median_row_depth_sample_sd_mm": 0.037364097691736195,
+      "root_mean_row_x_sample_variance_px": 0.03517647566187957,
+      "retained_rows_each_acquisition": [
+        79,
+        79,
+        79
+      ],
+      "support_mean": 79.0,
+      "support_sample_sd": 0.0
+    },
+    {
+      "command_us": 1626,
+      "method": "Events",
+      "independent_acquisitions": 3,
+      "rows_present_in_all_three": 9,
+      "root_mean_row_depth_sample_variance_mm": 0.6039830617776313,
+      "median_row_depth_sample_sd_mm": 0.21518855747915303,
+      "root_mean_row_x_sample_variance_px": 0.13534731524571614,
+      "retained_rows_each_acquisition": [
+        19,
+        15,
+        16
+      ],
+      "support_mean": 16.666666666666668,
+      "support_sample_sd": 2.081665999466133
+    },
+    {
+      "command_us": 1647,
+      "method": "APS",
+      "independent_acquisitions": 3,
+      "rows_present_in_all_three": 77,
+      "root_mean_row_depth_sample_variance_mm": 0.8523817499433086,
+      "median_row_depth_sample_sd_mm": 0.667536298290057,
+      "root_mean_row_x_sample_variance_px": 0.09695889427156719,
+      "retained_rows_each_acquisition": [
+        78,
+        79,
+        78
+      ],
+      "support_mean": 78.33333333333333,
+      "support_sample_sd": 0.5773502691896257
+    },
+    {
+      "command_us": 1647,
+      "method": "Events",
+      "independent_acquisitions": 3,
+      "rows_present_in_all_three": 9,
+      "root_mean_row_depth_sample_variance_mm": 1.0669956750017724,
+      "median_row_depth_sample_sd_mm": 0.4740793963678729,
+      "root_mean_row_x_sample_variance_px": 0.18569491971790528,
+      "retained_rows_each_acquisition": [
+        12,
+        13,
+        16
+      ],
+      "support_mean": 13.666666666666666,
+      "support_sample_sd": 2.081665999466133
+    }
+  ],
+  "matched_support_stats": [
+    {
+      "command_us": 1569,
+      "common_rows_both_methods_all_three": 21,
+      "APS_depth_repeatability_mm": 3.1997666080547695,
+      "Events_depth_repeatability_mm": 3.3205930674842437
+    },
+    {
+      "command_us": 1590,
+      "common_rows_both_methods_all_three": 14,
+      "APS_depth_repeatability_mm": 3.039501583745104,
+      "Events_depth_repeatability_mm": 0.4632397517941893
+    },
+    {
+      "command_us": 1602,
+      "common_rows_both_methods_all_three": 16,
+      "APS_depth_repeatability_mm": 3.5269574523450924,
+      "Events_depth_repeatability_mm": 3.3942603149505155
+    },
+    {
+      "command_us": 1626,
+      "common_rows_both_methods_all_three": 8,
+      "APS_depth_repeatability_mm": 0.03140469294763624,
+      "Events_depth_repeatability_mm": 0.6405690960361834
+    },
+    {
+      "command_us": 1647,
+      "common_rows_both_methods_all_three": 8,
+      "APS_depth_repeatability_mm": 0.6816010910290669,
+      "Events_depth_repeatability_mm": 1.126876472395322
+    }
+  ],
+  "observations": [
+    {
+      "run_id": "shoe_repeat_r1_1569_20261103_02",
+      "repeat": 1,
+      "command_us": 1569,
+      "returncode": 0,
+      "raw_sha256": "9965ad68476d3c5f1f8d35742981efae91cb55a5dc81b1e68cf6ccc31dc01096",
+      "pair": {
+        "on_relative_s": 3.825,
+        "off_relative_s": 4.825,
+        "on_25ms_count": 1114.0,
+        "off_25ms_count": 590.0,
+        "median_on_25ms_count": 19.0,
+        "median_off_25ms_count": 3.0,
+        "method": "Max product of ON and OFF 25ms counts exactly1s apart; ON search starts2s after recording start; ROI rows20..105. Exploratory pair, not verified physical timing."
+      },
+      "feedback_warning": false,
+      "support": {
+        "APS": 84,
+        "Events": 27
+      },
+      "training_depth_range_check": {
+        "APS": {
+          "training_Z_range_mm": [
+            343.47370185207967,
+            427.08621493875694
+          ],
+          "outside_count": 16,
+          "reconstructed_Z_range_mm": [
+            381.73388531220485,
+            479.39983670236677
+          ],
+          "interpretation": "Model-derived range membership, not accuracy; no points deleted"
+        },
+        "Events": {
+          "training_Z_range_mm": [
+            343.47370185207967,
+            427.08621493875694
+          ],
+          "outside_count": 0,
+          "reconstructed_Z_range_mm": [
+            381.51479454896554,
+            388.930648128169
+          ],
+          "interpretation": "Model-derived range membership, not accuracy; no points deleted"
+        }
+      }
+    },
+    {
+      "run_id": "shoe_repeat_r1_1590_20261103_02",
+      "repeat": 1,
+      "command_us": 1590,
+      "returncode": 0,
+      "raw_sha256": "bc422a8579c17da08848417ae6c51cd8b90caa4c38647005d9dff6e6bdcb6b1d",
+      "pair": {
+        "on_relative_s": 3.9,
+        "off_relative_s": 4.9,
+        "on_25ms_count": 1340.0,
+        "off_25ms_count": 611.0,
+        "median_on_25ms_count": 20.0,
+        "median_off_25ms_count": 3.0,
+        "method": "Max product of ON and OFF 25ms counts exactly1s apart; ON search starts2s after recording start; ROI rows20..105. Exploratory pair, not verified physical timing."
+      },
+      "feedback_warning": false,
+      "support": {
+        "APS": 77,
+        "Events": 23
+      },
+      "training_depth_range_check": {
+        "APS": {
+          "training_Z_range_mm": [
+            346.1106068832763,
+            422.8194617559963
+          ],
+          "outside_count": 22,
+          "reconstructed_Z_range_mm": [
+            374.4648861940278,
+            470.2294940434903
+          ],
+          "interpretation": "Model-derived range membership, not accuracy; no points deleted"
+        },
+        "Events": {
+          "training_Z_range_mm": [
+            346.1106068832763,
+            422.8194617559963
+          ],
+          "outside_count": 0,
+          "reconstructed_Z_range_mm": [
+            373.69430924453997,
+            378.7465604375487
+          ],
+          "interpretation": "Model-derived range membership, not accuracy; no points deleted"
+        }
+      }
+    },
+    {
+      "run_id": "shoe_repeat_r1_1602_20261103_02",
+      "repeat": 1,
+      "command_us": 1602,
+      "returncode": 0,
+      "raw_sha256": "169b22e23773b0231aca9f8347f1eaa941ef981b7f3c05f765705914dea08cde",
+      "pair": {
+        "on_relative_s": 3.835,
+        "off_relative_s": 4.835,
+        "on_25ms_count": 1134.0,
+        "off_25ms_count": 520.0,
+        "median_on_25ms_count": 20.0,
+        "median_off_25ms_count": 3.0,
+        "method": "Max product of ON and OFF 25ms counts exactly1s apart; ON search starts2s after recording start; ROI rows20..105. Exploratory pair, not verified physical timing."
+      },
+      "feedback_warning": false,
+      "support": {
+        "APS": 82,
+        "Events": 21
+      },
+      "training_depth_range_check": {
+        "APS": {
+          "training_Z_range_mm": [
+            347.5129962360558,
+            418.7026083132893
+          ],
+          "outside_count": 33,
+          "reconstructed_Z_range_mm": [
+            375.0103000021338,
+            483.79536877624395
+          ],
+          "interpretation": "Model-derived range membership, not accuracy; no points deleted"
+        },
+        "Events": {
+          "training_Z_range_mm": [
+            347.5129962360558,
+            418.7026083132893
+          ],
+          "outside_count": 0,
+          "reconstructed_Z_range_mm": [
+            374.5087211478807,
+            381.47625610128335
+          ],
+          "interpretation": "Model-derived range membership, not accuracy; no points deleted"
+        }
+      }
+    },
+    {
+      "run_id": "shoe_repeat_r1_1647_20261103_02",
+      "repeat": 1,
+      "command_us": 1647,
+      "returncode": 0,
+      "raw_sha256": "11080f0b9ce498f8b44b5db9358a6fa930652266dd1b72ee46431fdc833fb7af",
+      "pair": {
+        "on_relative_s": 3.84,
+        "off_relative_s": 4.84,
+        "on_25ms_count": 1299.0,
+        "off_25ms_count": 574.0,
+        "median_on_25ms_count": 19.0,
+        "median_off_25ms_count": 3.0,
+        "method": "Max product of ON and OFF 25ms counts exactly1s apart; ON search starts2s after recording start; ROI rows20..105. Exploratory pair, not verified physical timing."
+      },
+      "feedback_warning": true,
+      "support": {
+        "APS": 78,
+        "Events": 12
+      },
+      "training_depth_range_check": {
+        "APS": {
+          "training_Z_range_mm": [
+            354.86167508676687,
+            409.7182856690098
+          ],
+          "outside_count": 50,
+          "reconstructed_Z_range_mm": [
+            376.5645286452424,
+            500.4593507850501
+          ],
+          "interpretation": "Model-derived range membership, not accuracy; no points deleted"
+        },
+        "Events": {
+          "training_Z_range_mm": [
+            354.86167508676687,
+            409.7182856690098
+          ],
+          "outside_count": 0,
+          "reconstructed_Z_range_mm": [
+            373.62022936011806,
+            379.5909800597125
+          ],
+          "interpretation": "Model-derived range membership, not accuracy; no points deleted"
+        }
+      }
+    },
+    {
+      "run_id": "shoe_repeat_r2_1569_20261103_02",
+      "repeat": 2,
+      "command_us": 1569,
+      "returncode": 0,
+      "raw_sha256": "9507be861b6f7d3d4f8ad3eac22b3e293ea61edad8432e56f6546b7747b31a96",
+      "pair": {
+        "on_relative_s": 3.9,
+        "off_relative_s": 4.9,
+        "on_25ms_count": 1078.0,
+        "off_25ms_count": 705.0,
+        "median_on_25ms_count": 20.0,
+        "median_off_25ms_count": 3.0,
+        "method": "Max product of ON and OFF 25ms counts exactly1s apart; ON search starts2s after recording start; ROI rows20..105. Exploratory pair, not verified physical timing."
+      },
+      "feedback_warning": false,
+      "support": {
+        "APS": 83,
+        "Events": 34
+      },
+      "training_depth_range_check": {
+        "APS": {
+          "training_Z_range_mm": [
+            343.47370185207967,
+            427.08621493875694
+          ],
+          "outside_count": 15,
+          "reconstructed_Z_range_mm": [
+            380.67751919187566,
+            477.22674418240996
+          ],
+          "interpretation": "Model-derived range membership, not accuracy; no points deleted"
+        },
+        "Events": {
+          "training_Z_range_mm": [
+            343.47370185207967,
+            427.08621493875694
+          ],
+          "outside_count": 0,
+          "reconstructed_Z_range_mm": [
+            379.4261891591989,
+            398.7637360085218
+          ],
+          "interpretation": "Model-derived range membership, not accuracy; no points deleted"
+        }
+      }
+    },
+    {
+      "run_id": "shoe_repeat_r2_1590_20261103_02",
+      "repeat": 2,
+      "command_us": 1590,
+      "returncode": 0,
+      "raw_sha256": "47a41aa16d0c5884e2b2066a83d7fa5574debb64c66a710c9aa195584ddabd09",
+      "pair": {
+        "on_relative_s": 3.91,
+        "off_relative_s": 4.91,
+        "on_25ms_count": 977.0,
+        "off_25ms_count": 666.0,
+        "median_on_25ms_count": 19.0,
+        "median_off_25ms_count": 3.0,
+        "method": "Max product of ON and OFF 25ms counts exactly1s apart; ON search starts2s after recording start; ROI rows20..105. Exploratory pair, not verified physical timing."
+      },
+      "feedback_warning": false,
+      "support": {
+        "APS": 76,
+        "Events": 26
+      },
+      "training_depth_range_check": {
+        "APS": {
+          "training_Z_range_mm": [
+            346.1106068832763,
+            422.8194617559963
+          ],
+          "outside_count": 21,
+          "reconstructed_Z_range_mm": [
+            374.3532916011372,
+            470.1977968558631
+          ],
+          "interpretation": "Model-derived range membership, not accuracy; no points deleted"
+        },
+        "Events": {
+          "training_Z_range_mm": [
+            346.1106068832763,
+            422.8194617559963
+          ],
+          "outside_count": 0,
+          "reconstructed_Z_range_mm": [
+            373.69430924453997,
+            378.62483748384415
+          ],
+          "interpretation": "Model-derived range membership, not accuracy; no points deleted"
+        }
+      }
+    },
+    {
+      "run_id": "shoe_repeat_r2_1602_20261103_02",
+      "repeat": 2,
+      "command_us": 1602,
+      "returncode": 0,
+      "raw_sha256": "0711f7c9449e4d7509449336f5bf06336d972f2095e3cb49af4892bd7ec6a066",
+      "pair": {
+        "on_relative_s": 3.91,
+        "off_relative_s": 4.91,
+        "on_25ms_count": 1142.0,
+        "off_25ms_count": 560.0,
+        "median_on_25ms_count": 20.0,
+        "median_off_25ms_count": 3.0,
+        "method": "Max product of ON and OFF 25ms counts exactly1s apart; ON search starts2s after recording start; ROI rows20..105. Exploratory pair, not verified physical timing."
+      },
+      "feedback_warning": false,
+      "support": {
+        "APS": 78,
+        "Events": 20
+      },
+      "training_depth_range_check": {
+        "APS": {
+          "training_Z_range_mm": [
+            347.5129962360558,
+            418.7026083132893
+          ],
+          "outside_count": 31,
+          "reconstructed_Z_range_mm": [
+            382.6072925356848,
+            495.0288905230376
+          ],
+          "interpretation": "Model-derived range membership, not accuracy; no points deleted"
+        },
+        "Events": {
+          "training_Z_range_mm": [
+            347.5129962360558,
+            418.7026083132893
+          ],
+          "outside_count": 0,
+          "reconstructed_Z_range_mm": [
+            381.52397875181776,
+            388.57225186461545
+          ],
+          "interpretation": "Model-derived range membership, not accuracy; no points deleted"
+        }
+      }
+    },
+    {
+      "run_id": "shoe_repeat_r2_1647_20261103_02",
+      "repeat": 2,
+      "command_us": 1647,
+      "returncode": 0,
+      "raw_sha256": "311b5819ce42020df9362d681ce5fd087a01f57fb68fbb6cb020e06571bcce7d",
+      "pair": {
+        "on_relative_s": 3.99,
+        "off_relative_s": 4.99,
+        "on_25ms_count": 1325.0,
+        "off_25ms_count": 553.0,
+        "median_on_25ms_count": 21.0,
+        "median_off_25ms_count": 3.0,
+        "method": "Max product of ON and OFF 25ms counts exactly1s apart; ON search starts2s after recording start; ROI rows20..105. Exploratory pair, not verified physical timing."
+      },
+      "feedback_warning": false,
+      "support": {
+        "APS": 79,
+        "Events": 13
+      },
+      "training_depth_range_check": {
+        "APS": {
+          "training_Z_range_mm": [
+            354.86167508676687,
+            409.7182856690098
+          ],
+          "outside_count": 51,
+          "reconstructed_Z_range_mm": [
+            376.3109944163425,
+            497.58117811515393
+          ],
+          "interpretation": "Model-derived range membership, not accuracy; no points deleted"
+        },
+        "Events": {
+          "training_Z_range_mm": [
+            354.86167508676687,
+            409.7182856690098
+          ],
+          "outside_count": 0,
+          "reconstructed_Z_range_mm": [
+            374.13261572395123,
+            388.17754401269667
+          ],
+          "interpretation": "Model-derived range membership, not accuracy; no points deleted"
+        }
+      }
+    },
+    {
+      "run_id": "shoe_repeat_r3_1569_20261103_02",
+      "repeat": 3,
+      "command_us": 1569,
+      "returncode": 0,
+      "raw_sha256": "0b74e1826dce87e6cd4499672e752f16454b7dd9e07e236894462af16806d7b7",
+      "pair": {
+        "on_relative_s": 3.92,
+        "off_relative_s": 4.92,
+        "on_25ms_count": 1580.0,
+        "off_25ms_count": 625.0,
+        "median_on_25ms_count": 19.0,
+        "median_off_25ms_count": 3.0,
+        "method": "Max product of ON and OFF 25ms counts exactly1s apart; ON search starts2s after recording start; ROI rows20..105. Exploratory pair, not verified physical timing."
+      },
+      "feedback_warning": false,
+      "support": {
+        "APS": 83,
+        "Events": 33
+      },
+      "training_depth_range_check": {
+        "APS": {
+          "training_Z_range_mm": [
+            343.47370185207967,
+            427.08621493875694
+          ],
+          "outside_count": 16,
+          "reconstructed_Z_range_mm": [
+            386.48386961571566,
+            486.8474264582314
+          ],
+          "interpretation": "Model-derived range membership, not accuracy; no points deleted"
+        },
+        "Events": {
+          "training_Z_range_mm": [
+            343.47370185207967,
+            427.08621493875694
+          ],
+          "outside_count": 0,
+          "reconstructed_Z_range_mm": [
+            385.94462562868625,
+            393.08514060751185
+          ],
+          "interpretation": "Model-derived range membership, not accuracy; no points deleted"
+        }
+      }
+    },
+    {
+      "run_id": "shoe_repeat_r3_1590_20261103_02",
+      "repeat": 3,
+      "command_us": 1590,
+      "returncode": 0,
+      "raw_sha256": "eb525d4e8db06abeaf406d9c07ee6fba4e5f66a4615028d7f616d23fd2c03ef8",
+      "pair": {
+        "on_relative_s": 3.955,
+        "off_relative_s": 4.955,
+        "on_25ms_count": 1318.0,
+        "off_25ms_count": 599.0,
+        "median_on_25ms_count": 19.0,
+        "median_off_25ms_count": 3.0,
+        "method": "Max product of ON and OFF 25ms counts exactly1s apart; ON search starts2s after recording start; ROI rows20..105. Exploratory pair, not verified physical timing."
+      },
+      "feedback_warning": false,
+      "support": {
+        "APS": 78,
+        "Events": 22
+      },
+      "training_depth_range_check": {
+        "APS": {
+          "training_Z_range_mm": [
+            346.1106068832763,
+            422.8194617559963
+          ],
+          "outside_count": 26,
+          "reconstructed_Z_range_mm": [
+            375.87153571233983,
+            478.60782533367035
+          ],
+          "interpretation": "Model-derived range membership, not accuracy; no points deleted"
+        },
+        "Events": {
+          "training_Z_range_mm": [
+            346.1106068832763,
+            422.8194617559963
+          ],
+          "outside_count": 0,
+          "reconstructed_Z_range_mm": [
+            373.36654029633917,
+            379.994806158051
+          ],
+          "interpretation": "Model-derived range membership, not accuracy; no points deleted"
+        }
+      }
+    },
+    {
+      "run_id": "shoe_repeat_r3_1602_20261103_02",
+      "repeat": 3,
+      "command_us": 1602,
+      "returncode": 0,
+      "raw_sha256": "99a1498dd9349e5095aa77030bbdbafaa97cc2d28cf692c66a092310195471e1",
+      "pair": {
+        "on_relative_s": 4.265,
+        "off_relative_s": 5.265,
+        "on_25ms_count": 1380.0,
+        "off_25ms_count": 570.0,
+        "median_on_25ms_count": 19.0,
+        "median_off_25ms_count": 3.0,
+        "method": "Max product of ON and OFF 25ms counts exactly1s apart; ON search starts2s after recording start; ROI rows20..105. Exploratory pair, not verified physical timing."
+      },
+      "feedback_warning": false,
+      "support": {
+        "APS": 78,
+        "Events": 21
+      },
+      "training_depth_range_check": {
+        "APS": {
+          "training_Z_range_mm": [
+            347.5129962360558,
+            418.7026083132893
+          ],
+          "outside_count": 31,
+          "reconstructed_Z_range_mm": [
+            382.38967175785615,
+            494.6589087074816
+          ],
+          "interpretation": "Model-derived range membership, not accuracy; no points deleted"
+        },
+        "Events": {
+          "training_Z_range_mm": [
+            347.5129962360558,
+            418.7026083132893
+          ],
+          "outside_count": 0,
+          "reconstructed_Z_range_mm": [
+            381.52397875181776,
+            386.95334851770394
+          ],
+          "interpretation": "Model-derived range membership, not accuracy; no points deleted"
+        }
+      }
+    },
+    {
+      "run_id": "shoe_repeat_r3_1647_20261103_02",
+      "repeat": 3,
+      "command_us": 1647,
+      "returncode": 0,
+      "raw_sha256": "e4f89c760bc95b0cccbabc9e72a9794b9b6d711291b01900bb6750d74911d0a6",
+      "pair": {
+        "on_relative_s": 3.985,
+        "off_relative_s": 4.985,
+        "on_25ms_count": 1092.0,
+        "off_25ms_count": 556.0,
+        "median_on_25ms_count": 20.0,
+        "median_off_25ms_count": 3.0,
+        "method": "Max product of ON and OFF 25ms counts exactly1s apart; ON search starts2s after recording start; ROI rows20..105. Exploratory pair, not verified physical timing."
+      },
+      "feedback_warning": false,
+      "support": {
+        "APS": 78,
+        "Events": 16
+      },
+      "training_depth_range_check": {
+        "APS": {
+          "training_Z_range_mm": [
+            354.86167508676687,
+            409.7182856690098
+          ],
+          "outside_count": 51,
+          "reconstructed_Z_range_mm": [
+            375.78866023033004,
+            496.94102187950597
+          ],
+          "interpretation": "Model-derived range membership, not accuracy; no points deleted"
+        },
+        "Events": {
+          "training_Z_range_mm": [
+            354.86167508676687,
+            409.7182856690098
+          ],
+          "outside_count": 0,
+          "reconstructed_Z_range_mm": [
+            368.63001658901686,
+            388.17754401269667
+          ],
+          "interpretation": "Model-derived range membership, not accuracy; no points deleted"
+        }
+      }
+    },
+    {
+      "run_id": "shoe_repeat_r1_1626_20261103_02",
+      "repeat": 1,
+      "command_us": 1626,
+      "returncode": 0,
+      "corrects_unfitted_command": 1627,
+      "raw_sha256": "886eba434caf3cbb5b73b1e52cc85bf8ae8bc29ded86504c9a29ead2e2b107e9",
+      "pair": {
+        "on_relative_s": 4.03,
+        "off_relative_s": 5.03,
+        "on_25ms_count": 885.0,
+        "off_25ms_count": 604.0,
+        "median_on_25ms_count": 19.0,
+        "median_off_25ms_count": 3.0,
+        "method": "Max product of ON and OFF 25ms counts exactly1s apart; ON search starts2s after recording start; ROI rows20..105. Exploratory pair, not verified physical timing."
+      },
+      "feedback_warning": false,
+      "support": {
+        "APS": 79,
+        "Events": 19
+      },
+      "training_depth_range_check": {
+        "APS": {
+          "training_Z_range_mm": [
+            350.57411177358273,
+            413.37217375946193
+          ],
+          "outside_count": 47,
+          "reconstructed_Z_range_mm": [
+            384.35477347196615,
+            473.7781244962015
+          ],
+          "interpretation": "Model-derived range membership, not accuracy; no points deleted"
+        },
+        "Events": {
+          "training_Z_range_mm": [
+            350.57411177358273,
+            413.37217375946193
+          ],
+          "outside_count": 0,
+          "reconstructed_Z_range_mm": [
+            383.50879303798854,
+            388.97284811835266
+          ],
+          "interpretation": "Model-derived range membership, not accuracy; no points deleted"
+        }
+      }
+    },
+    {
+      "run_id": "shoe_repeat_r2_1626_20261103_02",
+      "repeat": 2,
+      "command_us": 1626,
+      "returncode": 0,
+      "corrects_unfitted_command": 1627,
+      "raw_sha256": "10d6f3dbccf1855b6452dbe4ecee5822af970d757a6396a48908254d4bfee13a",
+      "pair": {
+        "on_relative_s": 3.93,
+        "off_relative_s": 4.93,
+        "on_25ms_count": 1346.0,
+        "off_25ms_count": 533.0,
+        "median_on_25ms_count": 19.0,
+        "median_off_25ms_count": 3.0,
+        "method": "Max product of ON and OFF 25ms counts exactly1s apart; ON search starts2s after recording start; ROI rows20..105. Exploratory pair, not verified physical timing."
+      },
+      "feedback_warning": false,
+      "support": {
+        "APS": 79,
+        "Events": 15
+      },
+      "training_depth_range_check": {
+        "APS": {
+          "training_Z_range_mm": [
+            350.57411177358273,
+            413.37217375946193
+          ],
+          "outside_count": 47,
+          "reconstructed_Z_range_mm": [
+            384.35477347196615,
+            473.73960113261643
+          ],
+          "interpretation": "Model-derived range membership, not accuracy; no points deleted"
+        },
+        "Events": {
+          "training_Z_range_mm": [
+            350.57411177358273,
+            413.37217375946193
+          ],
+          "outside_count": 0,
+          "reconstructed_Z_range_mm": [
+            383.5486571517614,
+            389.07930413076537
+          ],
+          "interpretation": "Model-derived range membership, not accuracy; no points deleted"
+        }
+      }
+    },
+    {
+      "run_id": "shoe_repeat_r3_1626_20261103_02",
+      "repeat": 3,
+      "command_us": 1626,
+      "returncode": 0,
+      "corrects_unfitted_command": 1627,
+      "raw_sha256": "49426842664cd240429322afa305b300f4360cc1f287dc8ed99d25cadf6e6ec4",
+      "pair": {
+        "on_relative_s": 4.035,
+        "off_relative_s": 5.035,
+        "on_25ms_count": 939.0,
+        "off_25ms_count": 629.0,
+        "median_on_25ms_count": 19.0,
+        "median_off_25ms_count": 3.0,
+        "method": "Max product of ON and OFF 25ms counts exactly1s apart; ON search starts2s after recording start; ROI rows20..105. Exploratory pair, not verified physical timing."
+      },
+      "feedback_warning": false,
+      "support": {
+        "APS": 79,
+        "Events": 16
+      },
+      "training_depth_range_check": {
+        "APS": {
+          "training_Z_range_mm": [
+            350.57411177358273,
+            413.37217375946193
+          ],
+          "outside_count": 47,
+          "reconstructed_Z_range_mm": [
+            384.35477347196615,
+            473.9037534158919
+          ],
+          "interpretation": "Model-derived range membership, not accuracy; no points deleted"
+        },
+        "Events": {
+          "training_Z_range_mm": [
+            350.57411177358273,
+            413.37217375946193
+          ],
+          "outside_count": 0,
+          "reconstructed_Z_range_mm": [
+            383.50879303798854,
+            394.15413095944865
+          ],
+          "interpretation": "Model-derived range membership, not accuracy; no points deleted"
+        }
+      }
+    }
+  ],
+  "retained_unfitted_records_excluded_from_depth": [
+    {
+      "run_id": "shoe_repeat_r1_1627_20261103_02",
+      "repeat": 1,
+      "command_us": 1627,
+      "returncode": 0
+    },
+    {
+      "run_id": "shoe_repeat_r2_1627_20261103_02",
+      "repeat": 2,
+      "command_us": 1627,
+      "returncode": 0
+    },
+    {
+      "run_id": "shoe_repeat_r3_1627_20261103_02",
+      "repeat": 3,
+      "command_us": 1627,
+      "returncode": 0
+    }
+  ],
+  "command_correction": "Initial1627 had no fitted plane; preserved and excluded. Three additional1626 acquisitions used instead. No interpolation.",
+  "reference_stability": {
+    "phase_correlation_shift_xy_px": [
+      -0.024228643518370063,
+      0.03149719577670851
+    ],
+    "response": 0.9995401477813721,
+    "alignment_applied": false
+  },
+  "limitations": "Three new acquisitions at each of five commands, same stationary shoe placement; no registration, refitting or bias correction. Object was moved BEFORE this session; old shoe data excluded from repeatability. Same image row across repeats identifies a sampling ray, not independently tracked physical material. Depth variation includes servo, stripe detector and scene effects. Fixed command planes retain known calibration errors. Row SD uses n=3 acquisitions and ddof1; many correlated rows are not extra repeats. Common-row selection can favour reliably detectable areas; report support counts too. Events use two50ms transition windows; APS pools selected lit35ms frames, so this is not equal integration-time, speed, latency or photon-budget comparison. The image-row ROI includes possible background/target crossings after shoe repositioning; interpret as scene-stripe repeatability, not isolated shoe accuracy. Some model-derived APS depths fall outside training ranges; counts retained and reported, no depth filtering. No independent absolute accuracy or full-surface completeness. Temporal scene stability diagnostic is not rigid-body proof."
+}

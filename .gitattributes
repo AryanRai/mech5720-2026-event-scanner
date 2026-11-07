@@ -1,0 +1,4 @@
+# Preserve exported CAD exactly and avoid a 65000-line generated geometry diff.
+*.step binary
+# Supplied third-party class is retained unchanged.
+report/IEEEtran.cls -diff

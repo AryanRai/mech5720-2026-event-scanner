@@ -1,0 +1,1562 @@
+{
+  "status": "EXPLORATORY_STATIC_EVENT_APS_COMPARISON",
+  "model": "outputs\\calibration\\dense_planes_ABC_20261103_01\\planes.json",
+  "model_sha256": "1b26e794344463ec003ec4353fc7b910eccfda4e6d30503b38f23a7337bdb9ee",
+  "primary_window_ms": 50,
+  "summary": [
+    {
+      "window_ms": 20,
+      "points": 359,
+      "contributing_positions": 20,
+      "shared_aps_rows": 343,
+      "pixel_disagreement_rms": 0.30998590895230194,
+      "depth_disagreement_rms_mm": 1.505606454861771,
+      "dark_control_candidate_rows": 0,
+      "dark_control_row_opportunities": 3440
+    },
+    {
+      "window_ms": 50,
+      "points": 494,
+      "contributing_positions": 20,
+      "shared_aps_rows": 455,
+      "pixel_disagreement_rms": 0.3384974202667386,
+      "depth_disagreement_rms_mm": 1.6496639824203294,
+      "dark_control_candidate_rows": 0,
+      "dark_control_row_opportunities": 3440
+    },
+    {
+      "window_ms": 100,
+      "points": 532,
+      "contributing_positions": 20,
+      "shared_aps_rows": 489,
+      "pixel_disagreement_rms": 0.3479606453475419,
+      "depth_disagreement_rms_mm": 1.6689871981085798,
+      "dark_control_candidate_rows": 0,
+      "dark_control_row_opportunities": 3440
+    }
+  ],
+  "observations": [
+    {
+      "command_us": 1569,
+      "run_id": "shoe_further2_1569_20261103_01",
+      "raw": "data\\raw\\shoe_further2_1569_20261103_01.aedat4",
+      "sha256": "ef4eec7a1978f149f518d0a702abfb15ac1d0e716bb21706b1a245f7b1a0d95f",
+      "feedback_warning": false,
+      "pair": {
+        "on_relative_s": 3.805,
+        "off_relative_s": 4.805,
+        "on_25ms_count": 1189.0,
+        "off_25ms_count": 499.0,
+        "median_on_25ms_count": 30.0,
+        "median_off_25ms_count": 5.0,
+        "method": "Max product of ON and OFF 25ms counts exactly1s apart; ON search starts2s after recording start; ROI rows20..105. Exploratory pair, not verified physical timing."
+      },
+      "aps_rows": 68,
+      "windows": [
+        {
+          "window_ms": 20,
+          "on_rows": 58,
+          "off_rows": 11,
+          "corroborated_rows": 11,
+          "shared_aps_rows": 11,
+          "pixel_disagreement_rms": 0.20523547669105144,
+          "depth_disagreement_rms_mm": 0.921431962848873,
+          "laser_off_temporal_controls": [
+            {
+              "name": "pre_dark",
+              "corroborated_rows": 0
+            },
+            {
+              "name": "post_dark",
+              "corroborated_rows": 0
+            }
+          ]
+        },
+        {
+          "window_ms": 50,
+          "on_rows": 60,
+          "off_rows": 32,
+          "corroborated_rows": 32,
+          "shared_aps_rows": 32,
+          "pixel_disagreement_rms": 0.21363500214145584,
+          "depth_disagreement_rms_mm": 0.984156454204629,
+          "laser_off_temporal_controls": [
+            {
+              "name": "pre_dark",
+              "corroborated_rows": 0
+            },
+            {
+              "name": "post_dark",
+              "corroborated_rows": 0
+            }
+          ]
+        },
+        {
+          "window_ms": 100,
+          "on_rows": 62,
+          "off_rows": 36,
+          "corroborated_rows": 36,
+          "shared_aps_rows": 36,
+          "pixel_disagreement_rms": 0.21506854593527966,
+          "depth_disagreement_rms_mm": 1.0241642949072238,
+          "laser_off_temporal_controls": [
+            {
+              "name": "pre_dark",
+              "corroborated_rows": 0
+            },
+            {
+              "name": "post_dark",
+              "corroborated_rows": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "command_us": 1573,
+      "run_id": "shoe_further2_1573_20261103_01",
+      "raw": "data\\raw\\shoe_further2_1573_20261103_01.aedat4",
+      "sha256": "5d883dc9aaee92bcc10e0d753c468766cae360c31cb6006a7c45d0cb65e8eda0",
+      "feedback_warning": true,
+      "pair": {
+        "on_relative_s": 3.895,
+        "off_relative_s": 4.8950000000000005,
+        "on_25ms_count": 1545.0,
+        "off_25ms_count": 584.0,
+        "median_on_25ms_count": 28.0,
+        "median_off_25ms_count": 5.0,
+        "method": "Max product of ON and OFF 25ms counts exactly1s apart; ON search starts2s after recording start; ROI rows20..105. Exploratory pair, not verified physical timing."
+      },
+      "aps_rows": 67,
+      "windows": [
+        {
+          "window_ms": 20,
+          "on_rows": 53,
+          "off_rows": 27,
+          "corroborated_rows": 27,
+          "shared_aps_rows": 27,
+          "pixel_disagreement_rms": 0.2449760087313159,
+          "depth_disagreement_rms_mm": 1.4152546613535726,
+          "laser_off_temporal_controls": [
+            {
+              "name": "pre_dark",
+              "corroborated_rows": 0
+            },
+            {
+              "name": "post_dark",
+              "corroborated_rows": 0
+            }
+          ]
+        },
+        {
+          "window_ms": 50,
+          "on_rows": 61,
+          "off_rows": 30,
+          "corroborated_rows": 30,
+          "shared_aps_rows": 30,
+          "pixel_disagreement_rms": 0.20500375338843654,
+          "depth_disagreement_rms_mm": 1.1776498295703002,
+          "laser_off_temporal_controls": [
+            {
+              "name": "pre_dark",
+              "corroborated_rows": 0
+            },
+            {
+              "name": "post_dark",
+              "corroborated_rows": 0
+            }
+          ]
+        },
+        {
+          "window_ms": 100,
+          "on_rows": 61,
+          "off_rows": 30,
+          "corroborated_rows": 30,
+          "shared_aps_rows": 30,
+          "pixel_disagreement_rms": 0.2053904862047808,
+          "depth_disagreement_rms_mm": 1.1798457985990132,
+          "laser_off_temporal_controls": [
+            {
+              "name": "pre_dark",
+              "corroborated_rows": 0
+            },
+            {
+              "name": "post_dark",
+              "corroborated_rows": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "command_us": 1577,
+      "run_id": "shoe_further2_1577_20261103_01",
+      "raw": "data\\raw\\shoe_further2_1577_20261103_01.aedat4",
+      "sha256": "bf850028ad8d3ffdafdefed43f01e30607a471d83dd960d58480131cb36e5687",
+      "feedback_warning": true,
+      "pair": {
+        "on_relative_s": 4.305,
+        "off_relative_s": 5.305,
+        "on_25ms_count": 1567.0,
+        "off_25ms_count": 633.0,
+        "median_on_25ms_count": 30.0,
+        "median_off_25ms_count": 6.0,
+        "method": "Max product of ON and OFF 25ms counts exactly1s apart; ON search starts2s after recording start; ROI rows20..105. Exploratory pair, not verified physical timing."
+      },
+      "aps_rows": 64,
+      "windows": [
+        {
+          "window_ms": 20,
+          "on_rows": 58,
+          "off_rows": 10,
+          "corroborated_rows": 10,
+          "shared_aps_rows": 10,
+          "pixel_disagreement_rms": 0.8262897038593625,
+          "depth_disagreement_rms_mm": 4.483671676543814,
+          "laser_off_temporal_controls": [
+            {
+              "name": "pre_dark",
+              "corroborated_rows": 0
+            },
+            {
+              "name": "post_dark",
+              "corroborated_rows": 0
+            }
+          ]
+        },
+        {
+          "window_ms": 50,
+          "on_rows": 58,
+          "off_rows": 28,
+          "corroborated_rows": 28,
+          "shared_aps_rows": 28,
+          "pixel_disagreement_rms": 0.7710612356187984,
+          "depth_disagreement_rms_mm": 4.22086620333428,
+          "laser_off_temporal_controls": [
+            {
+              "name": "pre_dark",
+              "corroborated_rows": 0
+            },
+            {
+              "name": "post_dark",
+              "corroborated_rows": 0
+            }
+          ]
+        },
+        {
+          "window_ms": 100,
+          "on_rows": 58,
+          "off_rows": 29,
+          "corroborated_rows": 29,
+          "shared_aps_rows": 29,
+          "pixel_disagreement_rms": 0.7507726518367901,
+          "depth_disagreement_rms_mm": 4.112197833512353,
+          "laser_off_temporal_controls": [
+            {
+              "name": "pre_dark",
+              "corroborated_rows": 0
+            },
+            {
+              "name": "post_dark",
+              "corroborated_rows": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "command_us": 1581,
+      "run_id": "shoe_further2_1581_20261103_01",
+      "raw": "data\\raw\\shoe_further2_1581_20261103_01.aedat4",
+      "sha256": "0a6d6d64ecc37bb0d765f007a6564451a34dbb183ffee10661f2b1eec82c52ee",
+      "feedback_warning": true,
+      "pair": {
+        "on_relative_s": 4.25,
+        "off_relative_s": 5.25,
+        "on_25ms_count": 1032.0,
+        "off_25ms_count": 559.0,
+        "median_on_25ms_count": 29.0,
+        "median_off_25ms_count": 5.0,
+        "method": "Max product of ON and OFF 25ms counts exactly1s apart; ON search starts2s after recording start; ROI rows20..105. Exploratory pair, not verified physical timing."
+      },
+      "aps_rows": 61,
+      "windows": [
+        {
+          "window_ms": 20,
+          "on_rows": 56,
+          "off_rows": 31,
+          "corroborated_rows": 31,
+          "shared_aps_rows": 31,
+          "pixel_disagreement_rms": 0.28375218033159944,
+          "depth_disagreement_rms_mm": 1.6735663661257152,
+          "laser_off_temporal_controls": [
+            {
+              "name": "pre_dark",
+              "corroborated_rows": 0
+            },
+            {
+              "name": "post_dark",
+              "corroborated_rows": 0
+            }
+          ]
+        },
+        {
+          "window_ms": 50,
+          "on_rows": 56,
+          "off_rows": 33,
+          "corroborated_rows": 33,
+          "shared_aps_rows": 33,
+          "pixel_disagreement_rms": 0.2791698406861739,
+          "depth_disagreement_rms_mm": 1.6410014603738132,
+          "laser_off_temporal_controls": [
+            {
+              "name": "pre_dark",
+              "corroborated_rows": 0
+            },
+            {
+              "name": "post_dark",
+              "corroborated_rows": 0
+            }
+          ]
+        },
+        {
+          "window_ms": 100,
+          "on_rows": 56,
+          "off_rows": 35,
+          "corroborated_rows": 35,
+          "shared_aps_rows": 35,
+          "pixel_disagreement_rms": 0.27191993708752005,
+          "depth_disagreement_rms_mm": 1.5971598440319394,
+          "laser_off_temporal_controls": [
+            {
+              "name": "pre_dark",
+              "corroborated_rows": 0
+            },
+            {
+              "name": "post_dark",
+              "corroborated_rows": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "command_us": 1585,
+      "run_id": "shoe_further2_1585_20261103_01",
+      "raw": "data\\raw\\shoe_further2_1585_20261103_01.aedat4",
+      "sha256": "a1b29e18234b9806eeee3263564aa88bb7614591b12d9350351f80d7b521231f",
+      "feedback_warning": true,
+      "pair": {
+        "on_relative_s": 4.125,
+        "off_relative_s": 5.125,
+        "on_25ms_count": 897.0,
+        "off_25ms_count": 479.0,
+        "median_on_25ms_count": 30.0,
+        "median_off_25ms_count": 5.0,
+        "method": "Max product of ON and OFF 25ms counts exactly1s apart; ON search starts2s after recording start; ROI rows20..105. Exploratory pair, not verified physical timing."
+      },
+      "aps_rows": 58,
+      "windows": [
+        {
+          "window_ms": 20,
+          "on_rows": 51,
+          "off_rows": 25,
+          "corroborated_rows": 25,
+          "shared_aps_rows": 24,
+          "pixel_disagreement_rms": 0.1876558614379474,
+          "depth_disagreement_rms_mm": 0.8830207816211093,
+          "laser_off_temporal_controls": [
+            {
+              "name": "pre_dark",
+              "corroborated_rows": 0
+            },
+            {
+              "name": "post_dark",
+              "corroborated_rows": 0
+            }
+          ]
+        },
+        {
+          "window_ms": 50,
+          "on_rows": 53,
+          "off_rows": 31,
+          "corroborated_rows": 31,
+          "shared_aps_rows": 31,
+          "pixel_disagreement_rms": 0.26155071857545764,
+          "depth_disagreement_rms_mm": 1.2547544247735898,
+          "laser_off_temporal_controls": [
+            {
+              "name": "pre_dark",
+              "corroborated_rows": 0
+            },
+            {
+              "name": "post_dark",
+              "corroborated_rows": 0
+            }
+          ]
+        },
+        {
+          "window_ms": 100,
+          "on_rows": 56,
+          "off_rows": 31,
+          "corroborated_rows": 31,
+          "shared_aps_rows": 31,
+          "pixel_disagreement_rms": 0.2270861298194582,
+          "depth_disagreement_rms_mm": 1.0820848465688393,
+          "laser_off_temporal_controls": [
+            {
+              "name": "pre_dark",
+              "corroborated_rows": 0
+            },
+            {
+              "name": "post_dark",
+              "corroborated_rows": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "command_us": 1590,
+      "run_id": "shoe_further2_1590_20261103_01",
+      "raw": "data\\raw\\shoe_further2_1590_20261103_01.aedat4",
+      "sha256": "2f76eadd860e89a956b8bef5eedd746eecedbbaac8ffc17e9f12cf7b7628b6d8",
+      "feedback_warning": true,
+      "pair": {
+        "on_relative_s": 3.805,
+        "off_relative_s": 4.805,
+        "on_25ms_count": 863.0,
+        "off_25ms_count": 694.0,
+        "median_on_25ms_count": 29.0,
+        "median_off_25ms_count": 5.0,
+        "method": "Max product of ON and OFF 25ms counts exactly1s apart; ON search starts2s after recording start; ROI rows20..105. Exploratory pair, not verified physical timing."
+      },
+      "aps_rows": 55,
+      "windows": [
+        {
+          "window_ms": 20,
+          "on_rows": 56,
+          "off_rows": 34,
+          "corroborated_rows": 34,
+          "shared_aps_rows": 32,
+          "pixel_disagreement_rms": 0.17826572088576095,
+          "depth_disagreement_rms_mm": 0.8182306275121897,
+          "laser_off_temporal_controls": [
+            {
+              "name": "pre_dark",
+              "corroborated_rows": 0
+            },
+            {
+              "name": "post_dark",
+              "corroborated_rows": 0
+            }
+          ]
+        },
+        {
+          "window_ms": 50,
+          "on_rows": 56,
+          "off_rows": 34,
+          "corroborated_rows": 34,
+          "shared_aps_rows": 32,
+          "pixel_disagreement_rms": 0.20134677617644844,
+          "depth_disagreement_rms_mm": 0.9328726684386099,
+          "laser_off_temporal_controls": [
+            {
+              "name": "pre_dark",
+              "corroborated_rows": 0
+            },
+            {
+              "name": "post_dark",
+              "corroborated_rows": 0
+            }
+          ]
+        },
+        {
+          "window_ms": 100,
+          "on_rows": 56,
+          "off_rows": 34,
+          "corroborated_rows": 34,
+          "shared_aps_rows": 32,
+          "pixel_disagreement_rms": 0.20123499700694789,
+          "depth_disagreement_rms_mm": 0.9334429532619883,
+          "laser_off_temporal_controls": [
+            {
+              "name": "pre_dark",
+              "corroborated_rows": 0
+            },
+            {
+              "name": "post_dark",
+              "corroborated_rows": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "command_us": 1594,
+      "run_id": "shoe_further2_1594_20261103_01",
+      "raw": "data\\raw\\shoe_further2_1594_20261103_01.aedat4",
+      "sha256": "bcf96f184d73431952cb36e03288bb0e8bef1679eb2c56b388b530d2d1dbf92c",
+      "feedback_warning": true,
+      "pair": {
+        "on_relative_s": 4.265,
+        "off_relative_s": 5.265,
+        "on_25ms_count": 851.0,
+        "off_25ms_count": 528.0,
+        "median_on_25ms_count": 29.0,
+        "median_off_25ms_count": 5.0,
+        "method": "Max product of ON and OFF 25ms counts exactly1s apart; ON search starts2s after recording start; ROI rows20..105. Exploratory pair, not verified physical timing."
+      },
+      "aps_rows": 57,
+      "windows": [
+        {
+          "window_ms": 20,
+          "on_rows": 53,
+          "off_rows": 28,
+          "corroborated_rows": 28,
+          "shared_aps_rows": 28,
+          "pixel_disagreement_rms": 0.23247536429795776,
+          "depth_disagreement_rms_mm": 0.6269930371536354,
+          "laser_off_temporal_controls": [
+            {
+              "name": "pre_dark",
+              "corroborated_rows": 0
+            },
+            {
+              "name": "post_dark",
+              "corroborated_rows": 0
+            }
+          ]
+        },
+        {
+          "window_ms": 50,
+          "on_rows": 53,
+          "off_rows": 34,
+          "corroborated_rows": 33,
+          "shared_aps_rows": 30,
+          "pixel_disagreement_rms": 0.2233482394573189,
+          "depth_disagreement_rms_mm": 0.6028312674944983,
+          "laser_off_temporal_controls": [
+            {
+              "name": "pre_dark",
+              "corroborated_rows": 0
+            },
+            {
+              "name": "post_dark",
+              "corroborated_rows": 0
+            }
+          ]
+        },
+        {
+          "window_ms": 100,
+          "on_rows": 54,
+          "off_rows": 34,
+          "corroborated_rows": 33,
+          "shared_aps_rows": 30,
+          "pixel_disagreement_rms": 0.2588049658959694,
+          "depth_disagreement_rms_mm": 0.7090664795626557,
+          "laser_off_temporal_controls": [
+            {
+              "name": "pre_dark",
+              "corroborated_rows": 0
+            },
+            {
+              "name": "post_dark",
+              "corroborated_rows": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "command_us": 1598,
+      "run_id": "shoe_further2_1598_20261103_01",
+      "raw": "data\\raw\\shoe_further2_1598_20261103_01.aedat4",
+      "sha256": "ae30fb0106c911177799edbcbab5210c12151399b8f1b42b6000340afc9474fe",
+      "feedback_warning": false,
+      "pair": {
+        "on_relative_s": 4.025,
+        "off_relative_s": 5.025,
+        "on_25ms_count": 991.0,
+        "off_25ms_count": 521.0,
+        "median_on_25ms_count": 30.0,
+        "median_off_25ms_count": 5.0,
+        "method": "Max product of ON and OFF 25ms counts exactly1s apart; ON search starts2s after recording start; ROI rows20..105. Exploratory pair, not verified physical timing."
+      },
+      "aps_rows": 56,
+      "windows": [
+        {
+          "window_ms": 20,
+          "on_rows": 55,
+          "off_rows": 23,
+          "corroborated_rows": 23,
+          "shared_aps_rows": 22,
+          "pixel_disagreement_rms": 0.20253157967763644,
+          "depth_disagreement_rms_mm": 1.124598627558227,
+          "laser_off_temporal_controls": [
+            {
+              "name": "pre_dark",
+              "corroborated_rows": 0
+            },
+            {
+              "name": "post_dark",
+              "corroborated_rows": 0
+            }
+          ]
+        },
+        {
+          "window_ms": 50,
+          "on_rows": 54,
+          "off_rows": 27,
+          "corroborated_rows": 27,
+          "shared_aps_rows": 25,
+          "pixel_disagreement_rms": 0.23593252415168617,
+          "depth_disagreement_rms_mm": 1.279007255217149,
+          "laser_off_temporal_controls": [
+            {
+              "name": "pre_dark",
+              "corroborated_rows": 0
+            },
+            {
+              "name": "post_dark",
+              "corroborated_rows": 0
+            }
+          ]
+        },
+        {
+          "window_ms": 100,
+          "on_rows": 57,
+          "off_rows": 35,
+          "corroborated_rows": 35,
+          "shared_aps_rows": 33,
+          "pixel_disagreement_rms": 0.23882187652038558,
+          "depth_disagreement_rms_mm": 1.2984038051899662,
+          "laser_off_temporal_controls": [
+            {
+              "name": "pre_dark",
+              "corroborated_rows": 0
+            },
+            {
+              "name": "post_dark",
+              "corroborated_rows": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "command_us": 1602,
+      "run_id": "shoe_further2_1602_20261103_02",
+      "raw": "data\\raw\\shoe_further2_1602_20261103_02.aedat4",
+      "sha256": "d3e046ed959c64f8c67b2bfc1834af7c1ee9cbaf5cc0a2808b03e47e15e50c8d",
+      "feedback_warning": true,
+      "pair": {
+        "on_relative_s": 4.2,
+        "off_relative_s": 5.2,
+        "on_25ms_count": 860.0,
+        "off_25ms_count": 619.0,
+        "median_on_25ms_count": 30.0,
+        "median_off_25ms_count": 5.0,
+        "method": "Max product of ON and OFF 25ms counts exactly1s apart; ON search starts2s after recording start; ROI rows20..105. Exploratory pair, not verified physical timing."
+      },
+      "aps_rows": 51,
+      "windows": [
+        {
+          "window_ms": 20,
+          "on_rows": 50,
+          "off_rows": 23,
+          "corroborated_rows": 23,
+          "shared_aps_rows": 20,
+          "pixel_disagreement_rms": 0.2711286513914293,
+          "depth_disagreement_rms_mm": 1.4489988247132735,
+          "laser_off_temporal_controls": [
+            {
+              "name": "pre_dark",
+              "corroborated_rows": 0
+            },
+            {
+              "name": "post_dark",
+              "corroborated_rows": 0
+            }
+          ]
+        },
+        {
+          "window_ms": 50,
+          "on_rows": 53,
+          "off_rows": 26,
+          "corroborated_rows": 26,
+          "shared_aps_rows": 23,
+          "pixel_disagreement_rms": 0.17096816553612004,
+          "depth_disagreement_rms_mm": 0.9127180700977937,
+          "laser_off_temporal_controls": [
+            {
+              "name": "pre_dark",
+              "corroborated_rows": 0
+            },
+            {
+              "name": "post_dark",
+              "corroborated_rows": 0
+            }
+          ]
+        },
+        {
+          "window_ms": 100,
+          "on_rows": 53,
+          "off_rows": 27,
+          "corroborated_rows": 27,
+          "shared_aps_rows": 23,
+          "pixel_disagreement_rms": 0.17138540905663882,
+          "depth_disagreement_rms_mm": 0.9149139904407938,
+          "laser_off_temporal_controls": [
+            {
+              "name": "pre_dark",
+              "corroborated_rows": 0
+            },
+            {
+              "name": "post_dark",
+              "corroborated_rows": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "command_us": 1606,
+      "run_id": "shoe_further2_1606_20261103_01",
+      "raw": "data\\raw\\shoe_further2_1606_20261103_01.aedat4",
+      "sha256": "551ac9aae78a542b081fcbba4e7a7bfeb4b69ceac233de862846ade6d9bfdc22",
+      "feedback_warning": true,
+      "pair": {
+        "on_relative_s": 3.825,
+        "off_relative_s": 4.825,
+        "on_25ms_count": 982.0,
+        "off_25ms_count": 502.0,
+        "median_on_25ms_count": 30.0,
+        "median_off_25ms_count": 5.0,
+        "method": "Max product of ON and OFF 25ms counts exactly1s apart; ON search starts2s after recording start; ROI rows20..105. Exploratory pair, not verified physical timing."
+      },
+      "aps_rows": 56,
+      "windows": [
+        {
+          "window_ms": 20,
+          "on_rows": 50,
+          "off_rows": 12,
+          "corroborated_rows": 12,
+          "shared_aps_rows": 12,
+          "pixel_disagreement_rms": 0.25203958294273604,
+          "depth_disagreement_rms_mm": 0.9946609158216929,
+          "laser_off_temporal_controls": [
+            {
+              "name": "pre_dark",
+              "corroborated_rows": 0
+            },
+            {
+              "name": "post_dark",
+              "corroborated_rows": 0
+            }
+          ]
+        },
+        {
+          "window_ms": 50,
+          "on_rows": 54,
+          "off_rows": 30,
+          "corroborated_rows": 30,
+          "shared_aps_rows": 27,
+          "pixel_disagreement_rms": 0.2984059566750422,
+          "depth_disagreement_rms_mm": 1.316450958479681,
+          "laser_off_temporal_controls": [
+            {
+              "name": "pre_dark",
+              "corroborated_rows": 0
+            },
+            {
+              "name": "post_dark",
+              "corroborated_rows": 0
+            }
+          ]
+        },
+        {
+          "window_ms": 100,
+          "on_rows": 54,
+          "off_rows": 31,
+          "corroborated_rows": 31,
+          "shared_aps_rows": 28,
+          "pixel_disagreement_rms": 0.27405706122231027,
+          "depth_disagreement_rms_mm": 1.2017320205915432,
+          "laser_off_temporal_controls": [
+            {
+              "name": "pre_dark",
+              "corroborated_rows": 0
+            },
+            {
+              "name": "post_dark",
+              "corroborated_rows": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "command_us": 1610,
+      "run_id": "shoe_further2_1610_20261103_01",
+      "raw": "data\\raw\\shoe_further2_1610_20261103_01.aedat4",
+      "sha256": "c16ded2e2a52f1d922f20c28543b26ba91a93bbcf75fc267750f26ce8b24f0b4",
+      "feedback_warning": true,
+      "pair": {
+        "on_relative_s": 3.84,
+        "off_relative_s": 4.84,
+        "on_25ms_count": 1436.0,
+        "off_25ms_count": 492.0,
+        "median_on_25ms_count": 29.0,
+        "median_off_25ms_count": 5.0,
+        "method": "Max product of ON and OFF 25ms counts exactly1s apart; ON search starts2s after recording start; ROI rows20..105. Exploratory pair, not verified physical timing."
+      },
+      "aps_rows": 50,
+      "windows": [
+        {
+          "window_ms": 20,
+          "on_rows": 47,
+          "off_rows": 15,
+          "corroborated_rows": 15,
+          "shared_aps_rows": 15,
+          "pixel_disagreement_rms": 0.1503767141175731,
+          "depth_disagreement_rms_mm": 0.7620683881979421,
+          "laser_off_temporal_controls": [
+            {
+              "name": "pre_dark",
+              "corroborated_rows": 0
+            },
+            {
+              "name": "post_dark",
+              "corroborated_rows": 0
+            }
+          ]
+        },
+        {
+          "window_ms": 50,
+          "on_rows": 47,
+          "off_rows": 23,
+          "corroborated_rows": 23,
+          "shared_aps_rows": 20,
+          "pixel_disagreement_rms": 0.1738030341701131,
+          "depth_disagreement_rms_mm": 0.8762974083119678,
+          "laser_off_temporal_controls": [
+            {
+              "name": "pre_dark",
+              "corroborated_rows": 0
+            },
+            {
+              "name": "post_dark",
+              "corroborated_rows": 0
+            }
+          ]
+        },
+        {
+          "window_ms": 100,
+          "on_rows": 47,
+          "off_rows": 26,
+          "corroborated_rows": 26,
+          "shared_aps_rows": 21,
+          "pixel_disagreement_rms": 0.2036129102223155,
+          "depth_disagreement_rms_mm": 1.0251947093388432,
+          "laser_off_temporal_controls": [
+            {
+              "name": "pre_dark",
+              "corroborated_rows": 0
+            },
+            {
+              "name": "post_dark",
+              "corroborated_rows": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "command_us": 1614,
+      "run_id": "shoe_further2_1614_20261103_01",
+      "raw": "data\\raw\\shoe_further2_1614_20261103_01.aedat4",
+      "sha256": "dc75f6f51abb0f38138ff2bb2a5e5bf87c849e1947c7208c22b67f54b8dc78bc",
+      "feedback_warning": true,
+      "pair": {
+        "on_relative_s": 4.005,
+        "off_relative_s": 5.005,
+        "on_25ms_count": 852.0,
+        "off_25ms_count": 526.0,
+        "median_on_25ms_count": 29.0,
+        "median_off_25ms_count": 5.0,
+        "method": "Max product of ON and OFF 25ms counts exactly1s apart; ON search starts2s after recording start; ROI rows20..105. Exploratory pair, not verified physical timing."
+      },
+      "aps_rows": 41,
+      "windows": [
+        {
+          "window_ms": 20,
+          "on_rows": 31,
+          "off_rows": 19,
+          "corroborated_rows": 17,
+          "shared_aps_rows": 15,
+          "pixel_disagreement_rms": 0.48828693367756165,
+          "depth_disagreement_rms_mm": 2.1525491000306993,
+          "laser_off_temporal_controls": [
+            {
+              "name": "pre_dark",
+              "corroborated_rows": 0
+            },
+            {
+              "name": "post_dark",
+              "corroborated_rows": 0
+            }
+          ]
+        },
+        {
+          "window_ms": 50,
+          "on_rows": 44,
+          "off_rows": 22,
+          "corroborated_rows": 22,
+          "shared_aps_rows": 19,
+          "pixel_disagreement_rms": 0.2584848996220364,
+          "depth_disagreement_rms_mm": 1.1296387203674327,
+          "laser_off_temporal_controls": [
+            {
+              "name": "pre_dark",
+              "corroborated_rows": 0
+            },
+            {
+              "name": "post_dark",
+              "corroborated_rows": 0
+            }
+          ]
+        },
+        {
+          "window_ms": 100,
+          "on_rows": 43,
+          "off_rows": 22,
+          "corroborated_rows": 22,
+          "shared_aps_rows": 19,
+          "pixel_disagreement_rms": 0.2718021198822201,
+          "depth_disagreement_rms_mm": 1.1857422346159319,
+          "laser_off_temporal_controls": [
+            {
+              "name": "pre_dark",
+              "corroborated_rows": 0
+            },
+            {
+              "name": "post_dark",
+              "corroborated_rows": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "command_us": 1618,
+      "run_id": "shoe_further2_1618_20261103_01",
+      "raw": "data\\raw\\shoe_further2_1618_20261103_01.aedat4",
+      "sha256": "02cf1e87d1bbf9964612345cc0306fe3e8896ec6bf9b2f96b67c0084c72f9405",
+      "feedback_warning": false,
+      "pair": {
+        "on_relative_s": 4.25,
+        "off_relative_s": 5.25,
+        "on_25ms_count": 1692.0,
+        "off_25ms_count": 524.0,
+        "median_on_25ms_count": 29.0,
+        "median_off_25ms_count": 5.0,
+        "method": "Max product of ON and OFF 25ms counts exactly1s apart; ON search starts2s after recording start; ROI rows20..105. Exploratory pair, not verified physical timing."
+      },
+      "aps_rows": 38,
+      "windows": [
+        {
+          "window_ms": 20,
+          "on_rows": 38,
+          "off_rows": 17,
+          "corroborated_rows": 17,
+          "shared_aps_rows": 17,
+          "pixel_disagreement_rms": 0.2685471798734386,
+          "depth_disagreement_rms_mm": 1.2216729839339358,
+          "laser_off_temporal_controls": [
+            {
+              "name": "pre_dark",
+              "corroborated_rows": 0
+            },
+            {
+              "name": "post_dark",
+              "corroborated_rows": 0
+            }
+          ]
+        },
+        {
+          "window_ms": 50,
+          "on_rows": 42,
+          "off_rows": 18,
+          "corroborated_rows": 18,
+          "shared_aps_rows": 15,
+          "pixel_disagreement_rms": 0.20505426742384697,
+          "depth_disagreement_rms_mm": 0.9255259094359328,
+          "laser_off_temporal_controls": [
+            {
+              "name": "pre_dark",
+              "corroborated_rows": 0
+            },
+            {
+              "name": "post_dark",
+              "corroborated_rows": 0
+            }
+          ]
+        },
+        {
+          "window_ms": 100,
+          "on_rows": 42,
+          "off_rows": 19,
+          "corroborated_rows": 19,
+          "shared_aps_rows": 16,
+          "pixel_disagreement_rms": 0.24380625589615484,
+          "depth_disagreement_rms_mm": 1.1086993574746646,
+          "laser_off_temporal_controls": [
+            {
+              "name": "pre_dark",
+              "corroborated_rows": 0
+            },
+            {
+              "name": "post_dark",
+              "corroborated_rows": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "command_us": 1622,
+      "run_id": "shoe_further2_1622_20261103_01",
+      "raw": "data\\raw\\shoe_further2_1622_20261103_01.aedat4",
+      "sha256": "d79bb81f7bae83b52011af6f17591d4754663f078769adde90a085990610bbd9",
+      "feedback_warning": true,
+      "pair": {
+        "on_relative_s": 3.89,
+        "off_relative_s": 4.89,
+        "on_25ms_count": 828.0,
+        "off_25ms_count": 408.0,
+        "median_on_25ms_count": 30.0,
+        "median_off_25ms_count": 5.0,
+        "method": "Max product of ON and OFF 25ms counts exactly1s apart; ON search starts2s after recording start; ROI rows20..105. Exploratory pair, not verified physical timing."
+      },
+      "aps_rows": 37,
+      "windows": [
+        {
+          "window_ms": 20,
+          "on_rows": 39,
+          "off_rows": 14,
+          "corroborated_rows": 14,
+          "shared_aps_rows": 12,
+          "pixel_disagreement_rms": 0.188292346505305,
+          "depth_disagreement_rms_mm": 0.9009909146063549,
+          "laser_off_temporal_controls": [
+            {
+              "name": "pre_dark",
+              "corroborated_rows": 0
+            },
+            {
+              "name": "post_dark",
+              "corroborated_rows": 0
+            }
+          ]
+        },
+        {
+          "window_ms": 50,
+          "on_rows": 38,
+          "off_rows": 16,
+          "corroborated_rows": 16,
+          "shared_aps_rows": 14,
+          "pixel_disagreement_rms": 0.19420853379490216,
+          "depth_disagreement_rms_mm": 0.928294037022415,
+          "laser_off_temporal_controls": [
+            {
+              "name": "pre_dark",
+              "corroborated_rows": 0
+            },
+            {
+              "name": "post_dark",
+              "corroborated_rows": 0
+            }
+          ]
+        },
+        {
+          "window_ms": 100,
+          "on_rows": 40,
+          "off_rows": 16,
+          "corroborated_rows": 16,
+          "shared_aps_rows": 13,
+          "pixel_disagreement_rms": 0.1869134967733319,
+          "depth_disagreement_rms_mm": 0.8931469398128478,
+          "laser_off_temporal_controls": [
+            {
+              "name": "pre_dark",
+              "corroborated_rows": 0
+            },
+            {
+              "name": "post_dark",
+              "corroborated_rows": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "command_us": 1626,
+      "run_id": "shoe_further2_1626_20261103_01",
+      "raw": "data\\raw\\shoe_further2_1626_20261103_01.aedat4",
+      "sha256": "1e909b94e846f202daa83f91e90021d3cb9e2338eeba9e6bb4753e618d721576",
+      "feedback_warning": true,
+      "pair": {
+        "on_relative_s": 5.075,
+        "off_relative_s": 6.075,
+        "on_25ms_count": 803.0,
+        "off_25ms_count": 385.0,
+        "median_on_25ms_count": 30.0,
+        "median_off_25ms_count": 5.0,
+        "method": "Max product of ON and OFF 25ms counts exactly1s apart; ON search starts2s after recording start; ROI rows20..105. Exploratory pair, not verified physical timing."
+      },
+      "aps_rows": 38,
+      "windows": [
+        {
+          "window_ms": 20,
+          "on_rows": 38,
+          "off_rows": 8,
+          "corroborated_rows": 8,
+          "shared_aps_rows": 8,
+          "pixel_disagreement_rms": 0.22953408540222364,
+          "depth_disagreement_rms_mm": 0.8848416289308387,
+          "laser_off_temporal_controls": [
+            {
+              "name": "pre_dark",
+              "corroborated_rows": 0
+            },
+            {
+              "name": "post_dark",
+              "corroborated_rows": 0
+            }
+          ]
+        },
+        {
+          "window_ms": 50,
+          "on_rows": 40,
+          "off_rows": 18,
+          "corroborated_rows": 18,
+          "shared_aps_rows": 15,
+          "pixel_disagreement_rms": 0.3432303687522986,
+          "depth_disagreement_rms_mm": 1.3290436962789176,
+          "laser_off_temporal_controls": [
+            {
+              "name": "pre_dark",
+              "corroborated_rows": 0
+            },
+            {
+              "name": "post_dark",
+              "corroborated_rows": 0
+            }
+          ]
+        },
+        {
+          "window_ms": 100,
+          "on_rows": 39,
+          "off_rows": 20,
+          "corroborated_rows": 20,
+          "shared_aps_rows": 17,
+          "pixel_disagreement_rms": 0.29799617408400814,
+          "depth_disagreement_rms_mm": 1.1538537153997097,
+          "laser_off_temporal_controls": [
+            {
+              "name": "pre_dark",
+              "corroborated_rows": 0
+            },
+            {
+              "name": "post_dark",
+              "corroborated_rows": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "command_us": 1631,
+      "run_id": "shoe_further2_1631_20261103_01",
+      "raw": "data\\raw\\shoe_further2_1631_20261103_01.aedat4",
+      "sha256": "2b353abc96586802670967b22a56d35e20d9a8aeb9b4570fb0772bb106d4597c",
+      "feedback_warning": true,
+      "pair": {
+        "on_relative_s": 3.9,
+        "off_relative_s": 4.9,
+        "on_25ms_count": 740.0,
+        "off_25ms_count": 486.0,
+        "median_on_25ms_count": 29.0,
+        "median_off_25ms_count": 5.0,
+        "method": "Max product of ON and OFF 25ms counts exactly1s apart; ON search starts2s after recording start; ROI rows20..105. Exploratory pair, not verified physical timing."
+      },
+      "aps_rows": 36,
+      "windows": [
+        {
+          "window_ms": 20,
+          "on_rows": 39,
+          "off_rows": 15,
+          "corroborated_rows": 15,
+          "shared_aps_rows": 13,
+          "pixel_disagreement_rms": 0.23912764988373802,
+          "depth_disagreement_rms_mm": 1.2874993715891963,
+          "laser_off_temporal_controls": [
+            {
+              "name": "pre_dark",
+              "corroborated_rows": 0
+            },
+            {
+              "name": "post_dark",
+              "corroborated_rows": 0
+            }
+          ]
+        },
+        {
+          "window_ms": 50,
+          "on_rows": 38,
+          "off_rows": 20,
+          "corroborated_rows": 19,
+          "shared_aps_rows": 17,
+          "pixel_disagreement_rms": 0.22321132789063214,
+          "depth_disagreement_rms_mm": 1.2058015524603494,
+          "laser_off_temporal_controls": [
+            {
+              "name": "pre_dark",
+              "corroborated_rows": 0
+            },
+            {
+              "name": "post_dark",
+              "corroborated_rows": 0
+            }
+          ]
+        },
+        {
+          "window_ms": 100,
+          "on_rows": 38,
+          "off_rows": 20,
+          "corroborated_rows": 19,
+          "shared_aps_rows": 17,
+          "pixel_disagreement_rms": 0.26431025492853943,
+          "depth_disagreement_rms_mm": 1.428760840747155,
+          "laser_off_temporal_controls": [
+            {
+              "name": "pre_dark",
+              "corroborated_rows": 0
+            },
+            {
+              "name": "post_dark",
+              "corroborated_rows": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "command_us": 1635,
+      "run_id": "shoe_further2_1635_20261103_01",
+      "raw": "data\\raw\\shoe_further2_1635_20261103_01.aedat4",
+      "sha256": "2f73d5a49534f4658f324e84cf518e20f14bfc037aaae8018f954cde965feadd",
+      "feedback_warning": false,
+      "pair": {
+        "on_relative_s": 3.985,
+        "off_relative_s": 4.985,
+        "on_25ms_count": 1282.0,
+        "off_25ms_count": 387.0,
+        "median_on_25ms_count": 30.0,
+        "median_off_25ms_count": 5.0,
+        "method": "Max product of ON and OFF 25ms counts exactly1s apart; ON search starts2s after recording start; ROI rows20..105. Exploratory pair, not verified physical timing."
+      },
+      "aps_rows": 33,
+      "windows": [
+        {
+          "window_ms": 20,
+          "on_rows": 36,
+          "off_rows": 13,
+          "corroborated_rows": 13,
+          "shared_aps_rows": 13,
+          "pixel_disagreement_rms": 0.23243758622951954,
+          "depth_disagreement_rms_mm": 1.0997974961584334,
+          "laser_off_temporal_controls": [
+            {
+              "name": "pre_dark",
+              "corroborated_rows": 0
+            },
+            {
+              "name": "post_dark",
+              "corroborated_rows": 0
+            }
+          ]
+        },
+        {
+          "window_ms": 50,
+          "on_rows": 36,
+          "off_rows": 21,
+          "corroborated_rows": 21,
+          "shared_aps_rows": 16,
+          "pixel_disagreement_rms": 0.2942206442347699,
+          "depth_disagreement_rms_mm": 1.3971012801638318,
+          "laser_off_temporal_controls": [
+            {
+              "name": "pre_dark",
+              "corroborated_rows": 0
+            },
+            {
+              "name": "post_dark",
+              "corroborated_rows": 0
+            }
+          ]
+        },
+        {
+          "window_ms": 100,
+          "on_rows": 37,
+          "off_rows": 21,
+          "corroborated_rows": 21,
+          "shared_aps_rows": 16,
+          "pixel_disagreement_rms": 0.38667015536349175,
+          "depth_disagreement_rms_mm": 1.8287019106339781,
+          "laser_off_temporal_controls": [
+            {
+              "name": "pre_dark",
+              "corroborated_rows": 0
+            },
+            {
+              "name": "post_dark",
+              "corroborated_rows": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "command_us": 1639,
+      "run_id": "shoe_further2_1639_20261103_01",
+      "raw": "data\\raw\\shoe_further2_1639_20261103_01.aedat4",
+      "sha256": "21677b1b5091edd697cc6882264ac59f648f974eb27c5519999fa0bf9c36e3f4",
+      "feedback_warning": true,
+      "pair": {
+        "on_relative_s": 3.87,
+        "off_relative_s": 4.87,
+        "on_25ms_count": 1456.0,
+        "off_25ms_count": 414.0,
+        "median_on_25ms_count": 30.0,
+        "median_off_25ms_count": 5.0,
+        "method": "Max product of ON and OFF 25ms counts exactly1s apart; ON search starts2s after recording start; ROI rows20..105. Exploratory pair, not verified physical timing."
+      },
+      "aps_rows": 32,
+      "windows": [
+        {
+          "window_ms": 20,
+          "on_rows": 34,
+          "off_rows": 11,
+          "corroborated_rows": 11,
+          "shared_aps_rows": 10,
+          "pixel_disagreement_rms": 0.7627589316341503,
+          "depth_disagreement_rms_mm": 3.023155957814583,
+          "laser_off_temporal_controls": [
+            {
+              "name": "pre_dark",
+              "corroborated_rows": 0
+            },
+            {
+              "name": "post_dark",
+              "corroborated_rows": 0
+            }
+          ]
+        },
+        {
+          "window_ms": 50,
+          "on_rows": 34,
+          "off_rows": 21,
+          "corroborated_rows": 21,
+          "shared_aps_rows": 19,
+          "pixel_disagreement_rms": 0.7822859566770681,
+          "depth_disagreement_rms_mm": 3.108048307171648,
+          "laser_off_temporal_controls": [
+            {
+              "name": "pre_dark",
+              "corroborated_rows": 0
+            },
+            {
+              "name": "post_dark",
+              "corroborated_rows": 0
+            }
+          ]
+        },
+        {
+          "window_ms": 100,
+          "on_rows": 34,
+          "off_rows": 24,
+          "corroborated_rows": 24,
+          "shared_aps_rows": 21,
+          "pixel_disagreement_rms": 0.8206800295447513,
+          "depth_disagreement_rms_mm": 3.259625063950188,
+          "laser_off_temporal_controls": [
+            {
+              "name": "pre_dark",
+              "corroborated_rows": 0
+            },
+            {
+              "name": "post_dark",
+              "corroborated_rows": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "command_us": 1643,
+      "run_id": "shoe_further2_1643_20261103_01",
+      "raw": "data\\raw\\shoe_further2_1643_20261103_01.aedat4",
+      "sha256": "e6cc25e00ab6e9737c0a1cfaee4bfb27cbd635d366c0cb280a25fcc3491e1e23",
+      "feedback_warning": true,
+      "pair": {
+        "on_relative_s": 4.32,
+        "off_relative_s": 5.32,
+        "on_25ms_count": 1138.0,
+        "off_25ms_count": 502.0,
+        "median_on_25ms_count": 30.0,
+        "median_off_25ms_count": 5.0,
+        "method": "Max product of ON and OFF 25ms counts exactly1s apart; ON search starts2s after recording start; ROI rows20..105. Exploratory pair, not verified physical timing."
+      },
+      "aps_rows": 32,
+      "windows": [
+        {
+          "window_ms": 20,
+          "on_rows": 32,
+          "off_rows": 12,
+          "corroborated_rows": 12,
+          "shared_aps_rows": 11,
+          "pixel_disagreement_rms": 0.21644925539581383,
+          "depth_disagreement_rms_mm": 0.797964157501239,
+          "laser_off_temporal_controls": [
+            {
+              "name": "pre_dark",
+              "corroborated_rows": 0
+            },
+            {
+              "name": "post_dark",
+              "corroborated_rows": 0
+            }
+          ]
+        },
+        {
+          "window_ms": 50,
+          "on_rows": 36,
+          "off_rows": 15,
+          "corroborated_rows": 15,
+          "shared_aps_rows": 13,
+          "pixel_disagreement_rms": 0.23142951137328246,
+          "depth_disagreement_rms_mm": 0.8563910323328464,
+          "laser_off_temporal_controls": [
+            {
+              "name": "pre_dark",
+              "corroborated_rows": 0
+            },
+            {
+              "name": "post_dark",
+              "corroborated_rows": 0
+            }
+          ]
+        },
+        {
+          "window_ms": 100,
+          "on_rows": 36,
+          "off_rows": 25,
+          "corroborated_rows": 25,
+          "shared_aps_rows": 24,
+          "pixel_disagreement_rms": 0.3601012812998436,
+          "depth_disagreement_rms_mm": 1.3248668349120043,
+          "laser_off_temporal_controls": [
+            {
+              "name": "pre_dark",
+              "corroborated_rows": 0
+            },
+            {
+              "name": "post_dark",
+              "corroborated_rows": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "command_us": 1647,
+      "run_id": "shoe_further2_1647_20261103_01",
+      "raw": "data\\raw\\shoe_further2_1647_20261103_01.aedat4",
+      "sha256": "c6180c9cfbee361f9c42ed996e1f0fc897fb0b3ad7f6f15a67229a9dfc739bb8",
+      "feedback_warning": true,
+      "pair": {
+        "on_relative_s": 3.97,
+        "off_relative_s": 4.97,
+        "on_25ms_count": 685.0,
+        "off_25ms_count": 360.0,
+        "median_on_25ms_count": 29.0,
+        "median_off_25ms_count": 5.0,
+        "method": "Max product of ON and OFF 25ms counts exactly1s apart; ON search starts2s after recording start; ROI rows20..105. Exploratory pair, not verified physical timing."
+      },
+      "aps_rows": 30,
+      "windows": [
+        {
+          "window_ms": 20,
+          "on_rows": 34,
+          "off_rows": 13,
+          "corroborated_rows": 13,
+          "shared_aps_rows": 12,
+          "pixel_disagreement_rms": 0.3258657813206084,
+          "depth_disagreement_rms_mm": 1.7831674257372183,
+          "laser_off_temporal_controls": [
+            {
+              "name": "pre_dark",
+              "corroborated_rows": 0
+            },
+            {
+              "name": "post_dark",
+              "corroborated_rows": 0
+            }
+          ]
+        },
+        {
+          "window_ms": 50,
+          "on_rows": 34,
+          "off_rows": 17,
+          "corroborated_rows": 17,
+          "shared_aps_rows": 16,
+          "pixel_disagreement_rms": 0.30167067863513575,
+          "depth_disagreement_rms_mm": 1.6486556121893023,
+          "laser_off_temporal_controls": [
+            {
+              "name": "pre_dark",
+              "corroborated_rows": 0
+            },
+            {
+              "name": "post_dark",
+              "corroborated_rows": 0
+            }
+          ]
+        },
+        {
+          "window_ms": 100,
+          "on_rows": 35,
+          "off_rows": 19,
+          "corroborated_rows": 19,
+          "shared_aps_rows": 18,
+          "pixel_disagreement_rms": 0.31199202756273736,
+          "depth_disagreement_rms_mm": 1.7226123944162621,
+          "laser_off_temporal_controls": [
+            {
+              "name": "pre_dark",
+              "corroborated_rows": 0
+            },
+            {
+              "name": "post_dark",
+              "corroborated_rows": 0
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "limitations": "Exploratory saved-data static event reconstruction with fixed command planes. Event/APS disagreement is NOT ground-truth accuracy. Same recordings, camera K, plane model and image rows20..105. Event extraction uses no APS spatial mask, but event settings developed on these recordings; no untouched detector test set or manual stripe labels. ON/OFF row agreement is corroboration, not confirmed laser identity. Known1s pulse pairing does not calibrate continuous timing. One acquisition per command; rows/events/windows are correlated, not independent repeats. The denominator20*86=1720 command-row opportunities is sampling support, not full-surface completeness. No independent object groundtruth, ND test, continuous sweep, latency benchmark or event advantage established. Shared calibration errors remain.",
+  "detector": "ON/OFF polarity windows20/50/100ms centred on event-only paired25ms-rate peaks separated1s; each pixel >=3events and background-subtractedcount>=2; contiguous rowgroups1..12; strongestgroup; rejectrunnerup>.67; ON/OFF xagreement<=3px; rows20..105. No per-position threshold changes."
+}

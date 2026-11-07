@@ -1,0 +1,160 @@
+{
+  "status": "FIXED_MASK_IMAGE_SPACE_SAMPLE_COVERAGE",
+  "mask_definition": "outputs\\coverage\\shoe_mask_20261103_01\\mask_definition.json",
+  "mask_sha256": "0bc3a15089782e04efbf6d2ae2e87543c939c511321bb4fb9f55ffe3b3518a18",
+  "photo": "outputs\\agent_control\\shoe_further2_photo_20261103_01\\aps.png",
+  "photo_sha256": "20e1741e34c6055ea2a9877424e973ca5a05a89333907418b9b99ecd813d756a",
+  "results": [
+    {
+      "method": "APS",
+      "source": "outputs\\reconstruction\\shoe_further2_20261103_02_roi\\points.csv",
+      "source_sha256": "f5454ad0242444dd19b6eaf6f3f652b63f50c04a689e562d8e5c46dd2051f500",
+      "retained_centres": 960,
+      "centres_inside_body_mask": 955,
+      "centres_outside_body_mask": 5,
+      "unique_observed_bins_whole_image": 944,
+      "screen": {
+        "input_centres": 960,
+        "nonfinite_centres": 0,
+        "out_of_image_centres": 0
+      },
+      "whole_body": {
+        "covered_native_pixels": 939,
+        "expected_mask_native_pixels": 13715,
+        "coverage_percent": 6.846518410499453,
+        "support_radius_px": 0
+      },
+      "shared_processing_rows": {
+        "covered_native_pixels": 939,
+        "expected_mask_native_pixels": 11762,
+        "coverage_percent": 7.983336167318483,
+        "support_radius_px": 0
+      },
+      "boundary_sensitivity": [
+        {
+          "mask_change": "eroded",
+          "boundary_radius_px": 1,
+          "covered_native_pixels": 932,
+          "expected_mask_native_pixels": 13210,
+          "coverage_percent": 7.055261165783497,
+          "support_radius_px": 0
+        },
+        {
+          "mask_change": "dilated",
+          "boundary_radius_px": 1,
+          "covered_native_pixels": 944,
+          "expected_mask_native_pixels": 14224,
+          "coverage_percent": 6.636670416197975,
+          "support_radius_px": 0
+        },
+        {
+          "mask_change": "eroded",
+          "boundary_radius_px": 2,
+          "covered_native_pixels": 923,
+          "expected_mask_native_pixels": 12711,
+          "coverage_percent": 7.261427110376839,
+          "support_radius_px": 0
+        },
+        {
+          "mask_change": "dilated",
+          "boundary_radius_px": 2,
+          "covered_native_pixels": 944,
+          "expected_mask_native_pixels": 14735,
+          "coverage_percent": 6.406515100101799,
+          "support_radius_px": 0
+        }
+      ],
+      "footprint_tolerance_sensitivity": [
+        {
+          "covered_native_pixels": 2411,
+          "expected_mask_native_pixels": 13715,
+          "coverage_percent": 17.57929274516952,
+          "support_radius_px": 1
+        },
+        {
+          "covered_native_pixels": 3189,
+          "expected_mask_native_pixels": 13715,
+          "coverage_percent": 23.251913962814438,
+          "support_radius_px": 2
+        }
+      ],
+      "note": "Radius0 is primary measured native-bin coverage. Radius1/2 figures are tolerance-footprint sensitivity, not additional measured points or interpolated3D."
+    },
+    {
+      "method": "Events",
+      "source": "outputs\\reconstruction\\static_event_aps_20261103_02\\event_points.csv",
+      "source_sha256": "fd675720b1dbc935c1e7a5b6e65539c0ef03a4f31f86a478912e32fcb6835e26",
+      "retained_centres": 494,
+      "centres_inside_body_mask": 494,
+      "centres_outside_body_mask": 0,
+      "unique_observed_bins_whole_image": 478,
+      "screen": {
+        "input_centres": 494,
+        "nonfinite_centres": 0,
+        "out_of_image_centres": 0
+      },
+      "whole_body": {
+        "covered_native_pixels": 478,
+        "expected_mask_native_pixels": 13715,
+        "coverage_percent": 3.4852351440029166,
+        "support_radius_px": 0
+      },
+      "shared_processing_rows": {
+        "covered_native_pixels": 478,
+        "expected_mask_native_pixels": 11762,
+        "coverage_percent": 4.063934704982146,
+        "support_radius_px": 0
+      },
+      "boundary_sensitivity": [
+        {
+          "mask_change": "eroded",
+          "boundary_radius_px": 1,
+          "covered_native_pixels": 478,
+          "expected_mask_native_pixels": 13210,
+          "coverage_percent": 3.6184708554125664,
+          "support_radius_px": 0
+        },
+        {
+          "mask_change": "dilated",
+          "boundary_radius_px": 1,
+          "covered_native_pixels": 478,
+          "expected_mask_native_pixels": 14224,
+          "coverage_percent": 3.360517435320585,
+          "support_radius_px": 0
+        },
+        {
+          "mask_change": "eroded",
+          "boundary_radius_px": 2,
+          "covered_native_pixels": 478,
+          "expected_mask_native_pixels": 12711,
+          "coverage_percent": 3.7605223821886553,
+          "support_radius_px": 0
+        },
+        {
+          "mask_change": "dilated",
+          "boundary_radius_px": 2,
+          "covered_native_pixels": 478,
+          "expected_mask_native_pixels": 14735,
+          "coverage_percent": 3.2439769256871394,
+          "support_radius_px": 0
+        }
+      ],
+      "footprint_tolerance_sensitivity": [
+        {
+          "covered_native_pixels": 1457,
+          "expected_mask_native_pixels": 13715,
+          "coverage_percent": 10.62340503098797,
+          "support_radius_px": 1
+        },
+        {
+          "covered_native_pixels": 2277,
+          "expected_mask_native_pixels": 13715,
+          "coverage_percent": 16.602260298942763,
+          "support_radius_px": 2
+        }
+      ],
+      "note": "Radius0 is primary measured native-bin coverage. Radius1/2 figures are tolerance-footprint sensitivity, not additional measured points or interpolated3D."
+    }
+  ],
+  "limitations": "Image-space sample coverage of the visible main shoe body, not physical3D surface-area completeness, accuracy, recognisability or unseen-side coverage. Denominator is a manually outlined fixed native240x180photo mask; excludes loose laces above the main body and background/stand. Mask is approximate and post-acquisition, not independently labelled or preregistered. Same mask for APS/events. Primary numerator is unique rounded native pixel bins containing retained stripe centres; duplicates do not inflate coverage. One acquisition per static command; correlated pixels/events are not independent repeats. Original20positions/35msAPS frames and50ms event ON+OFF windows use unequal temporal integration and detector screens. No alignment, depth filtering, fitted surface, gap filling or mesh. Old shoe placement only; not the later repositioned/ND scene. Both methods were processed only on rows20..105; full-body denominator retains the excluded lower-body region to expose unsampled portions. Coverage does not certify that candidates are true laser detections; independent3D groundtruth/completeness remains pending."
+}

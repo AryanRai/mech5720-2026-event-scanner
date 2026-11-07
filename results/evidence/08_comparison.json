@@ -1,0 +1,1832 @@
+{
+  "status": "UNKNOWN_FILTER_FIXED_POSITION_REPEATS",
+  "command_us": 1626,
+  "exposure_us": 35000,
+  "baseline_runs": [
+    "nd_removed_r1_1626_20261103_01",
+    "nd_removed_r2_1626_20261103_01"
+  ],
+  "filtered_runs": [
+    "nd_retry_r1_1626_20261103_01",
+    "nd_retry_r2_1626_20261103_01",
+    "nd_retry_r3_1626_20261103_01"
+  ],
+  "control_runs": [],
+  "mask_pixels": 1014,
+  "condition_summary": [
+    {
+      "condition": "no_filter",
+      "independent_acquisitions": 2,
+      "mean_camera_signal_levels": 27.13465060580445,
+      "sample_sd_camera_signal_levels": 0.056036568669688994,
+      "relative_mean_camera_signal": 1.0,
+      "primary_APS_rows_each": [
+        78,
+        78
+      ],
+      "primary_event_rows_each": [
+        20,
+        18
+      ]
+    },
+    {
+      "condition": "unknown_ND",
+      "independent_acquisitions": 3,
+      "mean_camera_signal_levels": 11.657368272752889,
+      "sample_sd_camera_signal_levels": 0.08834808253305926,
+      "relative_mean_camera_signal": 0.4296118804735679,
+      "primary_APS_rows_each": [
+        62,
+        62,
+        64
+      ],
+      "primary_event_rows_each": [
+        0,
+        1,
+        0
+      ]
+    }
+  ],
+  "control_ratios": {},
+  "results": [
+    {
+      "run_id": "nd_removed_r1_1626_20261103_01",
+      "condition": "no_filter",
+      "raw_sha256": "7afc8a0049d1c49037266fb67c184c1269effd93432484a128edced706cfb4b5",
+      "fixed_mask_amplitude_levels": 27.17427444350521,
+      "dark_frame_signal_sd_levels": 0.3810485007989759,
+      "light_increase_screen": true,
+      "selected_peak_relative_s": 4.676429,
+      "selected_frame_count": 7,
+      "bright_clipping_fraction_in_mask": 0.0,
+      "aps_candidate_rows": 78,
+      "event_corroborated_candidate_rows": 20,
+      "event_pair": {
+        "on_relative_s": 4.175,
+        "off_relative_s": 5.175,
+        "on_25ms_count": 927.0,
+        "off_25ms_count": 499.0,
+        "median_on_25ms_count": 19.0,
+        "median_off_25ms_count": 3.0,
+        "method": "Max product of ON and OFF 25ms counts exactly1s apart; ON search starts2s after recording start; ROI rows20..105. Exploratory pair, not verified physical timing."
+      },
+      "event_identity_unvalidated": false,
+      "aps_screen": {
+        "frames": 164,
+        "selected_frames": [
+          58,
+          59,
+          60,
+          61,
+          62,
+          63,
+          64,
+          65,
+          66,
+          67,
+          68,
+          69,
+          70
+        ],
+        "clipped_row_frame_candidates": 0,
+        "delta_threshold": 20,
+        "intensity_threshold": 40,
+        "dark_control_frames": 24,
+        "dark_control_max_pixel_candidates_per_frame": 0,
+        "dark_control_max_positive_change": 18.0,
+        "ambiguous_row_frame_candidates": 0,
+        "retained_rows": 93
+      },
+      "feedback_warning": false,
+      "post_pilot_APS_diagnostic": {
+        "retained_rows": 78,
+        "pixels": [
+          [
+            78.87389380530973,
+            20.0
+          ],
+          [
+            78.6086956521739,
+            21.0
+          ],
+          [
+            78.50225225225225,
+            22.0
+          ],
+          [
+            78.40198511166253,
+            23.0
+          ],
+          [
+            78.56060606060606,
+            24.0
+          ],
+          [
+            78.63286713286713,
+            25.0
+          ],
+          [
+            78.70786516853933,
+            26.0
+          ],
+          [
+            78.79061371841155,
+            27.0
+          ],
+          [
+            78.83279742765274,
+            28.0
+          ],
+          [
+            78.64809384164222,
+            29.0
+          ],
+          [
+            78.53350515463917,
+            30.0
+          ],
+          [
+            78.42171717171718,
+            31.0
+          ],
+          [
+            78.4857881136951,
+            32.0
+          ],
+          [
+            78.56547619047619,
+            33.0
+          ],
+          [
+            78.79347826086956,
+            34.0
+          ],
+          [
+            78.84177215189874,
+            35.0
+          ],
+          [
+            78.75280898876404,
+            36.0
+          ],
+          [
+            78.09316770186335,
+            37.0
+          ],
+          [
+            77.45535714285714,
+            38.0
+          ],
+          [
+            77.47933884297521,
+            39.0
+          ],
+          [
+            77.43636363636364,
+            40.0
+          ],
+          [
+            77.37837837837837,
+            41.0
+          ],
+          [
+            77.45299145299145,
+            42.0
+          ],
+          [
+            77.4251968503937,
+            43.0
+          ],
+          [
+            77.35537190082644,
+            44.0
+          ],
+          [
+            77.34920634920636,
+            45.0
+          ],
+          [
+            77.35757575757576,
+            46.0
+          ],
+          [
+            78.42032967032966,
+            47.0
+          ],
+          [
+            78.60550458715596,
+            48.0
+          ],
+          [
+            78.51659751037344,
+            49.0
+          ],
+          [
+            78.3740157480315,
+            50.0
+          ],
+          [
+            78.31939163498099,
+            51.0
+          ],
+          [
+            78.29874776386404,
+            52.0
+          ],
+          [
+            78.24593128390596,
+            53.0
+          ],
+          [
+            78.24420677361854,
+            54.0
+          ],
+          [
+            78.1646017699115,
+            55.0
+          ],
+          [
+            78.16977611940298,
+            56.0
+          ],
+          [
+            77.8400954653938,
+            57.0
+          ],
+          [
+            76.95813953488373,
+            58.0
+          ],
+          [
+            76.67647058823529,
+            59.0
+          ],
+          [
+            76.62424242424242,
+            60.0
+          ],
+          [
+            76.6340206185567,
+            61.0
+          ],
+          [
+            76.62051282051281,
+            62.0
+          ],
+          [
+            76.61413043478261,
+            63.0
+          ],
+          [
+            76.5,
+            64.0
+          ],
+          [
+            87.3961038961039,
+            65.0
+          ],
+          [
+            87.80859375,
+            66.0
+          ],
+          [
+            88.05454545454545,
+            67.0
+          ],
+          [
+            88.34098360655737,
+            68.0
+          ],
+          [
+            88.3462783171521,
+            69.0
+          ],
+          [
+            88.49828178694158,
+            70.0
+          ],
+          [
+            88.95945945945945,
+            71.0
+          ],
+          [
+            89.56711409395973,
+            72.0
+          ],
+          [
+            89.90881458966565,
+            73.0
+          ],
+          [
+            90.315625,
+            74.0
+          ],
+          [
+            90.66550522648083,
+            75.0
+          ],
+          [
+            90.68725868725869,
+            76.0
+          ],
+          [
+            91.04661016949153,
+            77.0
+          ],
+          [
+            91.15822784810126,
+            78.0
+          ],
+          [
+            91.08417508417509,
+            79.0
+          ],
+          [
+            91.31454005934718,
+            80.0
+          ],
+          [
+            91.01060070671377,
+            81.0
+          ],
+          [
+            91.3462783171521,
+            82.0
+          ],
+          [
+            91.34782608695652,
+            83.0
+          ],
+          [
+            91.41089108910892,
+            84.0
+          ],
+          [
+            91.34158415841584,
+            85.0
+          ],
+          [
+            91.33333333333333,
+            86.0
+          ],
+          [
+            90.99038461538461,
+            87.0
+          ],
+          [
+            91.03367003367003,
+            88.0
+          ],
+          [
+            91.0,
+            89.0
+          ],
+          [
+            90.972049689441,
+            90.0
+          ],
+          [
+            90.94160583941606,
+            91.0
+          ],
+          [
+            90.83881578947368,
+            92.0
+          ],
+          [
+            90.84615384615384,
+            93.0
+          ],
+          [
+            90.58527131782945,
+            94.0
+          ],
+          [
+            90.48245614035088,
+            95.0
+          ],
+          [
+            90.49484536082474,
+            96.0
+          ],
+          [
+            90.48818897637796,
+            97.0
+          ]
+        ],
+        "first3_vs_first1p5s_reference_mean_difference": -0.1697685185185185,
+        "method": "Post-pilot diagnostic: median first1.5s reference; same delta20/intensity40/spatial screens; frames within0.25s of fixed-mask0.5s-mean peak. Not frozen primary detector or independent validation."
+      },
+      "event_window_sensitivity": [
+        {
+          "window_ms": 20,
+          "candidate_rows": 11
+        },
+        {
+          "window_ms": 50,
+          "candidate_rows": 20
+        },
+        {
+          "window_ms": 100,
+          "candidate_rows": 23
+        }
+      ]
+    },
+    {
+      "run_id": "nd_removed_r2_1626_20261103_01",
+      "condition": "no_filter",
+      "raw_sha256": "89316bba302c6e3de75c1a29cc455505938d2fbf04982d2d744eca2ede191af4",
+      "fixed_mask_amplitude_levels": 27.095026768103686,
+      "dark_frame_signal_sd_levels": 0.36343481149894585,
+      "light_increase_screen": true,
+      "selected_peak_relative_s": 4.457222,
+      "selected_frame_count": 7,
+      "bright_clipping_fraction_in_mask": 0.0,
+      "aps_candidate_rows": 78,
+      "event_corroborated_candidate_rows": 18,
+      "event_pair": {
+        "on_relative_s": 4.135,
+        "off_relative_s": 5.135,
+        "on_25ms_count": 957.0,
+        "off_25ms_count": 530.0,
+        "median_on_25ms_count": 20.0,
+        "median_off_25ms_count": 3.0,
+        "method": "Max product of ON and OFF 25ms counts exactly1s apart; ON search starts2s after recording start; ROI rows20..105. Exploratory pair, not verified physical timing."
+      },
+      "event_identity_unvalidated": false,
+      "aps_screen": {
+        "frames": 164,
+        "selected_frames": [
+          57,
+          58,
+          59,
+          60,
+          61,
+          62,
+          63,
+          64,
+          65,
+          66,
+          67,
+          68,
+          69,
+          70
+        ],
+        "clipped_row_frame_candidates": 0,
+        "delta_threshold": 20,
+        "intensity_threshold": 40,
+        "dark_control_frames": 50,
+        "dark_control_max_pixel_candidates_per_frame": 1,
+        "dark_control_max_positive_change": 21.0,
+        "ambiguous_row_frame_candidates": 0,
+        "retained_rows": 93
+      },
+      "feedback_warning": false,
+      "post_pilot_APS_diagnostic": {
+        "retained_rows": 78,
+        "pixels": [
+          [
+            78.83747178329571,
+            20.0
+          ],
+          [
+            78.57303370786516,
+            21.0
+          ],
+          [
+            78.48283752860412,
+            22.0
+          ],
+          [
+            78.36567164179104,
+            23.0
+          ],
+          [
+            78.38842975206612,
+            24.0
+          ],
+          [
+            78.64930555555556,
+            25.0
+          ],
+          [
+            78.6423076923077,
+            26.0
+          ],
+          [
+            78.74907749077491,
+            27.0
+          ],
+          [
+            78.63239875389408,
+            28.0
+          ],
+          [
+            78.60176991150442,
+            29.0
+          ],
+          [
+            78.53246753246754,
+            30.0
+          ],
+          [
+            78.41990291262135,
+            31.0
+          ],
+          [
+            78.45833333333333,
+            32.0
+          ],
+          [
+            78.57602339181287,
+            33.0
+          ],
+          [
+            78.75757575757575,
+            34.0
+          ],
+          [
+            78.8,
+            35.0
+          ],
+          [
+            78.68897637795276,
+            36.0
+          ],
+          [
+            78.0119760479042,
+            37.0
+          ],
+          [
+            77.421875,
+            38.0
+          ],
+          [
+            77.456,
+            39.0
+          ],
+          [
+            77.40707964601769,
+            40.0
+          ],
+          [
+            77.3716814159292,
+            41.0
+          ],
+          [
+            77.40310077519379,
+            42.0
+          ],
+          [
+            77.36428571428571,
+            43.0
+          ],
+          [
+            77.33082706766918,
+            44.0
+          ],
+          [
+            77.33098591549296,
+            45.0
+          ],
+          [
+            77.33714285714285,
+            46.0
+          ],
+          [
+            78.40720221606648,
+            47.0
+          ],
+          [
+            78.43870967741935,
+            48.0
+          ],
+          [
+            78.4163179916318,
+            49.0
+          ],
+          [
+            78.31311154598826,
+            50.0
+          ],
+          [
+            78.3320537428023,
+            51.0
+          ],
+          [
+            78.26252158894646,
+            52.0
+          ],
+          [
+            78.182156133829,
+            53.0
+          ],
+          [
+            78.18943533697632,
+            54.0
+          ],
+          [
+            78.12159709618875,
+            55.0
+          ],
+          [
+            78.14177693761815,
+            56.0
+          ],
+          [
+            77.84130982367758,
+            57.0
+          ],
+          [
+            76.96551724137932,
+            58.0
+          ],
+          [
+            76.87179487179488,
+            59.0
+          ],
+          [
+            76.56179775280899,
+            60.0
+          ],
+          [
+            76.58585858585859,
+            61.0
+          ],
+          [
+            76.5909090909091,
+            62.0
+          ],
+          [
+            76.59016393442623,
+            63.0
+          ],
+          [
+            76.48299319727892,
+            64.0
+          ],
+          [
+            87.40764331210191,
+            65.0
+          ],
+          [
+            87.77459016393442,
+            66.0
+          ],
+          [
+            87.9875,
+            67.0
+          ],
+          [
+            88.12923076923077,
+            68.0
+          ],
+          [
+            88.29235880398672,
+            69.0
+          ],
+          [
+            88.44680851063829,
+            70.0
+          ],
+          [
+            88.90378006872852,
+            71.0
+          ],
+          [
+            89.36781609195403,
+            72.0
+          ],
+          [
+            89.88753799392097,
+            73.0
+          ],
+          [
+            90.24183006535948,
+            74.0
+          ],
+          [
+            90.6,
+            75.0
+          ],
+          [
+            90.64285714285714,
+            76.0
+          ],
+          [
+            91.03375527426161,
+            77.0
+          ],
+          [
+            91.1400651465798,
+            78.0
+          ],
+          [
+            91.06101694915255,
+            79.0
+          ],
+          [
+            91.11074918566776,
+            80.0
+          ],
+          [
+            91.00738007380073,
+            81.0
+          ],
+          [
+            91.31456953642385,
+            82.0
+          ],
+          [
+            91.30848329048843,
+            83.0
+          ],
+          [
+            91.36945812807882,
+            84.0
+          ],
+          [
+            91.33086419753086,
+            85.0
+          ],
+          [
+            91.31062670299727,
+            86.0
+          ],
+          [
+            91.01261829652996,
+            87.0
+          ],
+          [
+            91.07666666666667,
+            88.0
+          ],
+          [
+            90.99653979238754,
+            89.0
+          ],
+          [
+            90.9377049180328,
+            90.0
+          ],
+          [
+            90.88612099644128,
+            91.0
+          ],
+          [
+            90.79933110367892,
+            92.0
+          ],
+          [
+            90.50871080139373,
+            93.0
+          ],
+          [
+            90.48689138576779,
+            94.0
+          ],
+          [
+            90.08666666666667,
+            95.0
+          ],
+          [
+            90.51086956521739,
+            96.0
+          ],
+          [
+            90.46774193548387,
+            97.0
+          ]
+        ],
+        "first3_vs_first1p5s_reference_mean_difference": -0.056782407407407406,
+        "method": "Post-pilot diagnostic: median first1.5s reference; same delta20/intensity40/spatial screens; frames within0.25s of fixed-mask0.5s-mean peak. Not frozen primary detector or independent validation."
+      },
+      "event_window_sensitivity": [
+        {
+          "window_ms": 20,
+          "candidate_rows": 16
+        },
+        {
+          "window_ms": 50,
+          "candidate_rows": 18
+        },
+        {
+          "window_ms": 100,
+          "candidate_rows": 20
+        }
+      ]
+    },
+    {
+      "run_id": "nd_retry_r1_1626_20261103_01",
+      "condition": "unknown_ND",
+      "raw_sha256": "2cd61f5009f0387dce0df7baacd3ea492ef94a02c3a1a87e778c8d976e61126b",
+      "fixed_mask_amplitude_levels": 11.702380952380953,
+      "dark_frame_signal_sd_levels": 0.34396385143458524,
+      "light_increase_screen": true,
+      "selected_peak_relative_s": 4.603362,
+      "selected_frame_count": 7,
+      "bright_clipping_fraction_in_mask": 0.0,
+      "aps_candidate_rows": 62,
+      "event_corroborated_candidate_rows": 0,
+      "event_pair": {
+        "on_relative_s": 3.935,
+        "off_relative_s": 4.9350000000000005,
+        "on_25ms_count": 1028.0,
+        "off_25ms_count": 226.0,
+        "median_on_25ms_count": 21.0,
+        "median_off_25ms_count": 3.0,
+        "method": "Max product of ON and OFF 25ms counts exactly1s apart; ON search starts2s after recording start; ROI rows20..105. Exploratory pair, not verified physical timing."
+      },
+      "event_identity_unvalidated": false,
+      "aps_screen": {
+        "frames": 164,
+        "selected_frames": [
+          30,
+          54,
+          56,
+          57,
+          58,
+          59,
+          60,
+          61,
+          62,
+          63,
+          64,
+          65,
+          66,
+          67
+        ],
+        "clipped_row_frame_candidates": 0,
+        "delta_threshold": 20,
+        "intensity_threshold": 40,
+        "dark_control_frames": 30,
+        "dark_control_max_pixel_candidates_per_frame": 1,
+        "dark_control_max_positive_change": 21.0,
+        "ambiguous_row_frame_candidates": 23,
+        "retained_rows": 77
+      },
+      "feedback_warning": false,
+      "post_pilot_APS_diagnostic": {
+        "retained_rows": 63,
+        "pixels": [
+          [
+            77.7289156626506,
+            20.0
+          ],
+          [
+            77.72560975609755,
+            21.0
+          ],
+          [
+            77.01694915254237,
+            22.0
+          ],
+          [
+            76.95625,
+            23.0
+          ],
+          [
+            76.94366197183099,
+            24.0
+          ],
+          [
+            76.56435643564356,
+            25.0
+          ],
+          [
+            77.57142857142857,
+            26.0
+          ],
+          [
+            78.45833333333333,
+            28.0
+          ],
+          [
+            78.42,
+            29.0
+          ],
+          [
+            77.9625,
+            30.0
+          ],
+          [
+            77.98913043478261,
+            31.0
+          ],
+          [
+            77.97590361445783,
+            32.0
+          ],
+          [
+            78.45098039215686,
+            33.0
+          ],
+          [
+            78.0,
+            34.0
+          ],
+          [
+            78.48,
+            35.0
+          ],
+          [
+            77.02614490772385,
+            36.0
+          ],
+          [
+            76.4074074074074,
+            37.0
+          ],
+          [
+            76.41509433962264,
+            38.0
+          ],
+          [
+            76.44067796610169,
+            39.0
+          ],
+          [
+            76.3913043478261,
+            40.0
+          ],
+          [
+            76.40625,
+            41.0
+          ],
+          [
+            76.42857142857143,
+            42.0
+          ],
+          [
+            76.47540983606558,
+            43.0
+          ],
+          [
+            76.44927536231884,
+            44.0
+          ],
+          [
+            76.4074074074074,
+            45.0
+          ],
+          [
+            76.79787234042553,
+            46.0
+          ],
+          [
+            77.2937062937063,
+            47.0
+          ],
+          [
+            77.3558282208589,
+            48.0
+          ],
+          [
+            77.1413043478261,
+            49.0
+          ],
+          [
+            77.18652849740933,
+            50.0
+          ],
+          [
+            77.11794871794872,
+            51.0
+          ],
+          [
+            77.1094527363184,
+            52.0
+          ],
+          [
+            77.0377358490566,
+            53.0
+          ],
+          [
+            77.01408450704226,
+            54.0
+          ],
+          [
+            77.0,
+            55.0
+          ],
+          [
+            77.03076923076924,
+            56.0
+          ],
+          [
+            76.53020134228188,
+            57.0
+          ],
+          [
+            76.12396694214875,
+            58.0
+          ],
+          [
+            76.10434782608695,
+            59.0
+          ],
+          [
+            76.096,
+            60.0
+          ],
+          [
+            76.12295081967213,
+            61.0
+          ],
+          [
+            76.07339449541284,
+            62.0
+          ],
+          [
+            76.04201680672269,
+            63.0
+          ],
+          [
+            75.95505617977528,
+            64.0
+          ],
+          [
+            87.02702702702703,
+            67.0
+          ],
+          [
+            87.4375,
+            68.0
+          ],
+          [
+            87.45299145299145,
+            69.0
+          ],
+          [
+            87.855421686747,
+            70.0
+          ],
+          [
+            87.9873417721519,
+            71.0
+          ],
+          [
+            87.97435897435898,
+            72.0
+          ],
+          [
+            89.05494505494505,
+            73.0
+          ],
+          [
+            88.97727272727273,
+            74.0
+          ],
+          [
+            89.0,
+            75.0
+          ],
+          [
+            91.0,
+            79.0
+          ],
+          [
+            90.53763440860214,
+            80.0
+          ],
+          [
+            90.54117647058824,
+            81.0
+          ],
+          [
+            91.0,
+            82.0
+          ],
+          [
+            90.56521739130434,
+            83.0
+          ],
+          [
+            90.46774193548387,
+            84.0
+          ],
+          [
+            90.88461538461539,
+            85.0
+          ],
+          [
+            90.51764705882353,
+            86.0
+          ],
+          [
+            90.48837209302326,
+            87.0
+          ],
+          [
+            90.0,
+            90.0
+          ]
+        ],
+        "first3_vs_first1p5s_reference_mean_difference": 0.008888888888888889,
+        "method": "Post-pilot diagnostic: median first1.5s reference; same delta20/intensity40/spatial screens; frames within0.25s of fixed-mask0.5s-mean peak. Not frozen primary detector or independent validation."
+      },
+      "event_window_sensitivity": [
+        {
+          "window_ms": 20,
+          "candidate_rows": 0
+        },
+        {
+          "window_ms": 50,
+          "candidate_rows": 0
+        },
+        {
+          "window_ms": 100,
+          "candidate_rows": 0
+        }
+      ],
+      "relative_camera_signal_vs_historical_unfiltered_mean": 0.43127074390549414
+    },
+    {
+      "run_id": "nd_retry_r2_1626_20261103_01",
+      "condition": "unknown_ND",
+      "raw_sha256": "585d715625e0d220131b703934be2a95b248208e7bbccb1a02222cff2c776db0",
+      "fixed_mask_amplitude_levels": 11.555579036348265,
+      "dark_frame_signal_sd_levels": 0.41749012142395897,
+      "light_increase_screen": true,
+      "selected_peak_relative_s": 4.530291,
+      "selected_frame_count": 7,
+      "bright_clipping_fraction_in_mask": 0.0,
+      "aps_candidate_rows": 62,
+      "event_corroborated_candidate_rows": 1,
+      "event_pair": {
+        "on_relative_s": 4.05,
+        "off_relative_s": 5.05,
+        "on_25ms_count": 624.0,
+        "off_25ms_count": 200.0,
+        "median_on_25ms_count": 20.0,
+        "median_off_25ms_count": 3.0,
+        "method": "Max product of ON and OFF 25ms counts exactly1s apart; ON search starts2s after recording start; ROI rows20..105. Exploratory pair, not verified physical timing."
+      },
+      "event_identity_unvalidated": false,
+      "aps_screen": {
+        "frames": 164,
+        "selected_frames": [
+          6,
+          56,
+          57,
+          58,
+          59,
+          60,
+          61,
+          62,
+          63,
+          64,
+          65,
+          66,
+          67,
+          68,
+          69,
+          135
+        ],
+        "clipped_row_frame_candidates": 0,
+        "delta_threshold": 20,
+        "intensity_threshold": 40,
+        "dark_control_frames": 23,
+        "dark_control_max_pixel_candidates_per_frame": 1,
+        "dark_control_max_positive_change": 23.0,
+        "ambiguous_row_frame_candidates": 21,
+        "retained_rows": 77
+      },
+      "feedback_warning": false,
+      "post_pilot_APS_diagnostic": {
+        "retained_rows": 62,
+        "pixels": [
+          [
+            77.71341463414635,
+            20.0
+          ],
+          [
+            77.3529411764706,
+            21.0
+          ],
+          [
+            76.99447513812154,
+            22.0
+          ],
+          [
+            76.953216374269,
+            23.0
+          ],
+          [
+            76.99270072992701,
+            24.0
+          ],
+          [
+            76.98319327731092,
+            25.0
+          ],
+          [
+            77.07964601769912,
+            26.0
+          ],
+          [
+            78.0,
+            27.0
+          ],
+          [
+            78.44680851063829,
+            28.0
+          ],
+          [
+            78.01388888888889,
+            29.0
+          ],
+          [
+            77.98684210526316,
+            30.0
+          ],
+          [
+            78.01123595505618,
+            31.0
+          ],
+          [
+            78.0126582278481,
+            32.0
+          ],
+          [
+            78.46938775510205,
+            33.0
+          ],
+          [
+            78.0,
+            34.0
+          ],
+          [
+            78.46296296296296,
+            35.0
+          ],
+          [
+            76.41176470588235,
+            37.0
+          ],
+          [
+            76.39285714285714,
+            38.0
+          ],
+          [
+            76.39655172413794,
+            39.0
+          ],
+          [
+            76.38461538461539,
+            40.0
+          ],
+          [
+            76.4090909090909,
+            41.0
+          ],
+          [
+            76.421875,
+            42.0
+          ],
+          [
+            76.4375,
+            43.0
+          ],
+          [
+            76.43283582089552,
+            44.0
+          ],
+          [
+            76.3875,
+            45.0
+          ],
+          [
+            76.77894736842106,
+            46.0
+          ],
+          [
+            77.29577464788733,
+            47.0
+          ],
+          [
+            77.34615384615384,
+            48.0
+          ],
+          [
+            77.11675126903553,
+            49.0
+          ],
+          [
+            77.1701030927835,
+            50.0
+          ],
+          [
+            77.14925373134328,
+            51.0
+          ],
+          [
+            77.12626262626263,
+            52.0
+          ],
+          [
+            77.02487562189054,
+            53.0
+          ],
+          [
+            76.9906976744186,
+            54.0
+          ],
+          [
+            76.98039215686275,
+            55.0
+          ],
+          [
+            77.0,
+            56.0
+          ],
+          [
+            76.53020134228188,
+            57.0
+          ],
+          [
+            76.14912280701755,
+            58.0
+          ],
+          [
+            76.130081300813,
+            59.0
+          ],
+          [
+            76.11570247933884,
+            60.0
+          ],
+          [
+            76.1,
+            61.0
+          ],
+          [
+            76.08695652173913,
+            62.0
+          ],
+          [
+            76.04424778761062,
+            63.0
+          ],
+          [
+            75.96774193548387,
+            64.0
+          ],
+          [
+            87.05263157894737,
+            67.0
+          ],
+          [
+            87.40178571428571,
+            68.0
+          ],
+          [
+            87.06315789473685,
+            69.0
+          ],
+          [
+            87.855421686747,
+            70.0
+          ],
+          [
+            87.98795180722891,
+            71.0
+          ],
+          [
+            87.9875,
+            72.0
+          ],
+          [
+            89.02325581395348,
+            73.0
+          ],
+          [
+            88.48214285714286,
+            74.0
+          ],
+          [
+            89.0,
+            75.0
+          ],
+          [
+            91.0,
+            79.0
+          ],
+          [
+            90.5340909090909,
+            80.0
+          ],
+          [
+            90.55294117647058,
+            81.0
+          ],
+          [
+            91.0,
+            82.0
+          ],
+          [
+            91.0,
+            83.0
+          ],
+          [
+            90.49468085106383,
+            84.0
+          ],
+          [
+            90.87121212121212,
+            85.0
+          ],
+          [
+            90.5,
+            86.0
+          ],
+          [
+            90.47674418604652,
+            87.0
+          ]
+        ],
+        "first3_vs_first1p5s_reference_mean_difference": -0.04125,
+        "method": "Post-pilot diagnostic: median first1.5s reference; same delta20/intensity40/spatial screens; frames within0.25s of fixed-mask0.5s-mean peak. Not frozen primary detector or independent validation."
+      },
+      "event_window_sensitivity": [
+        {
+          "window_ms": 20,
+          "candidate_rows": 0
+        },
+        {
+          "window_ms": 50,
+          "candidate_rows": 1
+        },
+        {
+          "window_ms": 100,
+          "candidate_rows": 1
+        }
+      ],
+      "relative_camera_signal_vs_historical_unfiltered_mean": 0.425860616531262
+    },
+    {
+      "run_id": "nd_retry_r3_1626_20261103_01",
+      "condition": "unknown_ND",
+      "raw_sha256": "b347347094d475eb93cea05fcb692c097313fbad7a171765a290a4c32d05049a",
+      "fixed_mask_amplitude_levels": 11.714144829529443,
+      "dark_frame_signal_sd_levels": 0.2916643923488408,
+      "light_increase_screen": true,
+      "selected_peak_relative_s": 4.311083,
+      "selected_frame_count": 7,
+      "bright_clipping_fraction_in_mask": 0.0,
+      "aps_candidate_rows": 64,
+      "event_corroborated_candidate_rows": 0,
+      "event_pair": {
+        "on_relative_s": 3.985,
+        "off_relative_s": 4.985,
+        "on_25ms_count": 756.0,
+        "off_25ms_count": 244.0,
+        "median_on_25ms_count": 20.0,
+        "median_off_25ms_count": 3.0,
+        "method": "Max product of ON and OFF 25ms counts exactly1s apart; ON search starts2s after recording start; ROI rows20..105. Exploratory pair, not verified physical timing."
+      },
+      "event_identity_unvalidated": false,
+      "aps_screen": {
+        "frames": 164,
+        "selected_frames": [
+          55,
+          56,
+          57,
+          58,
+          59,
+          60,
+          61,
+          62,
+          63,
+          64,
+          65,
+          66,
+          67,
+          68
+        ],
+        "clipped_row_frame_candidates": 0,
+        "delta_threshold": 20,
+        "intensity_threshold": 40,
+        "dark_control_frames": 35,
+        "dark_control_max_pixel_candidates_per_frame": 0,
+        "dark_control_max_positive_change": 27.0,
+        "ambiguous_row_frame_candidates": 14,
+        "retained_rows": 79
+      },
+      "feedback_warning": false,
+      "post_pilot_APS_diagnostic": {
+        "retained_rows": 64,
+        "pixels": [
+          [
+            77.73456790123457,
+            20.0
+          ],
+          [
+            77.453125,
+            21.0
+          ],
+          [
+            77.02247191011236,
+            22.0
+          ],
+          [
+            76.96319018404908,
+            23.0
+          ],
+          [
+            76.94074074074074,
+            24.0
+          ],
+          [
+            76.95121951219512,
+            25.0
+          ],
+          [
+            76.6,
+            26.0
+          ],
+          [
+            78.0,
+            27.0
+          ],
+          [
+            78.45652173913044,
+            28.0
+          ],
+          [
+            78.46153846153847,
+            29.0
+          ],
+          [
+            78.02564102564102,
+            30.0
+          ],
+          [
+            78.02173913043478,
+            31.0
+          ],
+          [
+            78.0125,
+            32.0
+          ],
+          [
+            78.47826086956522,
+            33.0
+          ],
+          [
+            78.0,
+            34.0
+          ],
+          [
+            78.47272727272727,
+            35.0
+          ],
+          [
+            76.38181818181818,
+            37.0
+          ],
+          [
+            76.39285714285714,
+            38.0
+          ],
+          [
+            76.3859649122807,
+            39.0
+          ],
+          [
+            76.3768115942029,
+            40.0
+          ],
+          [
+            76.40625,
+            41.0
+          ],
+          [
+            76.421875,
+            42.0
+          ],
+          [
+            76.43283582089552,
+            43.0
+          ],
+          [
+            76.43283582089552,
+            44.0
+          ],
+          [
+            76.39473684210526,
+            45.0
+          ],
+          [
+            76.76842105263158,
+            46.0
+          ],
+          [
+            77.28571428571429,
+            47.0
+          ],
+          [
+            77.38414634146342,
+            48.0
+          ],
+          [
+            77.12565445026178,
+            49.0
+          ],
+          [
+            77.14948453608247,
+            50.0
+          ],
+          [
+            77.12626262626263,
+            51.0
+          ],
+          [
+            77.13131313131314,
+            52.0
+          ],
+          [
+            77.04225352112677,
+            53.0
+          ],
+          [
+            77.02816901408451,
+            54.0
+          ],
+          [
+            76.99038461538461,
+            55.0
+          ],
+          [
+            77.00485436893204,
+            56.0
+          ],
+          [
+            76.54054054054055,
+            57.0
+          ],
+          [
+            76.15929203539822,
+            58.0
+          ],
+          [
+            76.12711864406779,
+            59.0
+          ],
+          [
+            76.144,
+            60.0
+          ],
+          [
+            76.0909090909091,
+            61.0
+          ],
+          [
+            76.07964601769912,
+            62.0
+          ],
+          [
+            76.06140350877193,
+            63.0
+          ],
+          [
+            75.9659090909091,
+            64.0
+          ],
+          [
+            87.0657894736842,
+            67.0
+          ],
+          [
+            87.41441441441441,
+            68.0
+          ],
+          [
+            87.06666666666666,
+            69.0
+          ],
+          [
+            87.86585365853658,
+            70.0
+          ],
+          [
+            88.01190476190476,
+            71.0
+          ],
+          [
+            87.98701298701299,
+            72.0
+          ],
+          [
+            89.02352941176471,
+            73.0
+          ],
+          [
+            88.47368421052632,
+            74.0
+          ],
+          [
+            89.0,
+            75.0
+          ],
+          [
+            91.0,
+            79.0
+          ],
+          [
+            90.53846153846153,
+            80.0
+          ],
+          [
+            90.55555555555556,
+            81.0
+          ],
+          [
+            91.0,
+            82.0
+          ],
+          [
+            91.0,
+            83.0
+          ],
+          [
+            90.48404255319149,
+            84.0
+          ],
+          [
+            90.8923076923077,
+            85.0
+          ],
+          [
+            90.50617283950618,
+            86.0
+          ],
+          [
+            90.48314606741573,
+            87.0
+          ],
+          [
+            91.0,
+            88.0
+          ],
+          [
+            90.0,
+            90.0
+          ]
+        ],
+        "first3_vs_first1p5s_reference_mean_difference": 0.02696759259259259,
+        "method": "Post-pilot diagnostic: median first1.5s reference; same delta20/intensity40/spatial screens; frames within0.25s of fixed-mask0.5s-mean peak. Not frozen primary detector or independent validation."
+      },
+      "event_window_sensitivity": [
+        {
+          "window_ms": 20,
+          "candidate_rows": 0
+        },
+        {
+          "window_ms": 50,
+          "candidate_rows": 0
+        },
+        {
+          "window_ms": 100,
+          "candidate_rows": 0
+        }
+      ],
+      "relative_camera_signal_vs_historical_unfiltered_mean": 0.4317042809839474
+    }
+  ],
+  "spatial_change": [
+    {
+      "run_id": "nd_retry_r1_1626_20261103_01",
+      "shared_aps_rows": 62,
+      "median_x_shift_px": -0.9397386494160713,
+      "x_shift_rms_px": 1.0024277659307643,
+      "post_pilot_diagnostic_shared_rows": 63,
+      "post_pilot_diagnostic_median_x_shift_px": -0.9431491536250434,
+      "post_pilot_diagnostic_x_shift_rms_px": 1.0197115684978622,
+      "interpretation": "Apparent pixel change under separate diagnostic, not an independent optical-plane shift calibration"
+    },
+    {
+      "run_id": "nd_retry_r2_1626_20261103_01",
+      "shared_aps_rows": 62,
+      "median_x_shift_px": -0.9515797453297523,
+      "x_shift_rms_px": 1.022359692330748,
+      "post_pilot_diagnostic_shared_rows": 62,
+      "post_pilot_diagnostic_median_x_shift_px": -0.9654969092469088,
+      "post_pilot_diagnostic_x_shift_rms_px": 1.0273048842543728,
+      "interpretation": "Apparent pixel change under separate diagnostic, not an independent optical-plane shift calibration"
+    },
+    {
+      "run_id": "nd_retry_r3_1626_20261103_01",
+      "shared_aps_rows": 64,
+      "median_x_shift_px": -0.9644212656059352,
+      "x_shift_rms_px": 1.0362073398959224,
+      "post_pilot_diagnostic_shared_rows": 64,
+      "post_pilot_diagnostic_median_x_shift_px": -0.9510121023278941,
+      "post_pilot_diagnostic_x_shift_rms_px": 1.0262802809415552,
+      "interpretation": "Apparent pixel change under separate diagnostic, not an independent optical-plane shift calibration"
+    }
+  ],
+  "spatially_confounded": false,
+  "valid_attenuation_performance_comparison": false,
+  "limitations": "Unknown ND marking, one physical filter configuration at fixed1626us, manual35ms APS. Ratio is background-subtracted digital camera stripe signal in a fixed unfiltered-derived mask, NOT calibrated optical transmittance or ND density. APS linearity/response unverified; historical no-filter baseline not interleaved; scene/light/laser drift and filter-induced beam displacement confound ratio. Broad fixedROI includes background/target crossings; candidate rows are not labelled true detections or surface completeness. Event-only known1s ON/OFF pairing may pick background if stripe weak; independent light-increase flag reported. No moving scan, no independent depth accuracy, no weakest-level threshold and no multi-level attenuation curve. No plane recalibration or reconstruction correctness assumed after adding filter."
+}

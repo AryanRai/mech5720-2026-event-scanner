@@ -1,0 +1,395 @@
+{
+  "valid": true,
+  "solid_count": 65,
+  "custom_part_count": 7,
+  "camera_mount_overlap_mm3": 0.0,
+  "custom_part_clashes": [],
+  "camera_yaw_deg": -9.462322208025617,
+  "laser_yaw_deg": 17.47477425625567,
+  "reference_target_xy_mm": [
+    0.0,
+    225.0
+  ],
+  "base_footprint_mm": [
+    240,
+    440
+  ],
+  "camera_envelope_mm": [
+    62,
+    28,
+    56
+  ],
+  "provisional_lens_front_distance_mm": 224.72,
+  "components": [
+    {
+      "name": "01_Solid_Base",
+      "kind": "custom",
+      "solids": 1,
+      "size_mm": [
+        240.0,
+        240.0,
+        8.0
+      ]
+    },
+    {
+      "name": "02_DAVIS_Upright_Bracket",
+      "kind": "custom",
+      "solids": 1,
+      "size_mm": [
+        111.791,
+        95.351,
+        106.0
+      ]
+    },
+    {
+      "name": "03_Servo_Bracket",
+      "kind": "custom",
+      "solids": 1,
+      "size_mm": [
+        60.0,
+        60.0,
+        46.0
+      ]
+    },
+    {
+      "name": "REF_Servo_Provisional",
+      "kind": "hardware",
+      "solids": 1,
+      "size_mm": [
+        33.4,
+        12.2,
+        32.5
+      ]
+    },
+    {
+      "name": "REF_Servo_Horn_Provisional",
+      "kind": "hardware",
+      "solids": 1,
+      "size_mm": [
+        16.0,
+        16.0,
+        3.0
+      ]
+    },
+    {
+      "name": "04_Rotating_Laser_Cradle",
+      "kind": "custom",
+      "solids": 1,
+      "size_mm": [
+        79.751,
+        66.679,
+        4.0
+      ]
+    },
+    {
+      "name": "05_Laser_Clamp_Lower",
+      "kind": "custom",
+      "solids": 1,
+      "size_mm": [
+        42.04,
+        40.733,
+        12.7
+      ]
+    },
+    {
+      "name": "06_Laser_Clamp_Upper",
+      "kind": "custom",
+      "solids": 1,
+      "size_mm": [
+        38.225,
+        39.532,
+        10.0
+      ]
+    },
+    {
+      "name": "REF_Laser_Provisional",
+      "kind": "hardware",
+      "solids": 1,
+      "size_mm": [
+        23.458,
+        41.757,
+        12.0
+      ]
+    },
+    {
+      "name": "REF_Laser_Aperture",
+      "kind": "hardware",
+      "solids": 1,
+      "size_mm": [
+        5.873,
+        2.279,
+        6.0
+      ]
+    },
+    {
+      "name": "REF_DAVIS240C_Housing_Simplified",
+      "kind": "reference",
+      "solids": 1,
+      "size_mm": [
+        55.567,
+        29.838,
+        56.0
+      ]
+    },
+    {
+      "name": "REF_DAVIS240C_Boards_Simplified",
+      "kind": "reference",
+      "solids": 2,
+      "size_mm": [
+        61.444,
+        20.27,
+        56.0
+      ]
+    },
+    {
+      "name": "REF_Lens_Envelope_TBC",
+      "kind": "reference",
+      "solids": 1,
+      "size_mm": [
+        36.825,
+        39.702,
+        32.0
+      ]
+    },
+    {
+      "name": "REF_Lens_Front_Glass",
+      "kind": "reference",
+      "solids": 1,
+      "size_mm": [
+        21.75,
+        3.913,
+        22.0
+      ]
+    },
+    {
+      "name": "07_Object_Base_With_Studded_Pedestal",
+      "kind": "custom",
+      "solids": 1,
+      "size_mm": [
+        240.0,
+        220.0,
+        60.3
+      ]
+    },
+    {
+      "name": "REF_Real_LEGO_Plate_Approximate",
+      "kind": "reference",
+      "solids": 1,
+      "size_mm": [
+        15.8,
+        15.8,
+        5.0
+      ]
+    },
+    {
+      "name": "REF_Minifigure_Legs_Approximate",
+      "kind": "reference",
+      "solids": 2,
+      "size_mm": [
+        14.5,
+        7.8,
+        12.0
+      ]
+    },
+    {
+      "name": "REF_Minifigure_Torso_Approximate",
+      "kind": "reference",
+      "solids": 3,
+      "size_mm": [
+        26.6,
+        8.0,
+        14.0
+      ]
+    },
+    {
+      "name": "REF_Minifigure_Head_Hands_Approximate",
+      "kind": "reference",
+      "solids": 3,
+      "size_mm": [
+        26.4,
+        10.0,
+        26.8
+      ]
+    },
+    {
+      "name": "REF_Base_Fixing_01",
+      "kind": "fastener",
+      "solids": 3,
+      "size_mm": [
+        9.0,
+        9.0,
+        20.0
+      ]
+    },
+    {
+      "name": "REF_Base_Fixing_02",
+      "kind": "fastener",
+      "solids": 3,
+      "size_mm": [
+        9.0,
+        9.0,
+        20.0
+      ]
+    },
+    {
+      "name": "REF_Base_Fixing_03",
+      "kind": "fastener",
+      "solids": 3,
+      "size_mm": [
+        9.0,
+        9.0,
+        20.0
+      ]
+    },
+    {
+      "name": "REF_Base_Fixing_04",
+      "kind": "fastener",
+      "solids": 3,
+      "size_mm": [
+        9.0,
+        9.0,
+        20.0
+      ]
+    },
+    {
+      "name": "REF_Base_Fixing_05",
+      "kind": "fastener",
+      "solids": 3,
+      "size_mm": [
+        9.0,
+        9.0,
+        20.0
+      ]
+    },
+    {
+      "name": "REF_Base_Fixing_06",
+      "kind": "fastener",
+      "solids": 3,
+      "size_mm": [
+        9.0,
+        9.0,
+        20.0
+      ]
+    },
+    {
+      "name": "REF_Base_Fixing_07",
+      "kind": "fastener",
+      "solids": 3,
+      "size_mm": [
+        9.0,
+        9.0,
+        20.0
+      ]
+    },
+    {
+      "name": "REF_Base_Fixing_08",
+      "kind": "fastener",
+      "solids": 3,
+      "size_mm": [
+        9.0,
+        9.0,
+        20.0
+      ]
+    },
+    {
+      "name": "REF_Camera_Quarter_Inch_Screw_TBC",
+      "kind": "fastener",
+      "solids": 1,
+      "size_mm": [
+        12.0,
+        12.0,
+        13.0
+      ]
+    },
+    {
+      "name": "REF_Joining_M4_Fixing_1",
+      "kind": "fastener",
+      "solids": 3,
+      "size_mm": [
+        9.0,
+        9.0,
+        13.0
+      ]
+    },
+    {
+      "name": "REF_Joining_M4_Fixing_2",
+      "kind": "fastener",
+      "solids": 3,
+      "size_mm": [
+        9.0,
+        9.0,
+        13.0
+      ]
+    },
+    {
+      "name": "REF_Servo_Ear_Screw_01_TBC",
+      "kind": "fastener",
+      "solids": 1,
+      "size_mm": [
+        3.8,
+        3.8,
+        9.5
+      ]
+    },
+    {
+      "name": "REF_Servo_Ear_Screw_02_TBC",
+      "kind": "fastener",
+      "solids": 1,
+      "size_mm": [
+        3.8,
+        3.8,
+        9.5
+      ]
+    },
+    {
+      "name": "REF_Clamp_M3_Fixing_01",
+      "kind": "fastener",
+      "solids": 2,
+      "size_mm": [
+        6.058,
+        6.2,
+        33.0
+      ]
+    },
+    {
+      "name": "REF_Clamp_M3_Fixing_02",
+      "kind": "fastener",
+      "solids": 2,
+      "size_mm": [
+        6.058,
+        6.2,
+        33.0
+      ]
+    },
+    {
+      "name": "REF_Horn_to_Cradle_Screw_01_TBC",
+      "kind": "fastener",
+      "solids": 1,
+      "size_mm": [
+        3.6,
+        3.6,
+        6.8
+      ]
+    },
+    {
+      "name": "REF_Horn_to_Cradle_Screw_02_TBC",
+      "kind": "fastener",
+      "solids": 1,
+      "size_mm": [
+        3.6,
+        3.6,
+        6.8
+      ]
+    },
+    {
+      "name": "REF_Horn_Centre_Screw_TBC",
+      "kind": "fastener",
+      "solids": 1,
+      "size_mm": [
+        4.2,
+        4.2,
+        7.5
+      ]
+    }
+  ]
+}
