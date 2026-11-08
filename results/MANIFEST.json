@@ -168,8 +168,8 @@
     },
     {
       "path": "report/main.tex",
-      "bytes": 27531,
-      "sha256": "9b0dfb34189ca07465ad4e7f0161046f916276f36e67bd77236007d1aa23ec27",
+      "bytes": 27599,
+      "sha256": "fdf9c6aabe89028f9eb18370c8dd233921b9eb6154b555979e8c10532e452ccd",
       "hash_mode": "LF-normalized"
     },
     {
@@ -354,8 +354,8 @@
     },
     {
       "path": "report/report_submission_20261108.pdf",
-      "bytes": 2919571,
-      "sha256": "d68b725c220e808c54e87dc45c955d8afa0e11f938f6d8b5a6bf1b9e38a6d107",
+      "bytes": 3313947,
+      "sha256": "abea268ae13d6d98deaf2556f9215695e93ffe20b958cdfd586e37a73dc15e1f",
       "hash_mode": "bytes"
     },
     {
@@ -363,6 +363,18 @@
       "bytes": 15339,
       "sha256": "e06f56892ae79ccc0316e7b0fbaf093aa313c4a99d30ea0e4aa1433a9439a225",
       "hash_mode": "bytes"
+    },
+    {
+      "path": "report/figures/pipeline_static.pdf",
+      "hash_mode": "bytes",
+      "bytes": 24459,
+      "sha256": "c90483eb05dc88e8964558086838764bb05abe548be2a7ab99f06bee33c1e1f7"
+    },
+    {
+      "path": "report/figures/nd_visual_signal.pdf",
+      "hash_mode": "bytes",
+      "bytes": 46937,
+      "sha256": "9b79d0f54aeeedf0755eefa3bebff3db1fceef49e6b92f23750bfae35356b97b"
     }
   ],
   "checksum_note": "Text files use LF-normalized SHA256 to support Git Windows newline conversion; binary images/PDFs use exact bytes.",

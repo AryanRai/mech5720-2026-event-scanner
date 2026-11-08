@@ -23,10 +23,10 @@ We built a 3D scanner that projects a thin red laser line onto an object from a 
 \IEEEraisesectionheading{\section{Introduction}\label{sec:intro}}
 \IEEEPARstart{A}{moving} projected line makes surface shape observable through camera--projector triangulation. An event sensor is attractive because stripe transitions can produce temporally local observations, while ordinary frames also sample the background. The proposed research question was whether calibrated depth could be recovered from a smoothly swept weak line, and how error and coverage change with sweep speed and optical attenuation~\cite{pitch}. Those advantages are hypotheses, not consequences of choosing an event camera.
 
-Our completed evidence concerns the proposal's slower \emph{stop-and-pulse fallback}: the servo holds a command, a bounded light pulse is recorded, and both grayscale and event candidates are intersected with a fixed calibrated plane. We demonstrate real partial surface profiles, reserved-board errors, repeatability, image-space coverage and a single unknown-filter configuration test. We also report a timing-validation gap that left continuous moving-stripe reconstruction unestablished (Section~\ref{sec:limits}).
+We implement the proposal's \emph{stop-and-pulse fallback}: held commands and bounded pulses yield grayscale/event candidates for fixed-plane triangulation. Results cover partial profiles, reserved-board errors, repeatability, image coverage and one unknown-filter test. Continuous reconstruction remains unvalidated (Section~\ref{sec:limits}).
 
 \subsection{Contribution beyond the laboratories}
-The team designed and built a base, camera and servo mounts, rotating projector cradle and object pedestal, then integrated a DAVIS240C, feedback controller and acquisition software (Fig.~\ref{fig:rig}). This adds active geometric depth measurement and actuator integration to the lab kit. Lab~1 studied classical imaging trade-offs, Lab~2 reconstructed illumination components for relighting, Lab~3 measured coded-aperture point-spread functions and deconvolution, and Lab~4 calibrated a diffuser-based lensless system~\cite{lab1,lab2,lab3,lab4}. We reuse their habits of fixed settings, measured calibration, explicit baselines and retained failures. Our contribution is the integrated electromechanical triangulation system and its evaluation beyond the laboratory exercises.
+The team designed and printed the base, camera/servo mounts, rotating projector cradle and pedestal, and integrated the DAVIS240C, feedback controller and processing software (Fig.~\ref{fig:rig}). Active geometric depth measurement and actuator integration extend the lab kit beyond classical imaging, relighting, coded apertures and lensless reconstruction~\cite{lab1,lab2,lab3,lab4}. Fixed settings, measured calibration, explicit baselines and retained failures carry those laboratory methods into this physical scanner.
 
 \begin{figure}[!t]\centering
 \includegraphics[width=.32\columnwidth,height=1.25in,keepaspectratio]{figures/scanner_cad_review.png}\hfill
@@ -39,7 +39,7 @@ MC3D combines motion-contrast sensing with scanned illumination to exploit spars
 
 \section{System and Reconstruction Method}\label{sec:method}
 \subsection{Physical and software implementation}
-The DAVIS240C provides native $240\times180$ grayscale active-pixel-sensor (APS) frames, events and an inertial stream. A positional feedback servo rotates the line projector. An Uno-compatible controller runs firmware~v1.7. A single Chrome dashboard owns its serial connection, while one persistent camera service owns the DAVIS. Command-line clients submit uniquely identified operations and retain native recordings, sidecars, controller messages and feedback samples. An uncertain operation is inspected rather than automatically replayed.
+The DAVIS240C records $240\times180$ grayscale active-pixel-sensor (APS) frames, events and inertial samples. A feedback servo rotates the line projector under Uno-compatible firmware~v1.7. One Chrome dashboard owns serial control and one service owns the DAVIS. Unique operation IDs link recordings, sidecars, controller messages and feedback; uncertain operations are inspected before retrying. Fig.~\ref{fig:pipeline} shows the implemented static workflow.
 
 The firmware accepts USB text commands and uses a consistent approach direction to reduce backlash. It records controller-local feedback and laser markers in microseconds. Firmware checks require arming, an interlock input and a configured PWM window before emission; manual operation has a 60\,s timeout. These software checks do not independently verify physical containment or calibrated angular limits. Settle timeouts can warn rather than abort; warnings are retained.
 
@@ -49,6 +49,9 @@ The pitch specified an Uno~R4 and transistor-switched Class~1 module. The record
 
 \begin{figure}[!t]\centering\includegraphics[width=\columnwidth]{figures/triangulation_compact.pdf}
 \caption{Conceptual ray--plane intersection, not to scale. The camera ray through the stripe pixel intersects a static fitted light plane. This geometry does not establish timing during motion.}\label{fig:geometry}\end{figure}
+
+\begin{figure*}[!t]\centering\includegraphics[width=\textwidth]{figures/pipeline_static.pdf}
+\caption{Implemented acquisition-to-3D pipeline. Calibration is frozen before evaluation. Both detectors produce pixel candidates for the same ray--plane model; event timestamps do not supply a validated moving-plane model. Commands index fitted planes, not measured shaft angles.}\label{fig:pipeline}\end{figure*}
 
 \subsection{Camera rays and static light planes}
 Let $\mathbf p=(x,y)$ be a retained stripe centre. Undistortion using the camera matrix $K$ and distortion parameters $D$ gives ray $\mathbf r=(x_n,y_n,1)^\mathsf T$. For a calibrated static command $u$, ray--plane intersection (Fig.~\ref{fig:geometry}) gives
@@ -75,7 +78,10 @@ The APS detector subtracts the first three-frame median, selects frames whose gl
 
 The event detector uses no APS spatial stripe mask. In the same fixed image rows, 25\,ms polarity-count peaks separated by the known 1\,s pulse duration select candidate ON/OFF transitions. Primary windows are 50\,ms per transition, with 20 and 100\,ms as sensitivity settings. Pixels require at least three events and background-subtracted count at least two, and the same group-width/ambiguity screens are applied. ON and OFF row centres must agree within 3 pixels. This corroboration is a heuristic, not confirmed laser identity. Parameters were developed on saved shoe data, then applied unchanged to reserved-board and fresh repeat recordings. There is no untouched, manually labelled detector benchmark.
 
-Both methods use the same native recordings, camera model and fixed planes. APS pools selected 35\,ms lit frames, whereas events use two 50\,ms windows. Thus the comparison is matched in scene/geometry but not in temporal integration, photon budget or acquisition speed. Event accumulation images are never substituted for the APS baseline.
+Both methods share recordings, camera model and planes. APS pools selected 35\,ms frames; events use two 50\,ms windows. Scene/geometry are matched, but temporal integration, photon budget and speed are not. Fig.~\ref{fig:rawinputs} illustrates the two recorded outputs in a separate five-line demonstration; event accumulation is not the APS baseline.
+
+\begin{figure}[!t]\centering\includegraphics[width=\columnwidth]{figures/five_line_demonstration.png}
+\caption{Recorded five-line demonstration: ordinary APS grayscale temporal maximum (left) and 50\,ms event-window accumulation (right). Accumulated activity is not confirmed laser detection. This separate display run is not the 20-position quantitative reconstruction.}\label{fig:rawinputs}\end{figure}
 
 \begin{figure*}[!t]\centering\includegraphics[width=.90\textwidth]{figures/paired_clouds.pdf}
 \caption{Actual retained partial shoe point clouds on equal coordinate axes. Camera-coordinate millimetres inherit the target scale. No interpolated plane, surface mesh, test alignment or independent shoe accuracy is claimed.}\label{fig:clouds}\end{figure*}
@@ -116,9 +122,12 @@ The refined camera fit gives training RMS 0.2351 pixels, and five reserved per-v
 \begin{equation}
  K=\begin{bmatrix}307.0201&0&115.7638\\0&306.8715&104.0087\\0&0&1\end{bmatrix}.
 \end{equation}
-The five distortion coefficients are approximately $(-0.28245,\,0.55350,\,0.003641,\,0.001042,\,-0.89863)$. Leave-one-training-view-out focal ranges are 305.90--307.60 and 305.68--307.43 pixels. Fixing $k_3=0$ gives nearly identical training RMS 0.23515 pixels. These are sensitivity observations, not confidence intervals or millimetre depth validation.
+The five distortion coefficients are approximately $(-0.28245,\,0.55350,\,0.003641,\,0.001042,\,-0.89863)$. Leave-one-training-view-out focal ranges are 305.90--307.60 and 305.68--307.43 pixels. Fixing $k_3=0$ gives nearly identical training RMS 0.23515 pixels. Fig.~\ref{fig:intrinsics} shows the reserved-view improvement after corner re-detection. These are sensitivity observations, not confidence intervals or millimetre depth validation.
 
 The original APS-only reserved-D evaluation gives equal-command RMS 8.63\,mm across 20 commands, with per-command RMS 0.88--17.03\,mm. Restricting both methods to 339 common rows across 19 commands gives 8.42\,mm for APS and 8.07\,mm for events (Fig.~\ref{fig:board}). One command lacks common retained rows. The different denominator explains why the APS value differs from 8.63\,mm. It is not an improved calibration. Position-dependent errors dominate any small aggregate difference, and no event advantage is established. This single reserved board pose supplies no independent trial-to-trial uncertainty for the headline depth RMS; correlated rows cannot substitute for repeats.
+
+\begin{figure}[!t]\centering\includegraphics[width=\columnwidth]{figures/intrinsic_refinement_compact.pdf}
+\caption{Same five reserved images before and after uniform corner re-detection. Intrinsics exclude these views, but they were inspected during diagnosis; board poses are fitted with intrinsics fixed. Pixel reprojection errors do not validate metric depth.}\label{fig:intrinsics}\end{figure}
 
 \begin{figure}[!t]\centering\includegraphics[width=\columnwidth]{figures/board_compact.pdf}
 \caption{Reserved D depth RMS on identical command/row support. Shared camera model and target scale, one board pose and no test alignment. Missing common support is not assigned zero error.}\label{fig:board}\end{figure}
@@ -139,13 +148,10 @@ Table~\ref{tab:repeat} and Fig.~\ref{fig:repeat} show no consistent winner acros
 \caption{Precision on the same rows in both methods and all three trials. Lines connect tested commands only and do not imply calibrated intermediate planes.}\label{fig:repeat}\end{figure}
 
 \subsection{Unknown-filter configuration test}
-With the unknown filter, the camera signal fell from $27.135\pm0.056$ digital levels ($n=2$) to $11.657\pm0.088$ ($n=3$), a ratio of 0.4296 (sample SD across independent acquisitions, Fig.~\ref{fig:ndsignal} and Table~\ref{tab:nd}). Median stripe displacement remained approximately $-0.94$ to $-0.96$ pixels, so the ratio is not optical transmittance. APS retained stripe candidates in 62--64 rows while the event pipeline found 0--1. This is a negative result for our detector settings, not a general low-light limit of event cameras. Only two conditions were tested, so there is no multi-level attenuation curve or weakest-usable level.
+With the unknown filter, the camera signal fell from $27.135\pm0.056$ digital levels ($n=2$) to $11.657\pm0.088$ ($n=3$), a ratio of 0.4296 (sample SD across independent acquisitions, Fig.~\ref{fig:ndsignal}). Median stripe displacement remained approximately $-0.94$ to $-0.96$ pixels, so the ratio is not optical transmittance. APS retained stripe candidates in 62--64 rows while the event pipeline found 0--1. This is a negative result for our detector settings, not a general low-light limit of event cameras. Only two conditions were tested, so there is no multi-level attenuation curve or weakest-usable level.
 
-\begin{table}[!t]\caption{Fixed-command filter test: candidate rows per acquisition with unchanged primary detectors. Integration differs between methods.}\label{tab:nd}\centering
-\begin{tabular}{lcll}\toprule Condition&$n$&APS rows&Event rows\\\midrule No filter&2&78, 78&20, 18\\Unknown ND&3&62, 62, 64&0, 1, 0\\\bottomrule\end{tabular}\end{table}
-
-\begin{figure}[!t]\centering\includegraphics[width=\columnwidth]{figures/nd_signal_summary.pdf}
-\caption{Unknown-filter diagnostic at $1626\micros$, 35\,ms APS exposure. Mean background-subtracted camera signal with $\pm1$ sample SD across $n=2$ unfiltered and $n=3$ filtered acquisitions. Bars quantify repeat variation, not optical-transmission uncertainty; residual stripe displacement remains.}\label{fig:ndsignal}\end{figure}
+\begin{figure}[!t]\centering\includegraphics[width=\columnwidth]{figures/nd_visual_signal.pdf}
+\caption{Unknown-filter test at $1626\micros$, 35\,ms APS: actual median images above, mean stripe signal $\pm1$ sample SD below. No filter: APS rows 78/78, event rows 20/18 ($n=2$); ND: APS 62/62/64, events 0/1/0 ($n=3$). The roughly 1-pixel residual shift remains; the ratio is not optical transmission.}\label{fig:ndsignal}\end{figure}
 
 \subsection{Static timing prediction}
 Later ON markers have prediction RMS 25.74\,ms and maximum absolute residual 47.08\,ms, and all OFF markers have RMS 27.00\,ms and maximum 47.55\,ms (Fig.~\ref{fig:timing}). This does not isolate clock drift from optical/event-selection effects, but it leaves the mapping insufficiently validated for assigning moving planes to events. No measured depth-error tolerance links these residuals to a safe sweep speed. Static held-plane reconstruction does not need that mapping.
@@ -156,7 +162,7 @@ Later ON markers have prediction RMS 25.74\,ms and maximum absolute residual 47.
 \section{Limitations and Pitfalls}\label{sec:limits}
 \textbf{Continuous reconstruction remains unvalidated.} The pitch's main experiment needed each event matched to the laser plane at that instant. Our camera-to-controller time map left residuals up to 47.55\,ms (Fig.~\ref{fig:timing}), without a validated moving-plane error bound, so we used the pitch's stop-and-pulse fallback. The speed study depends on this and was not run.
 
-\textbf{Events under attenuation.} With one filter the event detector kept 0--1 rows while the image method kept 62--64 (Table~\ref{tab:nd}). A reduced brightness step may suppress threshold crossings, but the optical signal, spatial shift and detector selection were not isolated, so this mechanism was not established. Detector settings were fixed after development and camera biases were not tuned. Earlier handling produced shifts of approximately $-2$ and $+14$ pixels; the retry still showed about $-0.95$ pixels. Only one unknown filter was tested.
+\textbf{Events under attenuation.} With one filter the event detector kept 0--1 rows while the image method kept 62--64 (Fig.~\ref{fig:ndsignal}). A reduced brightness step may suppress threshold crossings, but the optical signal, spatial shift and detector selection were not isolated, so this mechanism was not established. Detector settings were fixed after development and camera biases were not tuned. Earlier handling produced shifts of approximately $-2$ and $+14$ pixels; the retry still showed about $-0.95$ pixels. Only one unknown filter was tested.
 
 \textbf{No independent geometry.} The board reference shares the camera model and the reported 18\,mm print scale, so the 8.63\,mm figure is held-out evidence, not absolute accuracy. We did not scan an independently measured object, such as a stepped block checked with calipers.
 
@@ -171,9 +177,9 @@ Later ON markers have prediction RMS 25.74\,ms and maximum absolute residual 47.
 \textbf{Reproducibility.} Code, CAD, build photographs, numerical summaries, calibration models and a coverage example are public at \url{https://github.com/AryanRai/mech5720-2026-event-scanner}. Running \texttt{python examples/coverage/regenerate.py} with the documented offline dependencies regenerates Fig.~\ref{fig:coverage} from included coordinates, photo and mask, giving 939/13,715 APS and 478/13,715 event bins. A checksum script verifies retained evidence. The complete native archive is not publicly released, so all raw-data results cannot yet be reproduced from the repository alone. Original software is MIT-licensed, with third-party notices retained; final as-built specifications remain incomplete.
 
 \section{Conclusions and Future Work}
-The team-built scanner produces real partial 3D profiles from both images and static events. A frozen calibration gives 8.63\,mm equal-command depth RMS on a held-out board pose. On the compared board rows, events (8.07\,mm) and images (8.42\,mm) were not clearly different. The filter test exposed a practical failure of our event settings, and timing residuals of up to 48\,ms kept us on the static fallback.
+The scanner produces partial 3D profiles from APS and static events. Reserved-board RMS is 8.63\,mm with frozen calibration; matched-row results (events 8.07\,mm, APS 8.42\,mm) establish no advantage. The unknown-filter test exposes a detector failure. Continuous reconstruction remains unvalidated, motivating the static fallback.
 
-With two more months we would prioritise independently measured boards/steps with repeated signed bias, RMS and step-height error; a fixed filter holder with known attenuation levels; and a bounded reference surface for physical completeness. In parallel we would validate physical camera--controller timing and feedback-to-plane association on held-out observations before moving-stripe reconstruction and paired speed trials. Any hardware synchronisation interface would first require verified electrical levels and compatibility. Measured servo limits would determine whether a faster actuator is justified.
+With two more months, priorities are repeated tests on independently measured boards/steps; known attenuation levels in a fixed holder; and a bounded reference surface for physical completeness. Held-out physical timing and feedback-to-plane validation must precede continuous reconstruction and paired speed trials. Synchronisation wiring requires verified electrical compatibility. Measured servo limits would determine whether a faster actuator is justified.
 
 \section*{Acknowledgments and Attribution}
 The team acknowledges the teaching staff, lab methods, cited work, OpenCV and iniVation tooling. OpenAI Codex assisted with software, analysis and drafting. Claude (Anthropic) assisted with the controller firmware, host logger, control dashboard, wiring diagram and talk animations. Photographs and measurement plots show retained hardware and data; CAD and the triangulation schematic show intended design and geometry. Final responsibility for reviewing the submission remains with the authors.
