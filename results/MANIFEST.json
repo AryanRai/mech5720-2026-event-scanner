@@ -168,8 +168,8 @@
     },
     {
       "path": "report/main.tex",
-      "bytes": 27599,
-      "sha256": "fdf9c6aabe89028f9eb18370c8dd233921b9eb6154b555979e8c10532e452ccd",
+      "bytes": 28004,
+      "sha256": "2f01d8080f2f6df1935ba5f27ef32df53bf814b357f0d9af30e4a4e45428cc66",
       "hash_mode": "LF-normalized"
     },
     {
@@ -354,8 +354,8 @@
     },
     {
       "path": "report/report_submission_20261108.pdf",
-      "bytes": 3313947,
-      "sha256": "abea268ae13d6d98deaf2556f9215695e93ffe20b958cdfd586e37a73dc15e1f",
+      "bytes": 3695827,
+      "sha256": "cc64be30459cc90fad8041f164a9e9e86ff74e212e0695029829222319e47109",
       "hash_mode": "bytes"
     },
     {
@@ -375,6 +375,60 @@
       "hash_mode": "bytes",
       "bytes": 46937,
       "sha256": "9b79d0f54aeeedf0755eefa3bebff3db1fceef49e6b92f23750bfae35356b97b"
+    },
+    {
+      "path": "results/platform_audit/lower_candidates.csv",
+      "hash_mode": "LF-normalized",
+      "bytes": 9157,
+      "sha256": "52ab162bc9df6c054ed2a22301f48e67de1f42fe31b86049f2cfd806ded6a916"
+    },
+    {
+      "path": "results/platform_audit/platform_audit.png",
+      "hash_mode": "bytes",
+      "bytes": 269199,
+      "sha256": "f1c147fe137fc514ffbf8b72a3933f3f319512d3213d557f27cbe5c65189e1e2"
+    },
+    {
+      "path": "results/platform_audit/REVIEW.md",
+      "hash_mode": "LF-normalized",
+      "bytes": 3889,
+      "sha256": "0db546177fe2091daf7c228660c8f01a832f89fc347f8fdc2186ca56d8e61a78"
+    },
+    {
+      "path": "results/platform_audit/summary.json",
+      "hash_mode": "LF-normalized",
+      "bytes": 3784,
+      "sha256": "14f445d7892fc926ccd8d39b3ba65c28efc92f6cba7026c2f248347cc6b7a062"
+    },
+    {
+      "path": "report/figures/laser_servo_mount.jpg",
+      "hash_mode": "bytes",
+      "bytes": 59178,
+      "sha256": "fd1311f1d265923a2514a55d725b74bbf58a1a132c0ecdc047b96e8d50f4b227"
+    },
+    {
+      "path": "report/figures/rig_wiring_front.jpg",
+      "hash_mode": "bytes",
+      "bytes": 109192,
+      "sha256": "8490288b552707cade0daea7b258afca524301cdae3c0b8a56bf8c1d641d6295"
+    },
+    {
+      "path": "report/figures/scanner_wiring.png",
+      "hash_mode": "bytes",
+      "bytes": 184065,
+      "sha256": "ebada3657df1f61c87490ca8591c2285771252f7486e72b168bca24ec0a07628"
+    },
+    {
+      "path": "report/figures/scanner_wiring_reported_clean.png",
+      "hash_mode": "bytes",
+      "bytes": 194403,
+      "sha256": "2e9eeab20e8c63049cf4f7339e36f801b2c0815207f60883df10399a6875fc16"
+    },
+    {
+      "path": "scripts/audit_platform_saved.py",
+      "hash_mode": "LF-normalized",
+      "bytes": 7733,
+      "sha256": "ff827d923036f1bc9b5819ca48b0e91c0677b7f87014f0433dadd1e75ee66f00"
     }
   ],
   "checksum_note": "Text files use LF-normalized SHA256 to support Git Windows newline conversion; binary images/PDFs use exact bytes.",

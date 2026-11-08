@@ -41,11 +41,18 @@ MC3D combines motion-contrast sensing with scanned illumination to exploit spars
 \subsection{Physical and software implementation}
 The DAVIS240C records $240\times180$ grayscale active-pixel-sensor (APS) frames, events and inertial samples. A feedback servo rotates the line projector under Uno-compatible firmware~v1.7. One Chrome dashboard owns serial control and one service owns the DAVIS. Unique operation IDs link recordings, sidecars, controller messages and feedback; uncertain operations are inspected before retrying. Fig.~\ref{fig:pipeline} shows the implemented static workflow.
 
-The firmware accepts USB text commands and uses a consistent approach direction to reduce backlash. It records controller-local feedback and laser markers in microseconds. Firmware checks require arming, an interlock input and a configured PWM window before emission; manual operation has a 60\,s timeout. These software checks do not independently verify physical containment or calibrated angular limits. Settle timeouts can warn rather than abort; warnings are retained.
+Firmware v1.7 accepts USB commands, approaches consistently to reduce backlash, and logs controller-local feedback and laser markers. Arming, interlock and PWM-window checks precede emission; manual timeout is 60\,s. Settle warnings do not necessarily abort. These host controls are not safety-rated. The static protocol holds 3\,s dark, emits 1\,s, then records 0.5\,s before off/disarm and servo release; native recordings span 12\,s. Feedback variation is advisory, not proof of optical settling or calibrated angle.
 
-The implemented observation protocol holds the current command for 3\,s in darkness, emits for 1\,s, records 0.5\,s after extinction, and ends off/disarmed with the servo released. Native camera recordings span 12\,s, including setup margins. Feedback variation is advisory in observation mode, and a completed trace is not proof of a settled optical plane. Host controls are not safety-rated, and no feedback-to-degree conversion is assumed.
+The recorded build substitutes an Uno R3-type controller, reported MXD1230 650\,nm laser and DFRobot DMS-MG90-A/SER0046-type feedback servo for the pitch's R4/transistor-switched Class~1 design. Reported connections (Fig.~\ref{fig:wiring}) are D9 servo signal, A0 feedback, external regulated 5\,V servo power with common ground, and D7/ground laser power. Installed wire identities, load/driver and physical D2 interlock remain unverified; D2 is firmware active-low. D8 has no demonstrated DAVIS synchronisation connection. Reported Class~3 operation and verbal advice do not verify optical output/class or electrical design. As-built baseline, lens configuration and physical datums were not surveyed; CAD dimensions are nominal.
 
-The pitch specified an Uno~R4 and transistor-switched Class~1 module. The recorded build instead uses an R3-type controller, an MXD1230 650\,nm line module supplied from D7 and a feedback servo identified in team notes as DFRobot DMS-MG90-A. The team reported Class~3 operation and verbal teaching-team advice; neither optical class/output nor the electrical design was independently verified in this study. Mounts fix the camera--projector arrangement, but the as-built baseline, final lens configuration and physical datums were not surveyed. CAD dimensions are not ground truth.
+\begin{figure}[!t]\centering
+\includegraphics[width=\columnwidth]{figures/scanner_wiring_reported_clean.png}
+\caption{Reported component connections; the detailed KiCad schematic is retained in the project files. Servo lead functions follow SER0046 documentation. Installed lead identities, power distribution, D7 load and physical D2 interlock require verification. D8 has no demonstrated camera connection.}\label{fig:wiring}
+\end{figure}
+\begin{figure}[!t]\centering
+\includegraphics[width=.48\columnwidth,height=1.0in,keepaspectratio]{figures/rig_wiring_front.jpg}\hfill
+\includegraphics[width=.48\columnwidth,height=1.0in,keepaspectratio]{figures/laser_servo_mount.jpg}
+\caption{Photographs of the DAVIS240C and Uno-type controller (left), and the laser mounted above the servo (right). Wire endpoints and electrical ratings cannot be determined from these views.}\label{fig:hardware_wiring_photos}\end{figure}
 
 \begin{figure}[!t]\centering\includegraphics[width=\columnwidth]{figures/triangulation_compact.pdf}
 \caption{Conceptual ray--plane intersection, not to scale. The camera ray through the stripe pixel intersects a static fitted light plane. This geometry does not establish timing during motion.}\label{fig:geometry}\end{figure}
@@ -83,7 +90,7 @@ Both methods share recordings, camera model and planes. APS pools selected 35\,m
 \begin{figure}[!t]\centering\includegraphics[width=\columnwidth]{figures/five_line_demonstration.png}
 \caption{Recorded five-line demonstration: ordinary APS grayscale temporal maximum (left) and 50\,ms event-window accumulation (right). Accumulated activity is not confirmed laser detection. This separate display run is not the 20-position quantitative reconstruction.}\label{fig:rawinputs}\end{figure}
 
-\begin{figure*}[!t]\centering\includegraphics[width=.90\textwidth]{figures/paired_clouds.pdf}
+\begin{figure*}[!t]\centering\includegraphics[width=.76\textwidth]{figures/paired_clouds.pdf}
 \caption{Actual retained partial shoe point clouds on equal coordinate axes. Camera-coordinate millimetres inherit the target scale. No interpolated plane, surface mesh, test alignment or independent shoe accuracy is claimed.}\label{fig:clouds}\end{figure*}
 
 \section{Experimental Design and Metrics}\label{sec:metrics}
@@ -108,7 +115,7 @@ A manually outlined visible-shoe-body mask $\Omega$ in a laser-off photo contain
 \end{equation}
 The same post-acquisition, approximate mask is used for both methods. Boundary perturbations are sensitivity checks, not confidence intervals. This metric is image-space sample occupancy, not physical 3D surface-area completeness or accuracy. No gap filling or mesh is counted as measurement.
 
-\begin{figure*}[!t]\centering\includegraphics[width=.90\textwidth]{figures/coverage_compact.pdf}
+\begin{figure*}[!t]\centering\includegraphics[width=.80\textwidth]{figures/coverage_compact.pdf}
 \caption{Same fixed visible-body outline for both outputs. Cyan bins show retained samples, not filled surface. The denominator includes the toe, heel and lower body even where no profiles were reconstructed.}\label{fig:coverage}\end{figure*}
 
 \subsection{Filter and optical timing diagnostics}
@@ -135,7 +142,7 @@ The original APS-only reserved-D evaluation gives equal-command RMS 8.63\,mm acr
 \subsection{Partial shoe reconstruction and sampling}
 Twenty fitted positions yield 960 APS points and 494 event points at the primary window (Fig.~\ref{fig:clouds}). On 455 shared shoe rows, horizontal disagreement is 0.3385 pixels RMS and depth disagreement 1.6497\,mm RMS. Both outputs share calibration errors, so close agreement does not prove object accuracy. Event windows 20/50/100\,ms retain 359/494/532 points. All three settings retain zero corroborated candidates in 3,440 sampled laser-off command/row opportunities. These are internal controls, not a manually labelled detector false-positive rate.
 
-Of the 960 APS centres, 955 lie in the fixed body outline and occupy 939 unique bins. All 494 event centres lie inside, occupying 478 bins. Full-body image coverage is therefore 6.85\% and 3.49\%, respectively (Fig.~\ref{fig:coverage}). One-pixel erosion/dilation changes these to 7.06/6.64\% and 3.62/3.36\%. This is a sparse partial scan, not full-shoe reconstruction. The historical 379-point/five-position scan used 10\,ms APS exposure; a different 1,929-point/21-position preview used 3\,ms and interpolated planes. Distance, model and crop also changed, so these are not controlled density or accuracy comparisons.
+Of the 960 APS centres, 955 lie in the fixed body outline and occupy 939 unique bins. All 494 event centres lie inside, occupying 478 bins. Full-body image coverage is therefore 6.85\% and 3.49\%, respectively (Fig.~\ref{fig:coverage}). One-pixel erosion/dilation changes these to 7.06/6.64\% and 3.62/3.36\%. This is a sparse partial scan, not full-shoe reconstruction. An exploratory reuse audit of the earlier five-position scan screened excluded lower-image rows 120--179. It retained 102 change candidates (23/20/19/27/13 by command), including lower stripe segments. The team identifies this as the original four-hole platform mounting. Candidates are not confirmed platform points: CAD correspondences and camera-to-platform pose remain unresolved, so no physical-completeness percentage is inferred. Coordinates, source hashes and screening code are retained in the repository.
 
 \subsection{Fresh scene-stripe repeatability}
 Table~\ref{tab:repeat} and Fig.~\ref{fig:repeat} show no consistent winner across commands. APS retains more total rows with these settings, but common support contains only 8--21 rows per command. Before/after image phase correlation gives shifts $(-0.024,0.031)$ pixels with response 0.9995, and no registration is applied. Results describe scene-stripe precision rather than isolated shoe accuracy. An initial command-selection error used $1627\micros$, which has no fitted plane. Those recordings are retained but excluded, and three $1626\micros$ captures supply the fifth position. The 504 APS repeat-set depths outside training ranges were retained rather than removed to improve the metric.
@@ -150,7 +157,7 @@ Table~\ref{tab:repeat} and Fig.~\ref{fig:repeat} show no consistent winner acros
 \subsection{Unknown-filter configuration test}
 With the unknown filter, the camera signal fell from $27.135\pm0.056$ digital levels ($n=2$) to $11.657\pm0.088$ ($n=3$), a ratio of 0.4296 (sample SD across independent acquisitions, Fig.~\ref{fig:ndsignal}). Median stripe displacement remained approximately $-0.94$ to $-0.96$ pixels, so the ratio is not optical transmittance. APS retained stripe candidates in 62--64 rows while the event pipeline found 0--1. This is a negative result for our detector settings, not a general low-light limit of event cameras. Only two conditions were tested, so there is no multi-level attenuation curve or weakest-usable level.
 
-\begin{figure}[!t]\centering\includegraphics[width=\columnwidth]{figures/nd_visual_signal.pdf}
+\begin{figure}[!t]\centering\includegraphics[width=.90\columnwidth]{figures/nd_visual_signal.pdf}
 \caption{Unknown-filter test at $1626\micros$, 35\,ms APS: actual median images above, mean stripe signal $\pm1$ sample SD below. No filter: APS rows 78/78, event rows 20/18 ($n=2$); ND: APS 62/62/64, events 0/1/0 ($n=3$). The roughly 1-pixel residual shift remains; the ratio is not optical transmission.}\label{fig:ndsignal}\end{figure}
 
 \subsection{Static timing prediction}
@@ -162,15 +169,15 @@ Later ON markers have prediction RMS 25.74\,ms and maximum absolute residual 47.
 \section{Limitations and Pitfalls}\label{sec:limits}
 \textbf{Continuous reconstruction remains unvalidated.} The pitch's main experiment needed each event matched to the laser plane at that instant. Our camera-to-controller time map left residuals up to 47.55\,ms (Fig.~\ref{fig:timing}), without a validated moving-plane error bound, so we used the pitch's stop-and-pulse fallback. The speed study depends on this and was not run.
 
-\textbf{Events under attenuation.} With one filter the event detector kept 0--1 rows while the image method kept 62--64 (Fig.~\ref{fig:ndsignal}). A reduced brightness step may suppress threshold crossings, but the optical signal, spatial shift and detector selection were not isolated, so this mechanism was not established. Detector settings were fixed after development and camera biases were not tuned. Earlier handling produced shifts of approximately $-2$ and $+14$ pixels; the retry still showed about $-0.95$ pixels. Only one unknown filter was tested.
+\textbf{Events under attenuation.} The event detector retained 0--1 rows with the filter (Fig.~\ref{fig:ndsignal}). Brightness, stripe shift and detector selection were not isolated. Camera biases were not tuned. Earlier handling shifted the stripe by about $-2$ and $+14$ pixels.
 
 \textbf{No independent geometry.} The board reference shares the camera model and the reported 18\,mm print scale, so the 8.63\,mm figure is held-out evidence, not absolute accuracy. We did not scan an independently measured object, such as a stepped block checked with calipers.
 
 \textbf{Position-dependent calibration.} Each command has its own fitted plane. Two commands had only two usable board poses, and per-command error ranges from 0.88 to 17.03\,mm. Planes are not interpolated between commands.
 
-\textbf{Resolution and coverage.} The $240\times180$ sensor and 20 profiles sample only 6.85\% (images) and 3.49\% (events) of the visible shoe. This is image coverage, not 3D completeness.
+\textbf{Resolution and coverage.} Image occupancy (Fig.~\ref{fig:coverage}) does not establish 3D surface completeness.
 
-\textbf{Hardware substitutions.} We used an Uno R3-type controller (10-bit ADC) instead of the planned R4, and a line module recorded as Class~3, driven from a digital pin, instead of the planned Class~1 module.
+\textbf{Hardware substitutions.} An Uno R3-type controller with a 10-bit ADC replaced the planned R4. The reported laser connection and class require verification (Fig.~\ref{fig:wiring}).
 
 \textbf{Pitfalls for next year.} Use a fixed filter holder. Only one program can own the serial port at a time. Verify positional operation and feedback before mounting a replacement servo. Measure the printed board scale rather than assuming it.
 
@@ -179,7 +186,7 @@ Later ON markers have prediction RMS 25.74\,ms and maximum absolute residual 47.
 \section{Conclusions and Future Work}
 The scanner produces partial 3D profiles from APS and static events. Reserved-board RMS is 8.63\,mm with frozen calibration; matched-row results (events 8.07\,mm, APS 8.42\,mm) establish no advantage. The unknown-filter test exposes a detector failure. Continuous reconstruction remains unvalidated, motivating the static fallback.
 
-With two more months, priorities are repeated tests on independently measured boards/steps; known attenuation levels in a fixed holder; and a bounded reference surface for physical completeness. Held-out physical timing and feedback-to-plane validation must precede continuous reconstruction and paired speed trials. Synchronisation wiring requires verified electrical compatibility. Measured servo limits would determine whether a faster actuator is justified.
+Next steps are repeated tests on measured boards or steps, known attenuation levels in a fixed holder, and a bounded reference surface. Validate physical timing and feedback-to-plane mapping before paired speed trials. Verify sync wiring compatibility and measure servo limits before changing actuators.
 
 \section*{Acknowledgments and Attribution}
 The team acknowledges the teaching staff, lab methods, cited work, OpenCV and iniVation tooling. OpenAI Codex assisted with software, analysis and drafting. Claude (Anthropic) assisted with the controller firmware, host logger, control dashboard, wiring diagram and talk animations. Photographs and measurement plots show retained hardware and data; CAD and the triangulation schematic show intended design and geometry. Final responsibility for reviewing the submission remains with the authors.
