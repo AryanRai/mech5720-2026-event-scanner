@@ -34,4 +34,4 @@ We use these as documentation-structure references. No code, images, measured re
 
 ## Licensing status
 
-No project-wide licence has been agreed or established in the retained source. This update does not invent one or relicense team/third-party work. Add the team-approved licence, after checking contributor and third-party rights, before claiming open-source reuse. Existing third-party notices still apply. This remains an explicit reproducibility/submission gap.
+At the repository publisher's instruction on 8 November 2026, original project software and accompanying software documentation are distributed under the [MIT License](../LICENSE), copyright 2026 MECH5720 Event-Based Structured-Light Scanner contributors. This records the publisher's licence selection, not a claim that separate consent from every contributor was independently verified. Third-party software, dependencies, the supplied IEEEtran/ICCP template, course materials and other separately attributed content retain their existing terms and notices; the MIT grant does not override those terms or grant rights in content the contributors do not own. Team authorship and attribution are preserved.

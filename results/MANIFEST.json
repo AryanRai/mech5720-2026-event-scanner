@@ -169,7 +169,7 @@
     {
       "path": "report/main.tex",
       "bytes": 27531,
-      "sha256": "458deeb82ae41932621eee6b5211bb7003447e276273cdb904b10cf801113757",
+      "sha256": "9b0dfb34189ca07465ad4e7f0161046f916276f36e67bd77236007d1aa23ec27",
       "hash_mode": "LF-normalized"
     },
     {
@@ -355,7 +355,7 @@
     {
       "path": "report/report_submission_20261108.pdf",
       "bytes": 2919571,
-      "sha256": "c0da224b9793923688edb7fc5cc278163bffe182e2d2136e02ea647713a5b176",
+      "sha256": "d68b725c220e808c54e87dc45c955d8afa0e11f938f6d8b5a6bf1b9e38a6d107",
       "hash_mode": "bytes"
     },
     {
